@@ -14,6 +14,11 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 public class VortexManipulatorScreen extends Screen {
+    private static final int GUI_WIDTH = 250;
+    private static final int GUI_HEIGHT = 250;
+    private static final float GUI_SCALE_X = GUI_WIDTH / 64.0f;
+    private static final float GUI_SCALE_Y = GUI_HEIGHT / 64.0f;
+
     public VortexManipulatorScreen() {
         super(Text.literal("Vortex Manipulator"));
     }
@@ -24,10 +29,15 @@ public class VortexManipulatorScreen extends Screen {
     public TextFieldWidget y;
     public TextFieldWidget z;
     public ToggleButtonWidget surface;
+    private int left;
+    private int top;
 
     @Override
     protected void init() {
-        teleport = ButtonWidget.builder(Text.literal("Teleport"), button -> {
+        left = (width - GUI_WIDTH) / 2;
+        top = (height - GUI_HEIGHT) / 2;
+
+        teleport = ButtonWidget.builder(Text.empty(), button -> {
                     ClientPlayNetworking.send(ModPackets.VM_PACKET, new PacketByteBuf(PacketByteBufs.create()
                             .writeString(dimension.getText())
                             .writeDouble(getValue(x.getText(), client.player.getX()))
@@ -35,16 +45,18 @@ public class VortexManipulatorScreen extends Screen {
                             .writeDouble(getValue(z.getText(), client.player.getZ()))
 
                     ));
+                    client.setScreen(null);
         })
-                .dimensions(width/2 -69, 203 ,40 ,40)
+                .dimensions(guiX(14), guiY(40), guiWidth(10), guiHeight(10))
                 .build();
+        teleport.setMessage(Text.empty());
 
-        dimension = new TextFieldWidget(textRenderer,width/2 -94, 123, 90, 20, Text.literal("meow"));
-        x = new TextFieldWidget(textRenderer,width/2 +44, 112, 54, 18, Text.literal("x"));
-        y = new TextFieldWidget(textRenderer,width/2 +44, 148, 54, 18, Text.literal("y"));
-        z = new TextFieldWidget(textRenderer,width/2 +44, 184, 54, 18, Text.literal("z"));
+        dimension = createTextField(guiX(8), guiY(20), guiWidth(22), guiHeight(5), Text.literal("meow"));
+        x = createTextField(guiX(43), guiY(18), guiWidth(12), guiHeight(3), Text.literal("x"));
+        y = createTextField(guiX(43), guiY(27), guiWidth(12), guiHeight(3), Text.literal("y"));
+        z = createTextField(guiX(43), guiY(36), guiWidth(12), guiHeight(3), Text.literal("z"));
 
-        surface = new ToggleButtonWidget(width/2 +90, 160, 20, 20, false);
+        surface = new ToggleButtonWidget(guiX(55), guiY(41), guiWidth(5), guiHeight(5), false);
 
         addSelectableChild(teleport);
         addDrawableChild(dimension);
@@ -54,6 +66,30 @@ public class VortexManipulatorScreen extends Screen {
         //addDrawable(surface); this crashes the game for some reason
 
 
+    }
+
+    private int guiX(int sourceX) {
+        return left + Math.round(sourceX * GUI_SCALE_X);
+    }
+
+    private int guiY(int sourceY) {
+        return top + Math.round(sourceY * GUI_SCALE_Y);
+    }
+
+    private int guiWidth(int sourceWidth) {
+        return Math.round(sourceWidth * GUI_SCALE_X);
+    }
+
+    private int guiHeight(int sourceHeight) {
+        return Math.round(sourceHeight * GUI_SCALE_Y);
+    }
+
+    private TextFieldWidget createTextField(int x, int y, int width, int height, Text message) {
+        TextFieldWidget field = new TextFieldWidget(textRenderer, x, y, width, height, message);
+        field.setDrawsBackground(false);
+        field.setEditableColor(0xFFFFFF);
+        field.setUneditableColor(0xFFFFFF);
+        return field;
     }
 
     private double getValue(String text, double defaultValue) {
@@ -67,7 +103,7 @@ public class VortexManipulatorScreen extends Screen {
 
     @Override
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
-        context.drawTexture(new Identifier(AdventuresWithTARDISes.MOD_ID, "textures/img.png"), width/2-125, height/2-125, 0, 0, 250, 250);
+        context.drawTexture(new Identifier(AdventuresWithTARDISes.MOD_ID, "textures/img.png"), left, top, 0, 0, GUI_WIDTH, GUI_HEIGHT);
         super.render(context, mouseX, mouseY, delta);
     }
 
