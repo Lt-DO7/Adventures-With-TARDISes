@@ -136,6 +136,48 @@ public class AdventuresWithTARDISes implements ModInitializer {
                 Text.literal("Main Menu Music"),
                 ResourcePackActivationType.DEFAULT_ENABLED
         );
+
+        ResourceManagerHelper.registerBuiltinResourcePack(
+                new Identifier("awt", "awttesterrorsound"),
+                modContainer,
+                Text.literal("Rhamnous Error"),
+                ResourcePackActivationType.DEFAULT_ENABLED
+        );
+
+        ResourceManagerHelper.registerBuiltinResourcePack(
+                new Identifier("awt", "blueshiftgui"),
+                modContainer,
+                Text.literal("Blue Shift GUI"),
+                ResourcePackActivationType.DEFAULT_ENABLED
+        );
+
+        ResourceManagerHelper.registerBuiltinResourcePack(
+                new Identifier("awt", "feztastlealt"),
+                modContainer,
+                Text.literal("Alt Fez Tastle"),
+                ResourcePackActivationType.DEFAULT_ENABLED
+        );
+
+        ResourceManagerHelper.registerBuiltinResourcePack(
+                new Identifier("awt", "greyedgui"),
+                modContainer,
+                Text.literal("Grey Shift GUI"),
+                ResourcePackActivationType.DEFAULT_ENABLED
+        );
+        ResourceManagerHelper.registerBuiltinResourcePack(
+                new Identifier("awt", "lebronjamesgui"),
+                modContainer,
+                Text.literal("Lebron James GUI"),
+                ResourcePackActivationType.DEFAULT_ENABLED
+        );
+
+        ResourceManagerHelper.registerBuiltinResourcePack(
+                new Identifier("awt", "redshiftgui"),
+                modContainer,
+                Text.literal("Red Shift GUI"),
+                ResourcePackActivationType.DEFAULT_ENABLED
+        );
+
     }
 
     public static Identifier id(String path) {
