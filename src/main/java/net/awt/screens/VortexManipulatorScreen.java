@@ -51,10 +51,10 @@ public class VortexManipulatorScreen extends Screen {
                 .build();
         teleport.setMessage(Text.empty());
 
-        dimension = createTextField(guiX(8), guiY(20), guiWidth(22), guiHeight(5), Text.literal("meow"));
-        x = createTextField(guiX(43), guiY(18), guiWidth(12), guiHeight(3), Text.literal("x"));
-        y = createTextField(guiX(43), guiY(27), guiWidth(12), guiHeight(3), Text.literal("y"));
-        z = createTextField(guiX(43), guiY(36), guiWidth(12), guiHeight(3), Text.literal("z"));
+        dimension = createTextField(guiX(9), guiY(22), guiWidth(20), guiHeight(5), Text.literal("meow"));
+        x = createTextField(guiX(45), guiY(19), guiWidth(12), guiHeight(3), Text.literal("x"));
+        y = createTextField(guiX(45), guiY(28), guiWidth(12), guiHeight(3), Text.literal("y"));
+        z = createTextField(guiX(45), guiY(38), guiWidth(12), guiHeight(3), Text.literal("z"));
 
         surface = new ToggleButtonWidget(guiX(55), guiY(41), guiWidth(5), guiHeight(5), false);
 
