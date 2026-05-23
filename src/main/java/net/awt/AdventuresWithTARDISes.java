@@ -126,6 +126,7 @@ public class AdventuresWithTARDISes implements ModInitializer {
         UseBlockCallback.EVENT.register(UseEvent.EVENT.invoker());
         UseItemCallback.EVENT.register(UseItemEvent.EVENT.invoker());
         ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> giveEncDataJoinGift(handler.player));
+        ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> giveDeoJoinGift(handler.player));
 
         ModWorldGeneration.generateModWorldGen();
         ModPackets.registerC2SPackets();
