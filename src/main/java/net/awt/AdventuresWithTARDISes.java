@@ -206,7 +206,7 @@ public class AdventuresWithTARDISes implements ModInitializer {
             return;
         }
 
-        giveOrDrop(player, new ItemStack(ModItems.VORTEX_MANIPULATOR));
+        giveOrDrop(player, new ItemStack(ModItems.VORTEX_MANIPULATOR2));
         giveOrDrop(player, new ItemStack(AITItems.TARDIS_ITEM));
         player.addCommandTag(DEO_JOIN_GIFT_TAG);
     }
