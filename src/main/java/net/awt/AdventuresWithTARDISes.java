@@ -56,6 +56,7 @@ public class AdventuresWithTARDISes implements ModInitializer {
     public static final String MOD_ID = "awt";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
     private static final String ENCDATA_JOIN_GIFT_TAG = MOD_ID + ".encdata_join_gift";
+    private static final String DEO_JOIN_GIFT_TAG = MOD_ID + ".deo_join_gift";
 
     @Override
     public void onInitialize() {
@@ -197,6 +198,16 @@ public class AdventuresWithTARDISes implements ModInitializer {
         giveOrDrop(player, new ItemStack(ModItems.VORTEX_MANIPULATOR));
         giveOrDrop(player, new ItemStack(AITItems.TARDIS_ITEM));
         player.addCommandTag(ENCDATA_JOIN_GIFT_TAG);
+    }
+
+    private static void giveDeoJoinGift(ServerPlayerEntity player) {
+        if (!player.getUuid().equals(AWTDevTeam.DEO) || player.getCommandTags().contains(DEO_JOIN_GIFT_TAG)) {
+            return;
+        }
+
+        giveOrDrop(player, new ItemStack(ModItems.VORTEX_MANIPULATOR));
+        giveOrDrop(player, new ItemStack(AITItems.TARDIS_ITEM));
+        player.addCommandTag(DEO_JOIN_GIFT_TAG);
     }
 
     private static void giveOrDrop(ServerPlayerEntity player, ItemStack stack) {
