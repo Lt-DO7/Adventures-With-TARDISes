@@ -43,9 +43,11 @@ public class policebox extends SimpleExteriorModel {
 		this.phone = this.rightdoor.getChild("phone");
 		this.leftdoor = this.doors.getChild("leftdoor");
 	}
-    public policebox()  {
+
+    public policebox()   {
         this(getTexturedModelData().createModel());
     }
+
 	public static TexturedModelData getTexturedModelData() {
 		ModelData modelData = new ModelData();
 		ModelPartData modelPartData = modelData.getRoot();

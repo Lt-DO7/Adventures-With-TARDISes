@@ -118,7 +118,7 @@ public class TardisExteriorRegistry {
         MULTIONION = new AddonExterior(new Identifier(MOD_ID, "onion"), MOD_ID, "multionion").register();
         MULTIONION.setDoor(new AddonExterior.Door(MULTIONION, false, AWTSound.BLOOP, AWTSound.BLOOP)).toDoor().register();
 
-        POLICEBOX = new AddonExterior(new Identifier(MOD_ID, "modernboxes"), MOD_ID, "policebox").register();
+        POLICEBOX = new AddonExterior(new Identifier(MOD_ID, "modernboxes"), MOD_ID, "policebox_copper").register();
         POLICEBOX.setDoor(new AddonExterior.Door(POLICEBOX, true, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
 
         TYPE70 = new AddonExterior(new Identifier(MOD_ID, "capsules"), MOD_ID, "type70").register();
@@ -304,7 +304,7 @@ public class TardisExteriorRegistry {
         MULTIONION.setSonicItemTranslations(new Vector3f(0.15f, 1.122f, 0.94f));
 
         POLICEBOX.setModel(new policebox()).toClient().register();
-        POLICEBOX.toDoor().setModel(new policebox_door(policebox_door.getTexturedModelData().createModel())).toClient().register();
+        POLICEBOX.toDoor().setModel(new policeboxdoor(policeboxdoor.getTexturedModelData().createModel())).toClient().register();
         POLICEBOX.setSonicItemTranslations(new Vector3f(0, 0, 0));
 
         TYPE70.setModel(new Type70Exterior()).toClient().register();
@@ -392,11 +392,11 @@ public class TardisExteriorRegistry {
         LEGODIM.setSonicItemTranslations(new Vector3f(0, 0, 0));
 
         POLICEBOXALT.setModel(new policebox()).toClient().register();
-        POLICEBOXALT.toDoor().setModel(new policebox_door(policebox_door.getTexturedModelData().createModel())).toClient().register();
+        POLICEBOXALT.toDoor().setModel(new policeboxdoor(policeboxdoor.getTexturedModelData().createModel())).toClient().register();
         POLICEBOXALT.setSonicItemTranslations(new Vector3f(0, 0, 0));
 
         POLICEBOXPURPLE.setModel(new policebox()).toClient().register();
-        POLICEBOXPURPLE.toDoor().setModel(new policebox_door(policebox_door.getTexturedModelData().createModel())).toClient().register();
+        POLICEBOXPURPLE.toDoor().setModel(new policeboxdoor(policeboxdoor.getTexturedModelData().createModel())).toClient().register();
         POLICEBOXPURPLE.setSonicItemTranslations(new Vector3f(0, 0, 0));
 
         JAKE.setModel(new JakeTheDogExteriorModel(JakeTheDogExteriorModel.getTexturedModelData().createModel())).toClient().register();
@@ -407,54 +407,54 @@ public class TardisExteriorRegistry {
         LEFTHOTTUB.setSonicItemTranslations(new Vector3f(0, 0, 0));
 
         POLICEBOXCORAL.setModel(new policebox()).toClient().register();
-        POLICEBOXCORAL.toDoor().setModel(new policebox_door(policebox_door.getTexturedModelData().createModel())).toClient().register();
+        POLICEBOXCORAL.toDoor().setModel(new policeboxdoor(policeboxdoor.getTexturedModelData().createModel())).toClient().register();
         POLICEBOXCORAL.setSonicItemTranslations(new Vector3f(0, 0, 0));
 
         POLICEBOXBADWOLF.setModel(new policebox()).toClient().register();
-        POLICEBOXBADWOLF.toDoor().setModel(new policebox_door(policebox_door.getTexturedModelData().createModel())).toClient().register();
+        POLICEBOXBADWOLF.toDoor().setModel(new policeboxdoor(policeboxdoor.getTexturedModelData().createModel())).toClient().register();
         POLICEBOXBADWOLF.setSonicItemTranslations(new Vector3f(0, 0, 0));
 
         GAMBLEBOX.setModel(new policebox()).toClient().register();
-        GAMBLEBOX.toDoor().setModel(new policebox_door(policebox_door.getTexturedModelData().createModel())).toClient().register();
+        GAMBLEBOX.toDoor().setModel(new policeboxdoor(policeboxdoor.getTexturedModelData().createModel())).toClient().register();
         GAMBLEBOX.setSonicItemTranslations(new Vector3f(0, 0, 0));
 
         POLICEBOXTOKOMAK.setModel(new policebox()).toClient().register();
-        POLICEBOXTOKOMAK.toDoor().setModel(new policebox_door(policebox_door.getTexturedModelData().createModel())).toClient().register();
+        POLICEBOXTOKOMAK.toDoor().setModel(new policeboxdoor(policeboxdoor.getTexturedModelData().createModel())).toClient().register();
         POLICEBOXTOKOMAK.setSonicItemTranslations(new Vector3f(0, 0, 0));
 
         POLICEBOXALT2.setModel(new policebox()).toClient().register();
-        POLICEBOXALT2.toDoor().setModel(new policebox_door(policebox_door.getTexturedModelData().createModel())).toClient().register();
+        POLICEBOXALT2.toDoor().setModel(new policeboxdoor(policeboxdoor.getTexturedModelData().createModel())).toClient().register();
         POLICEBOXALT2.setSonicItemTranslations(new Vector3f(0, 0, 0));
 
         POLICEBOXRHAMNOUS.setModel(new policebox()).toClient().register();
-        POLICEBOXRHAMNOUS.toDoor().setModel(new policebox_door(policebox_door.getTexturedModelData().createModel())).toClient().register();
+        POLICEBOXRHAMNOUS.toDoor().setModel(new policeboxdoor(policeboxdoor.getTexturedModelData().createModel())).toClient().register();
         //POLICEBOXRHAMNOUS.setPortalWidth(1f);
         //POLICEBOXRHAMNOUS.setPortalHeight(2f);
         // POLICEBOXRHAMNOUS.setPortalTranslations(BiFunction<Vector3d,Byte,Vector3d>);
         POLICEBOXRHAMNOUS.setSonicItemTranslations(new Vector3f(0, 0, 0));
 
         POLICEBOXNATHAN.setModel(new policebox()).toClient().register();
-        POLICEBOXNATHAN.toDoor().setModel(new policebox_door(policebox_door.getTexturedModelData().createModel())).toClient().register();
+        POLICEBOXNATHAN.toDoor().setModel(new policeboxdoor(policeboxdoor.getTexturedModelData().createModel())).toClient().register();
         POLICEBOXNATHAN.setSonicItemTranslations(new Vector3f(0, 0, 0));
 
         POLICEBOXDINO.setModel(new policebox()).toClient().register();
-        POLICEBOXDINO.toDoor().setModel(new policebox_door(policebox_door.getTexturedModelData().createModel())).toClient().register();
+        POLICEBOXDINO.toDoor().setModel(new policeboxdoor(policeboxdoor.getTexturedModelData().createModel())).toClient().register();
         POLICEBOXDINO.setSonicItemTranslations(new Vector3f(0, 0, 0));
 
         POLICEBOXFLATLINE.setModel(new flatline_policebox()).toClient().register();
-        POLICEBOXFLATLINE.toDoor().setModel(new flatline_policebox_door(policebox_door.getTexturedModelData().createModel())).toClient().register();
+        POLICEBOXFLATLINE.toDoor().setModel(new flatline_policebox_door(flatline_policebox_door.getTexturedModelData().createModel())).toClient().register();
         POLICEBOXFLATLINE.setSonicItemTranslations(new Vector3f(0, 0, 0));
 
         POLICEBOXLUX.setModel(new policebox()).toClient().register();
-        POLICEBOXLUX.toDoor().setModel(new policebox_door(policebox_door.getTexturedModelData().createModel())).toClient().register();
+        POLICEBOXLUX.toDoor().setModel(new policeboxdoor(policeboxdoor.getTexturedModelData().createModel())).toClient().register();
         POLICEBOXLUX.setSonicItemTranslations(new Vector3f(0, 0, 0));
 
         POLICEBOXCANDY.setModel(new policebox()).toClient().register();
-        POLICEBOXCANDY.toDoor().setModel(new policebox_door(policebox_door.getTexturedModelData().createModel())).toClient().register();
+        POLICEBOXCANDY.toDoor().setModel(new policeboxdoor(policeboxdoor.getTexturedModelData().createModel())).toClient().register();
         POLICEBOXCANDY.setSonicItemTranslations(new Vector3f(0, 0, 0));
 
         POLICEBOXGLASGLOW.setModel(new policebox()).toClient().register();
-        POLICEBOXGLASGLOW.toDoor().setModel(new policebox_door(policebox_door.getTexturedModelData().createModel())).toClient().register();
+        POLICEBOXGLASGLOW.toDoor().setModel(new policeboxdoor(policeboxdoor.getTexturedModelData().createModel())).toClient().register();
         POLICEBOXGLASGLOW.setSonicItemTranslations(new Vector3f(0, 0, 0));
 
         TIMEPOD.setModel(new timepod(timepod.getTexturedModelData().createModel())).toClient().register();
