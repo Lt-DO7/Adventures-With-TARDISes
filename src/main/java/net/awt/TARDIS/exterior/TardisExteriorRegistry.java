@@ -75,6 +75,7 @@ public class TardisExteriorRegistry {
     public static AddonExterior BLUEPHONEBOOTH;
     public static AddonExterior GREENPHONEBOOTH;
     public static AddonExterior PINKPHONEBOOTH;
+    public static AddonExterior POLICEBOXTEXTURE;
 
     public static AddonExterior JAKE;
 
@@ -210,6 +211,9 @@ public class TardisExteriorRegistry {
 
         POLICEBOXGLASGLOW = new AddonExterior(new Identifier(MOD_ID, "modernboxes"), MOD_ID, "policebox_glasglow").register();
         POLICEBOXGLASGLOW.setDoor(new AddonExterior.Door(POLICEBOXGLASGLOW, true, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
+
+        POLICEBOXTEXTURE = new AddonExterior(new Identifier(MOD_ID, "modernboxes"), MOD_ID, "policebox_texture").register();
+        POLICEBOXTEXTURE.setDoor(new AddonExterior.Door(POLICEBOXGLASGLOW, true, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
 
         TIMEPOD = new AddonExterior(new Identifier(MOD_ID, "ships"), MOD_ID, "timepod").register();
         TIMEPOD.setDoor(new AddonExterior.Door(TIMEPOD, false, SoundEvents.BLOCK_IRON_TRAPDOOR_OPEN, SoundEvents.BLOCK_IRON_TRAPDOOR_CLOSE)).toDoor().register();
@@ -495,5 +499,9 @@ public class TardisExteriorRegistry {
         PINKPHONEBOOTH.setModel(new phonebooth()).toClient().register();
         PINKPHONEBOOTH.toDoor().setModel(new phoneboothdoor(phoneboothdoor.getTexturedModelData().createModel())).toClient().register();
         PINKPHONEBOOTH.setSonicItemTranslations(new Vector3f(0, 0, 0));
+
+        POLICEBOXTEXTURE.setModel(new policebox()).toClient().register();
+        POLICEBOXTEXTURE.toDoor().setModel(new policeboxdoor(policeboxdoor.getTexturedModelData().createModel())).toClient().register();
+        POLICEBOXTEXTURE.setSonicItemTranslations(new Vector3f(0, 0, 0));
     }
 }
