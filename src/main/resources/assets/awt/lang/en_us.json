@@ -74,6 +74,7 @@
   "exterior.awt.capsules": "TT Capsules",
   "exterior.awt.awt-exclusive": "AWT Exclusive",
   "exterior.awt.ships": "Misc Ships",
+  "exterior.awt.phonebooths": "Phone Booths",
 
   "exterior.awt.third": "Pertwee",
   "exterior.awt.second": "Troughton",
@@ -123,6 +124,13 @@
   "exterior.awt.policebox_lux": "Midnight",
   "exterior.awt.policebox_candy": "Candy Box",
   "exterior.awt.policebox_glasglow": "Glasglow Box",
+
+  "exterior.awt.phonebooth": "Phonebooth",
+  "exterior.awt.gloomphonebooth": "Gloom Phonebooth",
+  "exterior.awt.fadedphonebooth": "Faded Phonebooth",
+  "exterior.awt.pinkphonebooth": "Pink Phonebooth",
+  "exterior.awt.greenphonebooth": "Green Phonebooth",
+  "exterior.awt.bluephonebooth": "Blue Phonebooth",
 
 
   "exterior.awt.glasglow": "Glasglow",
