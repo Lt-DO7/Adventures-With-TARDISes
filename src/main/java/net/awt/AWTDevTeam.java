@@ -14,7 +14,8 @@ public class AWTDevTeam {
     public static final UUID TARDISOWNER = UUID.fromString("a82ed141-f1c7-4e33-8f07-3b7e3d556ba8");
     public static final UUID COLOURFUL = UUID.fromString("33e35580-7404-497b-bf0f-6e735afd67cd");
     public static final UUID SCARFO = UUID.fromString("373565e5-2ce7-49d6-a2a9-7bc0b512a5b0");
-    public static final List<UUID> UUIDList = List.of(LEFT,DINO,DEO,ENCDATA,RHAMNOUS,NATHAN,TARDISOWNER,COLOURFUL,SCARFO);
+    public static final UUID CALEB = UUID.fromString("d4609ed0-4ed8-4ac8-83bc-08983b962520");
+    public static final List<UUID> UUIDList = List.of(LEFT,DINO,DEO,ENCDATA,RHAMNOUS,NATHAN,TARDISOWNER,COLOURFUL,SCARFO,CALEB);
 
     public AWTDevTeam() {
     }
