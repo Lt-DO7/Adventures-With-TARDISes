@@ -57,6 +57,7 @@ public class AdventuresWithTARDISes implements ModInitializer {
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
     private static final String ENCDATA_JOIN_GIFT_TAG = MOD_ID + ".encdata_join_gift";
     private static final String DEO_JOIN_GIFT_TAG = MOD_ID + ".deo_join_gift";
+    private static final String SCARFO_JOIN_GIFT_TAG = MOD_ID + ".scarfo_join_gift";
 
     @Override
     public void onInitialize() {
@@ -127,6 +128,7 @@ public class AdventuresWithTARDISes implements ModInitializer {
         UseItemCallback.EVENT.register(UseItemEvent.EVENT.invoker());
         ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> giveEncDataJoinGift(handler.player));
         ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> giveDeoJoinGift(handler.player));
+        ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> giveScarfoJoinGift(handler.player));
 
         ModWorldGeneration.generateModWorldGen();
         ModPackets.registerC2SPackets();
@@ -209,6 +211,17 @@ public class AdventuresWithTARDISes implements ModInitializer {
         giveOrDrop(player, new ItemStack(ModItems.VORTEX_MANIPULATOR2));
         giveOrDrop(player, new ItemStack(AITItems.TARDIS_ITEM));
         player.addCommandTag(DEO_JOIN_GIFT_TAG);
+    }
+
+    private static void giveScarfoJoinGift(ServerPlayerEntity player) {
+        if (!player.getUuid().equals(AWTDevTeam.SCARFO) || player.getCommandTags().contains(SCARFO_JOIN_GIFT_TAG)) {
+            return;
+        }
+
+        giveOrDrop(player, new ItemStack(AITItems.SKELETON_KEY));
+        giveOrDrop(player, new ItemStack(AITItems.SONIC_SCREWDRIVER));
+        giveOrDrop(player, new ItemStack(AITItems.TARDIS_ITEM));
+        player.addCommandTag(SCARFO_JOIN_GIFT_TAG);
     }
 
     private static void giveOrDrop(ServerPlayerEntity player, ItemStack stack) {
