@@ -225,7 +225,7 @@ public class TardisExteriorRegistry {
         NEZUKO.setDoor(new AddonExterior.Door(NEZUKO, false, SoundEvents.BLOCK_WOODEN_DOOR_OPEN, SoundEvents.BLOCK_WOODEN_DOOR_CLOSE)).toDoor().register();
 
         GLASGLOW = new AddonExterior(new Identifier(MOD_ID, "classicboxes"), MOD_ID, "glasglow").register();
-        GLASGLOW.setDoor(new AddonExterior.Door(POLICEBOX, true, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
+        GLASGLOW.setDoor(new AddonExterior.Door(GLASGLOW, true, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
 
         PHONEBOOTH = new AddonExterior(new Identifier(MOD_ID, "phonebooths"), MOD_ID, "phonebooth").register();
         PHONEBOOTH.setDoor(new AddonExterior.Door(PHONEBOOTH, false, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
