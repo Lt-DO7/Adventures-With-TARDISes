@@ -1,6 +1,0 @@
-{
-    "id": "awt:crimmycapsule",
-  "category": "ait:exterior/capsule",
-    "parent": "ait:exterior/capsule/default",
-    "texture": "awt:textures/exterior/capsule_crimmy.png"
-  }

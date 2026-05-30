@@ -1,7 +1,0 @@
-{
-    "id": "awt:harmonybox",
-    "category":"ait:exterior/police_box",
-    "parent": "ait:exterior/police_box/coral",
-    "texture": "awt:textures/exterior/harmony_policebox.png",
-    "emission": "awt:textures/exterior/harmony_policebox_emission.png"
-  }
