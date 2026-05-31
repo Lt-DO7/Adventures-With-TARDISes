@@ -12,6 +12,7 @@ public class AWTConsoleVariantRegistry {
     public static ConsoleVariantSchema BLOCK2;
     public static ConsoleVariantSchema BLOCK3;
     public static ConsoleVariantSchema BLOCK4;
+    public static ConsoleVariantSchema DICEALT;
 
     public static void init() {
     }
@@ -23,5 +24,6 @@ public class AWTConsoleVariantRegistry {
         AWTConsoleVariantRegistry.BLOCK2 = registerStatic(new BlockVariant2());
         AWTConsoleVariantRegistry.BLOCK3 = registerStatic(new BlockVariant3());
         AWTConsoleVariantRegistry.BLOCK4 = registerStatic(new BlockVariant4());
+        AWTConsoleVariantRegistry.DICEALT = registerStatic(new DiceVariant2());
     }
 }
