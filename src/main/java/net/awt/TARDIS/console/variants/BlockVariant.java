@@ -4,7 +4,6 @@ package net.awt.TARDIS.console.variants;
 import dev.amble.ait.data.schema.console.ConsoleVariantSchema;
 import net.awt.AdventuresWithTARDISes;
 import net.awt.TARDIS.console.types.BlockConsoleType;
-import net.awt.TARDIS.console.types.DiceType;
 import net.minecraft.util.Identifier;
 
 public class BlockVariant extends ConsoleVariantSchema {

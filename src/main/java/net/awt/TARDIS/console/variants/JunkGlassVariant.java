@@ -3,7 +3,6 @@ package net.awt.TARDIS.console.variants;
 
 import dev.amble.ait.data.schema.console.ConsoleVariantSchema;
 import net.awt.AdventuresWithTARDISes;
-import net.awt.TARDIS.console.types.DiceType;
 import net.awt.TARDIS.console.types.JunkGlassType;
 import net.minecraft.util.Identifier;
 
