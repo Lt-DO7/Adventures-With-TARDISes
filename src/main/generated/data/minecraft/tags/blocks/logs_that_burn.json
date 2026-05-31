@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "awt:prehistoric_planks",
+    "awt:prehistoric_log",
+    "awt:prehistoric_stairs",
+    "awt:prehistoric_slab"
+  ]
+}

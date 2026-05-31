@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+    "awt:atrium_block",
+    "awt:atrium_ore",
+    "awt:deepslate_atrium_ore",
+    "awt:prehistoric_block",
+    "awt:prehistoric_ore",
+    "awt:deepslate_prehistoric_ore",
+    "awt:dalekanium_block",
+    "awt:dalekanium_ore",
+    "awt:deepslate_dalekanium_ore",
+    "awt:steel_block",
+    "awt:metalertanium_block"
+  ]
+}
