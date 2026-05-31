@@ -1,6 +1,0 @@
-{
-    "id": "awt:8_alt",
-    "parent": "ait:console/hudolin",
-    "texture": "awt:textures/blockentities/consoles/hudolin_alt.png",
-    "emission": "awt:textures/blockentities/consoles/hudolin_alt_emission.png"
-}
