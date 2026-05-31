@@ -22,9 +22,6 @@ import java.util.function.BiFunction;
 import static net.awt.AdventuresWithTARDISes.MOD_ID;
 
 public class TardisExteriorRegistry {
-    public static AddonExterior BAKER;
-    public static AddonExterior SECOND;
-    public static AddonExterior THIRD;
     public static AddonExterior REDONION;
     public static AddonExterior YELLOWONION;
     public static AddonExterior BLUEONION;
@@ -80,15 +77,6 @@ public class TardisExteriorRegistry {
     public static AddonExterior JAKE;
 
     public static void onInitialize() {
-        BAKER = new AddonExterior(new Identifier(MOD_ID, "classicboxes"), MOD_ID, "baker").register();
-        BAKER.setDoor(new AddonExterior.Door(BAKER, true, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
-
-        SECOND = new AddonExterior(new Identifier(MOD_ID, "classicboxes"), MOD_ID, "second").register();
-        SECOND.setDoor(new AddonExterior.Door(SECOND, true, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
-
-        THIRD = new AddonExterior(new Identifier(MOD_ID, "classicboxes"), MOD_ID, "third").register();
-        THIRD.setDoor(new AddonExterior.Door(THIRD, true, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
-
         REDONION = new AddonExterior(new Identifier(MOD_ID, "onion"), MOD_ID, "redonion").register();
         REDONION.setDoor(new AddonExterior.Door(REDONION, false, AWTSound.BLOOP, AWTSound.BLOOP)).toDoor().register();
 
@@ -249,24 +237,6 @@ public class TardisExteriorRegistry {
 
     @Environment(EnvType.CLIENT)
     public static void registerClientAddonExteriors() {
-        BAKER.setModel(new BakerExteriorModel()).toClient().register();
-        BAKER.setSonicItemTranslations(new Vector3f(0.15f, 1.122f, 0.94f));
-        BAKER.setPortalWidth(1.25f);
-        BAKER.setPortalHeight(2.5f);
-        BAKER.toDoor().setModel(new BakerDoorModel(BakerDoorModel.getTexturedModelData().createModel())).toClient().register();
-
-        SECOND.setModel(new ThirdAndSecondBaseExterior()).toClient().register();
-        SECOND.setSonicItemTranslations(new Vector3f(0.15f, 1.122f, 0.94f));
-        SECOND.setPortalWidth(1.25f);
-        SECOND.setPortalHeight(2.25f);
-        SECOND.toDoor().setModel(new ThirdAndSecondBaseDoor(ThirdAndSecondBaseDoor.getTexturedModelData().createModel())).toClient().register();
-
-        THIRD.setModel(new ThirdAndSecondBaseExterior()).toClient().register();
-        THIRD.setSonicItemTranslations(new Vector3f(0.15f, 1.122f, 0.94f));
-        THIRD.setPortalWidth(1.25f);
-        THIRD.setPortalHeight(2.25f);
-        THIRD.toDoor().setModel(new ThirdAndSecondBaseDoor(ThirdAndSecondBaseDoor.getTexturedModelData().createModel())).toClient().register();
-
         REDONION.setModel(new OnionExterior()).toClient().register();
         REDONION.toDoor().setModel(new OnionDoor(OnionDoor.getTexturedModelData().createModel())).toClient().register();
         REDONION.setSonicItemTranslations(new Vector3f(0.15f, 1.122f, 0.94f));
@@ -302,10 +272,6 @@ public class TardisExteriorRegistry {
         LIMEGREENONION.setModel(new OnionExterior()).toClient().register();
         LIMEGREENONION.toDoor().setModel(new OnionDoor(OnionDoor.getTexturedModelData().createModel())).toClient().register();
         LIMEGREENONION.setSonicItemTranslations(new Vector3f(0.15f, 1.122f, 0.94f));
-
-        MULTIONION.setModel(new OnionExterior()).toClient().register();
-        MULTIONION.toDoor().setModel(new OnionDoor(OnionDoor.getTexturedModelData().createModel())).toClient().register();
-        MULTIONION.setSonicItemTranslations(new Vector3f(0.15f, 1.122f, 0.94f));
 
         POLICEBOX.setModel(new policebox()).toClient().register();
         POLICEBOX.toDoor().setModel(new policeboxdoor(policeboxdoor.getTexturedModelData().createModel())).toClient().register();
