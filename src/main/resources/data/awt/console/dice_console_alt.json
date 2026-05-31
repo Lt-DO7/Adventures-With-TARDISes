@@ -1,0 +1,6 @@
+{
+    "id": "awt:dice_console_alt",
+    "parent": "ait:console/toyota",
+    "texture": "awt:textures/blockentities/consoles/dice_console_alt.png",
+    "emission": "awt:textures/blockentities/consoles/dice_console_alt_emission.png"
+}
