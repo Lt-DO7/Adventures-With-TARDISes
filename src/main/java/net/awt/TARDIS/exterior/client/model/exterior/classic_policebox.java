@@ -144,14 +144,14 @@ public class classic_policebox extends SimpleExteriorModel {
 		DoorHandler door = exterior.tardis().get().door();
 
 		if (!AITModClient.CONFIG.animateDoors) {
-			this.door.getChild("left_door").yaw = (door.isLeftOpen() || door.isOpen()) ? -5.0F : 0.0F;
-			this.door.getChild("right_door").yaw = (door.isRightOpen() || door.areBothOpen())
+			this.door.getChild("right_door").yaw = (door.isLeftOpen() || door.isOpen()) ? -5.0F : 0.0F;
+			this.door.getChild("left_door").yaw = (door.isRightOpen() || door.areBothOpen())
 					? 5.0F
 					: 0.0F;
 		} else {
 			float maxRot = -85f;
-			this.door.getChild("left_door").yaw = (float) Math.toRadians(maxRot * door.getLeftRot());
-			this.door.getChild("right_door").yaw = (float) -Math.toRadians(maxRot * door.getRightRot());
+			this.door.getChild("right_door").yaw = (float) Math.toRadians(maxRot * door.getLeftRot());
+			this.door.getChild("left_door").yaw = (float) -Math.toRadians(maxRot * door.getRightRot());
 		}
 
 		super.renderWithAnimations(tardis, exterior, root, matrices, vertices, light, overlay, red, green, blue, pAlpha);
