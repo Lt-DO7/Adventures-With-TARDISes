@@ -131,6 +131,9 @@
 
 
   "exterior.awt.glasglow": "Glasglow",
+  "exterior.awt.hartnell": "Hartnell",
+  "exterior.awt.troughton": "Troughton",
+  "exterior.awt.pertwee": "Pertwee",
 
   "exterior.awt.inverted_police": "Inverted",
   "exterior.awt.burntcapsule": "Burnt Capsule",
