@@ -24,10 +24,10 @@ public class awtjakemouth extends DoorModel {
 	public static TexturedModelData getTexturedModelData() {
 		ModelData modelData = new ModelData();
 		ModelPartData modelPartData = modelData.getRoot();
-		ModelPartData bone = modelPartData.addChild("bone", ModelPartBuilder.create(), ModelTransform.pivot(8.1F, 4.0F, -7.0F));
+		ModelPartData bone = modelPartData.addChild("bone", ModelPartBuilder.create(), ModelTransform.pivot(0.1F, 24.0F, -7.0F));
 
-		ModelPartData door = bone.addChild("door", ModelPartBuilder.create().uv(34, 48).cuboid(-15.0F, -7.0F, -0.8F, 14.0F, 27.0F, 1.0F, new Dilation(0.0F))
-		.uv(109, 91).cuboid(-13.4667F, -6.0F, -0.1F, 12.0F, 23.0F, 0.0F, new Dilation(0.001F)), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
+		ModelPartData door = bone.addChild("door", ModelPartBuilder.create().uv(34, 48).cuboid(-7.0F, -27.0F, -0.8F, 14.0F, 27.0F, 1.0F, new Dilation(0.0F))
+		.uv(109, 91).cuboid(-5.4667F, -26.0F, -0.1F, 12.0F, 23.0F, 0.0F, new Dilation(0.001F)), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
 		return TexturedModelData.of(modelData, 256, 256);
 	}
 	@Override
