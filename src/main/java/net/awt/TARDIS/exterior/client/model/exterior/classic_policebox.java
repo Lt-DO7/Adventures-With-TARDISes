@@ -149,7 +149,7 @@ public class classic_policebox extends SimpleExteriorModel {
 					? 5.0F
 					: 0.0F;
 		} else {
-			float maxRot = -85f;
+			float maxRot = 85f;
 			this.door.getChild("right_door").yaw = (float) Math.toRadians(maxRot * door.getLeftRot());
 			this.door.getChild("left_door").yaw = (float) -Math.toRadians(maxRot * door.getRightRot());
 		}

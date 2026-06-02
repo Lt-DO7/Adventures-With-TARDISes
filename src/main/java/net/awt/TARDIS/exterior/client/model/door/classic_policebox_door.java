@@ -96,7 +96,7 @@ public class classic_policebox_door extends DoorModel {
 			right_door.yaw = !door.isLeftOpen() && !door.isOpen() ? 0.0F : -5.0F;
 			left_door.yaw = !door.isRightOpen() && !door.areBothOpen() ? 0.0F : 5.0F;
 		} else {
-			float maxRot = -85.0F;
+			float maxRot = 85.0F;
 			right_door.yaw = (float)(Math.toRadians((double)(maxRot * doorEntity.tardis().get().door().getLeftRot())));
 			left_door.yaw = (float)-Math.toRadians((double)(maxRot * doorEntity.tardis().get().door().getRightRot()));
 		}
