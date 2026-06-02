@@ -53,21 +53,8 @@ public enum ModArmourMaterials implements ArmorMaterial {
             5.0f,
             0.3f,
             () -> Ingredient.ofItems(ModItems.METALERTANIUM_INGOT)
-    ),
-
-    PREHISTORIC_METALERTANIUM(
-            "prehistoric_metalertanium",
-            45,
-            new int[] { 6, 12, 10, 6 },
-            28,
-            SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE,
-            6.5f,
-            0.4f,
-            () -> Ingredient.ofItems(
-                    ModItems.PREHISTORIC_INGOT,
-                    ModItems.METALERTANIUM_INGOT
-            )
     );
+
 
     private final String name;
     private final int durabilityMultiplier;

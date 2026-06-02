@@ -91,18 +91,6 @@ public class ModItemGroups {
 
                         entries.add(ModBlocks.METALERTANIUM_BLOCK);
 
-                        //Prehistoric Metalertanium
-
-                        entries.add(ModItems.PREHISTORIC_METALERTANIUM_SWORD);
-                        entries.add(ModItems.PREHISTORIC_METALERTANIUM_PICKAXE);
-                        entries.add(ModItems.PREHISTORIC_METALERTANIUM_AXE);
-                        entries.add(ModItems.PREHISTORIC_METALERTANIUM_SHOVEL);
-                        entries.add(ModItems.PREHISTORIC_METALERTANIUM_HOE);
-                        entries.add(ModItems.PREHISTORIC_METALERTANIUM_HELMET);
-                        entries.add(ModItems.PREHISTORIC_METALERTANIUM_CHESTPLATE);
-                        entries.add(ModItems.PREHISTORIC_METALERTANIUM_LEGGINGS);
-                        entries.add(ModItems.PREHISTORIC_METALERTANIUM_BOOTS);
-
                         //music discs
                         entries.add(ModItems.DRWHOVALE_MUSIC_DISC);
                         entries.add(ModItems.DUGGA_DOO_MUSIC_DISC);

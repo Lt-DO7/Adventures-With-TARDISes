@@ -178,38 +178,6 @@ public class ModItems {
     public static final Item METALERTANIUM_HOE = registerItem("metalertanium_hoe",
             new HoeItem(ModToolMaterials.METALERTANIUM, -4, 0.0f, new FabricItemSettings()));
 
-    //Prehistoric Metalertanium Armour
-
-    public static final Item PREHISTORIC_METALERTANIUM_HELMET = registerItem("prehistoric_metalertanium_helmet",
-            new ArmorItem(ModArmourMaterials.PREHISTORIC_METALERTANIUM, ArmorItem.Type.HELMET, new FabricItemSettings()));
-
-    public static final Item PREHISTORIC_METALERTANIUM_CHESTPLATE = registerItem("prehistoric_metalertanium_chestplate",
-            new ArmorItem(ModArmourMaterials.PREHISTORIC_METALERTANIUM, ArmorItem.Type.CHESTPLATE, new FabricItemSettings()));
-
-    public static final Item PREHISTORIC_METALERTANIUM_LEGGINGS = registerItem("prehistoric_metalertanium_leggings",
-            new ArmorItem(ModArmourMaterials.PREHISTORIC_METALERTANIUM, ArmorItem.Type.LEGGINGS, new FabricItemSettings()));
-
-    public static final Item PREHISTORIC_METALERTANIUM_BOOTS = registerItem("prehistoric_metalertanium_boots",
-            new ArmorItem(ModArmourMaterials.PREHISTORIC_METALERTANIUM, ArmorItem.Type.BOOTS, new FabricItemSettings()));
-
-
-    //Prehistoric Metalertanium Tools
-
-    public static final Item PREHISTORIC_METALERTANIUM_SWORD = registerItem("prehistoric_metalertanium_sword",
-            new SwordItem(ModToolMaterials.PREHISTORIC_METALERTANIUM, 6, -2.4f, new FabricItemSettings()));
-
-    public static final Item PREHISTORIC_METALERTANIUM_PICKAXE = registerItem("prehistoric_metalertanium_pickaxe",
-            new PickaxeItem(ModToolMaterials.PREHISTORIC_METALERTANIUM, 1, -2.8f, new FabricItemSettings()));
-
-    public static final Item PREHISTORIC_METALERTANIUM_AXE = registerItem("prehistoric_metalertanium_axe",
-            new AxeItem(ModToolMaterials.PREHISTORIC_METALERTANIUM, 9.0f, -3.0f, new FabricItemSettings()));
-
-    public static final Item PREHISTORIC_METALERTANIUM_SHOVEL = registerItem("prehistoric_metalertanium_shovel",
-            new ShovelItem(ModToolMaterials.PREHISTORIC_METALERTANIUM, 1.5f, -3.0f, new FabricItemSettings()));
-
-    public static final Item PREHISTORIC_METALERTANIUM_HOE = registerItem("prehistoric_metalertanium_hoe",
-            new HoeItem(ModToolMaterials.PREHISTORIC_METALERTANIUM, -4, 0.0f, new FabricItemSettings()));
-
     // Vortex Manipulator
     public static final Item VORTEX_MANIPULATOR = registerItem("vortex_manipulator", new VortexManipulator(new FabricItemSettings()));
     public static final Item VORTEX_MANIPULATOR2 = registerItem("vortex_manipulator2", new VortexManipulator(new FabricItemSettings()));
