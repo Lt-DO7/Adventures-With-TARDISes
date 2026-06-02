@@ -75,6 +75,7 @@ public class TardisExteriorRegistry {
     public static AddonExterior HARTNELL;
     public static AddonExterior TROUGHTON;
     public static AddonExterior PERTWEE;
+    public static AddonExterior POLICEBOXINVERTED;
 
     public static AddonExterior JAKE;
 
@@ -200,7 +201,10 @@ public class TardisExteriorRegistry {
         POLICEBOXGLASGLOW.setDoor(new AddonExterior.Door(POLICEBOXGLASGLOW, true, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
 
         POLICEBOXTEXTURE = new AddonExterior(new Identifier(MOD_ID, "modernboxes"), MOD_ID, "policebox_texture").register();
-        POLICEBOXTEXTURE.setDoor(new AddonExterior.Door(POLICEBOXGLASGLOW, true, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
+        POLICEBOXTEXTURE.setDoor(new AddonExterior.Door(POLICEBOXTEXTURE, true, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
+
+        POLICEBOXINVERTED = new AddonExterior(new Identifier(MOD_ID, "modernboxes"), MOD_ID, "policebox_inverted").register();
+        POLICEBOXINVERTED.setDoor(new AddonExterior.Door(POLICEBOXINVERTED, true, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
 
         TIMEPOD = new AddonExterior(new Identifier(MOD_ID, "ships"), MOD_ID, "timepod").register();
         TIMEPOD.setDoor(new AddonExterior.Door(TIMEPOD, false, SoundEvents.BLOCK_IRON_TRAPDOOR_OPEN, SoundEvents.BLOCK_IRON_TRAPDOOR_CLOSE)).toDoor().register();
@@ -489,5 +493,9 @@ public class TardisExteriorRegistry {
         PERTWEE.setModel(new classic_policebox()).toClient().register();
         PERTWEE.toDoor().setModel(new classic_policebox_door(classic_policebox_door.getTexturedModelData().createModel())).toClient().register();
         PERTWEE.setSonicItemTranslations(new Vector3f(0, 0, 0));
+
+        POLICEBOXINVERTED.setModel(new policebox()).toClient().register();
+        POLICEBOXINVERTED.toDoor().setModel(new policeboxdoor(policeboxdoor.getTexturedModelData().createModel())).toClient().register();
+        POLICEBOXINVERTED.setSonicItemTranslations(new Vector3f(0, 0, 0));
     }
 }
