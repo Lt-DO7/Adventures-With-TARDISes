@@ -31,7 +31,6 @@ public class TardisExteriorRegistry {
     public static AddonExterior PINKONION;
     public static AddonExterior LIGHTBLUEONION;
     public static AddonExterior LIMEGREENONION;
-    public static AddonExterior MULTIONION;
     public static AddonExterior POLICEBOX;
     public static AddonExterior TYPE70;
     public static AddonExterior TYPE70WG;
@@ -106,9 +105,6 @@ public class TardisExteriorRegistry {
 
         LIMEGREENONION = new AddonExterior(new Identifier(MOD_ID, "onion"), MOD_ID, "limegreenonion").register();
         LIMEGREENONION.setDoor(new AddonExterior.Door(LIMEGREENONION, false, AWTSound.BLOOP, AWTSound.BLOOP)).toDoor().register();
-
-        MULTIONION = new AddonExterior(new Identifier(MOD_ID, "onion"), MOD_ID, "multionion").register();
-        MULTIONION.setDoor(new AddonExterior.Door(MULTIONION, false, AWTSound.BLOOP, AWTSound.BLOOP)).toDoor().register();
 
         POLICEBOX = new AddonExterior(new Identifier(MOD_ID, "modernboxes"), MOD_ID, "policebox_copper").register();
         POLICEBOX.setDoor(new AddonExterior.Door(POLICEBOX, true, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
