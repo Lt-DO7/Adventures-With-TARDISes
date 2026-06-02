@@ -159,7 +159,7 @@ public class TardisExteriorRegistry {
         POLICEBOXPURPLE.setDoor(new AddonExterior.Door(POLICEBOXPURPLE, true, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
 
         JAKE = new AddonExterior(AWTExclusiveCategory.REFERENCE, MOD_ID, "jake").register();
-        JAKE.setDoor(new AddonExterior.Door(JAKE, true, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
+        JAKE.setDoor(new AddonExterior.Door(JAKE, false, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
 
         LEFTHOTTUB = new AddonExterior(new Identifier(MOD_ID, "hottub"), MOD_ID, "lefthottub").register();
         LEFTHOTTUB.setDoor(new AddonExterior.Door(LEFTHOTTUB, true, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
@@ -382,7 +382,7 @@ public class TardisExteriorRegistry {
         POLICEBOXPURPLE.setSonicItemTranslations(new Vector3f(0, 0, 0));
 
         JAKE.setModel(new JakeTheDogExteriorModel(JakeTheDogExteriorModel.getTexturedModelData().createModel())).toClient().register();
-        JAKE.toDoor().setModel(new policebox_door(policebox_door.getTexturedModelData().createModel())).toClient().register();
+        JAKE.toDoor().setModel(new awtjakemouth(awtjakemouth.getTexturedModelData().createModel())).toClient().register();
 
         LEFTHOTTUB.setModel(new lefthottub()).toClient().register();
         LEFTHOTTUB.toDoor().setModel(new lefthottubdoor(lefthottubdoor.getTexturedModelData().createModel())).toClient().register();
