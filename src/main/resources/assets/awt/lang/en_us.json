@@ -3,6 +3,7 @@
 
   "entity.awt.k9": "K-9",
   "entity.awt.cybermat": "Cybermat",
+
   "dimension.awt.skarodim": "Skaro",
   "dimension.awt.thelostworld": "The Lost Reality",
 
@@ -41,8 +42,6 @@
   "item.awt.cyanbowtie": "Bowtie",
   "item.awt.magentabowtie": "Bowtie",
   "item.awt.purplebowtie": "Bowtie",
-
-
 
   "item.awt.eyestalk": "Dalek Eyestalk",
 
@@ -144,7 +143,6 @@
   "exterior.awt.glasgow": "Glasgow",
   "exterior.awt.tardimog": "OG TARDIM",
   "exterior.awt.atrium_box": "Atrium Box",
-  "exterior.awt.memorybox_classic": "Classic Memory Box",
   "exterior.awt.bee_k6": "Bee Booth",
   "exterior.awt.creamk6booth": "Gloom Booth",
   "exterior.awt.eleventh": "Smith",
@@ -360,16 +358,6 @@
   "item.awt.liquid_metalertanium":"Bottle of Metalert",
 
   "block.awt.metalertanium_block": "Metalert Block",
-
-  "item.awt.prehistoric_metalertanium_helmet":"Prehistoric Metalert Helmet",
-  "item.awt.prehistoric_metalertanium_chestplate":"Prehistoric Metalert Chestplate",
-  "item.awt.prehistoric_metalertanium_leggings":"Prehistoric Metalert Leggings",
-  "item.awt.prehistoric_metalertanium_boots":"Prehistoric Metalert Boots",
-  "item.awt.prehistoric_metalertanium_sword":"Prehistoric Metalert Sword",
-  "item.awt.prehistoric_metalertanium_pickaxe":"Prehistoric Metalert Pickaxe",
-  "item.awt.prehistoric_metalertanium_axe":"Prehistoric Metalert Axe",
-  "item.awt.prehistoric_metalertanium_shovel":"Prehistoric Metalert Shovel",
-  "item.awt.prehistoric_metalertanium_hoe":"Prehistoric Metalert Hoe",
 
   "item_group.awt.Roundel": "AWT: Decor",
   "item_group.Atrium": "AWT: Main",
