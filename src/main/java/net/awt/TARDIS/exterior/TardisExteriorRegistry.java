@@ -226,7 +226,7 @@ public class TardisExteriorRegistry {
         GLOOMPHONEBOOTH = new AddonExterior(new Identifier(MOD_ID, "phonebooths"), MOD_ID, "gloomphonebooth").register();
         GLOOMPHONEBOOTH.setDoor(new AddonExterior.Door(GLOOMPHONEBOOTH, false, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
 
-        FADEDPHONEBOOTH = new AddonExterior(new Identifier(MOD_ID, "phonebooths"), MOD_ID, "fadedphonebooth").register();
+        FADEDPHONEBOOTH = new AddonExterior(AWTExclusiveCategory.REFERENCE, MOD_ID, "fadedphonebooth").register();
         FADEDPHONEBOOTH.setDoor(new AddonExterior.Door(FADEDPHONEBOOTH, false, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
 
         BLUEPHONEBOOTH = new AddonExterior(new Identifier(MOD_ID, "phonebooths"), MOD_ID, "bluephonebooth").register();
