@@ -76,6 +76,8 @@ public class TardisExteriorRegistry {
     public static AddonExterior TROUGHTON;
     public static AddonExterior PERTWEE;
     public static AddonExterior POLICEBOXINVERTED;
+    public static AddonExterior LEGODIMALT;
+    public static AddonExterior LEGODIMINVERTED;
 
     public static AddonExterior JAKE;
 
@@ -244,6 +246,12 @@ public class TardisExteriorRegistry {
 
         PERTWEE = new AddonExterior(new Identifier(MOD_ID, "classicboxes"), MOD_ID, "pertwee").register();
         PERTWEE.setDoor(new AddonExterior.Door(PERTWEE, true, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
+
+        LEGODIMALT = new AddonExterior(new Identifier(MOD_ID, "legoboxes"), MOD_ID, "lego_dimensions_police_box_alt").register();
+        LEGODIMALT.setDoor(new AddonExterior.Door(LEGODIMALT, true, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
+
+        LEGODIMINVERTED = new AddonExterior(new Identifier(MOD_ID, "legoboxes"), MOD_ID, "inverted_lego_dimensions_police_box").register();
+        LEGODIMINVERTED.setDoor(new AddonExterior.Door(LEGODIMINVERTED, true, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
 
     }
 
@@ -497,5 +505,17 @@ public class TardisExteriorRegistry {
         POLICEBOXINVERTED.setModel(new policebox()).toClient().register();
         POLICEBOXINVERTED.toDoor().setModel(new policeboxdoor(policeboxdoor.getTexturedModelData().createModel())).toClient().register();
         POLICEBOXINVERTED.setSonicItemTranslations(new Vector3f(0, 0, 0));
+
+        LEGODIMALT.setModel(new lego_tardis_model()).toClient().register();
+        LEGODIMALT.toDoor().setModel(new lego_tardis_model_door(lego_tardis_model_door.getTexturedModelData().createModel())).toClient().register();
+        LEGODIMALT.setPortalWidth(0.90f);
+        LEGODIMALT.setPortalHeight(1.5f);
+        LEGODIMALT.setSonicItemTranslations(new Vector3f(0, 0, 0));
+
+        LEGODIMINVERTED.setModel(new lego_tardis_model()).toClient().register();
+        LEGODIMINVERTED.toDoor().setModel(new lego_tardis_model_door(lego_tardis_model_door.getTexturedModelData().createModel())).toClient().register();
+        LEGODIMINVERTED.setPortalWidth(0.90f);
+        LEGODIMINVERTED.setPortalHeight(1.5f);
+        LEGODIMINVERTED.setSonicItemTranslations(new Vector3f(0, 0, 0));
     }
 }
