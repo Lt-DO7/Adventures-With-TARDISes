@@ -157,7 +157,7 @@ public class TardisExteriorRegistry {
         POLICEBOXALT = new AddonExterior(new Identifier(MOD_ID, "modernboxes"), MOD_ID, "policebox_alt").register();
         POLICEBOXALT.setDoor(new AddonExterior.Door(POLICEBOXALT, true, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
 
-        POLICEBOXPURPLE = new AddonExterior(AWTExclusiveCategory.REFERENCE, MOD_ID, "policebox_purple").register();
+        POLICEBOXPURPLE = new AddonExterior(new Identifier(MOD_ID, "modernboxes"), MOD_ID, "policebox_purple").register();
         POLICEBOXPURPLE.setDoor(new AddonExterior.Door(POLICEBOXPURPLE, true, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
 
         JAKE = new AddonExterior(AWTExclusiveCategory.REFERENCE, MOD_ID, "jake").register();
