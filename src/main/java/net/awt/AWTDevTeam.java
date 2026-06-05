@@ -11,7 +11,8 @@ public class AWTDevTeam {
     public static final UUID ENCDATA = UUID.fromString("bfa96e7e-9fcb-475e-ae69-c3415553535d");
     public static final UUID SCARFO = UUID.fromString("373565e5-2ce7-49d6-a2a9-7bc0b512a5b0");
     public static final UUID CALEB = UUID.fromString("d4609ed0-4ed8-4ac8-83bc-08983b962520");
-    public static final List<UUID> UUIDList = List.of(LEFT,DINO,DEO,ENCDATA,SCARFO,CALEB);
+    public static final UUID BLUEBERRY = UUID.fromString("d21bc86a-14ce-4d4b-bc15-62f6a4c58fe3");
+    public static final List<UUID> UUIDList = List.of(LEFT,DINO,DEO,ENCDATA,SCARFO,CALEB,BLUEBERRY);
 
     public AWTDevTeam() {
     }

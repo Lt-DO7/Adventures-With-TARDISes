@@ -58,6 +58,7 @@ public class AdventuresWithTARDISes implements ModInitializer {
     private static final String ENCDATA_JOIN_GIFT_TAG = MOD_ID + ".encdata_join_gift";
     private static final String DEO_JOIN_GIFT_TAG = MOD_ID + ".deo_join_gift";
     private static final String SCARFO_JOIN_GIFT_TAG = MOD_ID + ".scarfo_join_gift";
+    private static final String BLUEBERRY_JOIN_GIFT_TAG = MOD_ID + ".blueberry_join_gift";
 
     @Override
     public void onInitialize() {
@@ -129,6 +130,7 @@ public class AdventuresWithTARDISes implements ModInitializer {
         ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> giveEncDataJoinGift(handler.player));
         ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> giveDeoJoinGift(handler.player));
         ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> giveScarfoJoinGift(handler.player));
+        ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> giveBlueBerryJoinGift(handler.player));
 
         ModWorldGeneration.generateModWorldGen();
         ModPackets.registerC2SPackets();
@@ -208,6 +210,8 @@ public class AdventuresWithTARDISes implements ModInitializer {
             return;
         }
 
+        giveOrDrop(player, new ItemStack(AITItems.SONIC_SCREWDRIVER));
+        giveOrDrop(player, new ItemStack(AITItems.SKELETON_KEY));
         giveOrDrop(player, new ItemStack(ModItems.VORTEX_MANIPULATOR2));
         giveOrDrop(player, new ItemStack(AITItems.TARDIS_ITEM));
         player.addCommandTag(DEO_JOIN_GIFT_TAG);
@@ -224,6 +228,18 @@ public class AdventuresWithTARDISes implements ModInitializer {
         player.addCommandTag(SCARFO_JOIN_GIFT_TAG);
     }
 
+
+    private static void giveBlueBerryJoinGift(ServerPlayerEntity player) {
+        if (!player.getUuid().equals(AWTDevTeam.BLUEBERRY) || player.getCommandTags().contains(BLUEBERRY_JOIN_GIFT_TAG)) {
+            return;
+        }
+
+        giveOrDrop(player, new ItemStack(AITItems.SONIC_SCREWDRIVER));
+        giveOrDrop(player, new ItemStack(AITItems.SKELETON_KEY));
+        giveOrDrop(player, new ItemStack(ModItems.VORTEX_MANIPULATOR));
+        giveOrDrop(player, new ItemStack(AITItems.TARDIS_ITEM));
+        player.addCommandTag(BLUEBERRY_JOIN_GIFT_TAG);
+    }
     private static void giveOrDrop(ServerPlayerEntity player, ItemStack stack) {
         if (!player.getInventory().insertStack(stack)) {
             player.dropItem(stack, false);
