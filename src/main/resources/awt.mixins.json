@@ -13,6 +13,7 @@
   "client": [
     "client.ControlEntityRendererMixin",
     "client.DebugRendererMixin",
+    "client.ExteriorRendererMixin",
     "client.LogoDrawerMixin",
     "console.ClientConsoleVariantRegistryMixin",
     "ItemRendererAccessor",
