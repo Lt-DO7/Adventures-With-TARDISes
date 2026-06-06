@@ -1,5 +1,7 @@
 package net.awt.networking.packets;
 
+import net.awt.AWTDevTeam;
+import net.awt.item.ModItems;
 import net.fabricmc.fabric.api.dimension.v1.FabricDimensions;
 import net.fabricmc.fabric.api.networking.v1.PacketSender;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
@@ -14,6 +16,7 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
@@ -42,10 +45,60 @@ public class VMPacket {
                     continue;
                 }
 
-                ServerWorld world = server.getWorld(pending.worldKey());
+                if (pending.phase() == TeleportPhase.SOURCE_LIGHTNING) {
+                    ServerWorld sourceWorld = server.getWorld(pending.sourceWorldKey());
+                    if (sourceWorld == null) {
+                        player.removeStatusEffect(StatusEffects.INVISIBILITY);
+                        iterator.remove();
+                        continue;
+                    }
+
+                    if (pending.ticksRemaining() > 0) {
+                        entry.setValue(pending.tickDown());
+                        continue;
+                    }
+
+                    summonCosmeticLightning(sourceWorld, pending.sourcePosition());
+                    entry.setValue(pending.nextPhase(TeleportPhase.TELEPORT, 20));
+                    continue;
+                }
+
+                if (pending.phase() == TeleportPhase.TELEPORT) {
+                    ServerWorld targetWorld = server.getWorld(pending.targetWorldKey());
+                    if (targetWorld == null) {
+                        player.removeStatusEffect(StatusEffects.INVISIBILITY);
+                        iterator.remove();
+                        continue;
+                    }
+
+                    if (pending.ticksRemaining() > 0) {
+                        entry.setValue(pending.tickDown());
+                        continue;
+                    }
+
+                    if (!targetWorld.isChunkLoaded(pending.targetChunkPos().x(), pending.targetChunkPos().z())) {
+                        continue;
+                    }
+
+                    FabricDimensions.teleport(player, targetWorld, new TeleportTarget(
+                        pending.targetPosition(),
+                        player.getVelocity(),
+                        player.getYaw(),
+                        player.getPitch()
+                    ));
+                    entry.setValue(pending.nextPhase(TeleportPhase.TARGET_LIGHTNING, 20));
+                    continue;
+                }
+
+                ServerWorld world = server.getWorld(pending.targetWorldKey());
                 if (world == null) {
                     player.removeStatusEffect(StatusEffects.INVISIBILITY);
                     iterator.remove();
+                    continue;
+                }
+
+                if (pending.ticksRemaining() > 0) {
+                    entry.setValue(pending.tickDown());
                     continue;
                 }
 
@@ -53,16 +106,11 @@ public class VMPacket {
                     continue;
                 }
 
-                if (!world.isChunkLoaded(pending.chunkPos().x(), pending.chunkPos().z())) {
+                if (!world.isChunkLoaded(pending.targetChunkPos().x(), pending.targetChunkPos().z())) {
                     continue;
                 }
 
-                if (pending.ticksUntilLightning() > 0) {
-                    entry.setValue(pending.tickDown());
-                    continue;
-                }
-
-                summonCosmeticLightning(world, pending.position());
+                summonCosmeticLightning(world, pending.targetPosition());
                 player.removeStatusEffect(StatusEffects.INVISIBILITY);
                 iterator.remove();
             }
@@ -71,53 +119,80 @@ public class VMPacket {
 
     public static void receive(MinecraftServer server, ServerPlayerEntity player, ServerPlayNetworkHandler handler,
                                PacketByteBuf buf, PacketSender responseSender) {
-        String dim = buf.readString();
-        double x = buf.readDouble();
-        double y = buf.readDouble();
-        double z = buf.readDouble();
+        boolean targetPlayerMode = buf.readBoolean();
 
-
-        dim = dim.toLowerCase();
-
-        RegistryKey<World> overworldKey = RegistryKey.of(RegistryKeys.WORLD, new Identifier("minecraft:overworld"));
-        RegistryKey<World> netherKey = RegistryKey.of(RegistryKeys.WORLD, new Identifier("minecraft:the_nether"));
-        RegistryKey<World> endKey = RegistryKey.of(RegistryKeys.WORLD, new Identifier("minecraft:the_end"));
-        RegistryKey<World> key = RegistryKey.of(RegistryKeys.WORLD, new Identifier(dim));
-
-        ServerWorld overWorld = server.getWorld(overworldKey);
-        ServerWorld netherWorld = server.getWorld(netherKey);
-        ServerWorld endWorld = server.getWorld(endKey);
-
-        ServerWorld serverWorld = server.getWorld(key);
-        if (serverWorld == null) {
-            if (dim.equalsIgnoreCase("nether")) {
-                serverWorld = netherWorld;
-            } else if (dim.equalsIgnoreCase("end")) {
-                serverWorld = endWorld;
-            } else if (dim.equalsIgnoreCase("overworld")) {
-                serverWorld = overWorld;
-            } else {
-                serverWorld = player.getServerWorld();
-            }
+        if (PENDING_EFFECTS.containsKey(player.getUuid())) {
+            player.sendMessage(Text.literal("Vortex Manipulator teleport already in progress."), true);
+            return;
         }
-        ServerWorld finalServerWorld = serverWorld;
-        server.execute(() -> {
-            Vec3d targetPos = new Vec3d(x, y, z);
-            BlockPos targetBlockPos = BlockPos.ofFloored(targetPos);
 
-            player.addStatusEffect(new StatusEffectInstance(StatusEffects.INVISIBILITY, 20 * 30, 0, false, false, false));
-            FabricDimensions.teleport(player, finalServerWorld, new TeleportTarget(
-                    targetPos,
-                    player.getVelocity(),
-                    player.getYaw(),
-                    player.getPitch()
-            ));
+        if (!AWTDevTeam.ENCDATA.equals(player.getUuid()) && !awt$hasVortexManipulator(player)) {
+            player.sendMessage(Text.literal("You need a Vortex Manipulator to use this teleport."), true);
+            return;
+        }
+
+        ServerWorld targetWorld;
+        Vec3d targetPos;
+
+        if (targetPlayerMode) {
+            String targetPlayerName = buf.readString();
+            ServerPlayerEntity targetPlayer = server.getPlayerManager().getPlayer(targetPlayerName);
+            if (targetPlayer == null) {
+                player.sendMessage(Text.literal("Player not found: " + targetPlayerName), true);
+                return;
+            }
+
+            targetWorld = targetPlayer.getServerWorld();
+            targetPos = targetPlayer.getPos();
+        } else {
+            String dim = buf.readString().toLowerCase();
+            double x = buf.readDouble();
+            double y = buf.readDouble();
+            double z = buf.readDouble();
+
+            RegistryKey<World> overworldKey = RegistryKey.of(RegistryKeys.WORLD, new Identifier("minecraft:overworld"));
+            RegistryKey<World> netherKey = RegistryKey.of(RegistryKeys.WORLD, new Identifier("minecraft:the_nether"));
+            RegistryKey<World> endKey = RegistryKey.of(RegistryKeys.WORLD, new Identifier("minecraft:the_end"));
+            RegistryKey<World> key = RegistryKey.of(RegistryKeys.WORLD, new Identifier(dim));
+
+            ServerWorld overWorld = server.getWorld(overworldKey);
+            ServerWorld netherWorld = server.getWorld(netherKey);
+            ServerWorld endWorld = server.getWorld(endKey);
+
+            ServerWorld serverWorld = server.getWorld(key);
+            if (serverWorld == null) {
+                if (dim.equalsIgnoreCase("nether")) {
+                    serverWorld = netherWorld;
+                } else if (dim.equalsIgnoreCase("end")) {
+                    serverWorld = endWorld;
+                } else if (dim.equalsIgnoreCase("overworld")) {
+                    serverWorld = overWorld;
+                } else {
+                    serverWorld = player.getServerWorld();
+                }
+            }
+
+            targetWorld = serverWorld;
+            targetPos = new Vec3d(x, y, z);
+        }
+
+        ServerWorld finalServerWorld = targetWorld;
+        Vec3d finalTargetPos = targetPos;
+        server.execute(() -> {
+            ServerWorld sourceWorld = player.getServerWorld();
+            Vec3d sourcePos = player.getPos();
+            BlockPos targetBlockPos = BlockPos.ofFloored(finalTargetPos);
+
+            player.addStatusEffect(new StatusEffectInstance(StatusEffects.INVISIBILITY, 45, 0, false, false, false));
 
             PENDING_EFFECTS.put(player.getUuid(), new PendingTeleportEffect(
+                    sourceWorld.getRegistryKey(),
+                    sourcePos,
                     finalServerWorld.getRegistryKey(),
-                    targetPos,
+                    finalTargetPos,
                     new ChunkPosKey(targetBlockPos.getX() >> 4, targetBlockPos.getZ() >> 4),
-                    30
+                    TeleportPhase.SOURCE_LIGHTNING,
+                    1
             ));
         });
 
@@ -135,13 +210,36 @@ public class VMPacket {
         world.spawnEntity(lightning);
     }
 
+    private static boolean awt$hasVortexManipulator(ServerPlayerEntity player) {
+        for (int i = 0; i < player.getInventory().size(); i++) {
+            if (player.getInventory().getStack(i).isOf(ModItems.VORTEX_MANIPULATOR)
+                || player.getInventory().getStack(i).isOf(ModItems.VORTEX_MANIPULATOR2)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     private record ChunkPosKey(int x, int z) {
     }
 
-    private record PendingTeleportEffect(RegistryKey<World> worldKey, Vec3d position, ChunkPosKey chunkPos,
-                                         int ticksUntilLightning) {
+    private enum TeleportPhase {
+        SOURCE_LIGHTNING,
+        TELEPORT,
+        TARGET_LIGHTNING
+    }
+
+    private record PendingTeleportEffect(RegistryKey<World> sourceWorldKey, Vec3d sourcePosition,
+                                         RegistryKey<World> targetWorldKey, Vec3d targetPosition,
+                                         ChunkPosKey targetChunkPos, TeleportPhase phase, int ticksRemaining) {
         private PendingTeleportEffect tickDown() {
-            return new PendingTeleportEffect(worldKey, position, chunkPos, ticksUntilLightning - 1);
+            return new PendingTeleportEffect(sourceWorldKey, sourcePosition, targetWorldKey, targetPosition,
+                targetChunkPos, phase, ticksRemaining - 1);
+        }
+
+        private PendingTeleportEffect nextPhase(TeleportPhase nextPhase, int nextTicksRemaining) {
+            return new PendingTeleportEffect(sourceWorldKey, sourcePosition, targetWorldKey, targetPosition,
+                targetChunkPos, nextPhase, nextTicksRemaining);
         }
     }
 }

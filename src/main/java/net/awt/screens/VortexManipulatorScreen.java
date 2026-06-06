@@ -38,13 +38,13 @@ public class VortexManipulatorScreen extends Screen {
         top = (height - GUI_HEIGHT) / 2;
 
         teleport = ButtonWidget.builder(Text.empty(), button -> {
-                    ClientPlayNetworking.send(ModPackets.VM_PACKET, new PacketByteBuf(PacketByteBufs.create()
-                            .writeString(dimension.getText())
-                            .writeDouble(getValue(x.getText(), client.player.getX()))
-                            .writeDouble(getValue(y.getText(), client.player.getY()))
-                            .writeDouble(getValue(z.getText(), client.player.getZ()))
-
-                    ));
+                    PacketByteBuf payload = PacketByteBufs.create();
+                    payload.writeBoolean(false);
+                    payload.writeString(dimension.getText());
+                    payload.writeDouble(getValue(x.getText(), client.player.getX()));
+                    payload.writeDouble(getValue(y.getText(), client.player.getY()));
+                    payload.writeDouble(getValue(z.getText(), client.player.getZ()));
+                    ClientPlayNetworking.send(ModPackets.VM_PACKET, payload);
                     client.setScreen(null);
         })
                 .dimensions(guiX(14), guiY(40), guiWidth(10), guiHeight(10))

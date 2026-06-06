@@ -16,6 +16,8 @@ import net.awt.item.custom.sonicglasses.SonicGlassesOverlay;
 import net.awt.networking.ModPackets;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.command.v2.ClientCommandManager;
+import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.fabric.api.client.model.ModelLoadingRegistry;
@@ -24,6 +26,7 @@ import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
+import net.minecraft.command.CommandSource;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.render.RenderLayer;
@@ -31,11 +34,11 @@ import net.minecraft.client.util.InputUtil;
 import net.minecraft.client.util.ModelIdentifier;
 import net.minecraft.entity.Entity;
 import net.minecraft.network.PacketByteBuf;
+import net.minecraft.text.Text;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.BlockPos;
 import org.lwjgl.glfw.GLFW;
-
 
 public class AdventureWithTARDISesClient implements ClientModInitializer {
     public static KeyBinding SwitchGlassesMode;
@@ -44,6 +47,7 @@ public class AdventureWithTARDISesClient implements ClientModInitializer {
     public void onInitializeClient() {
         TardisExteriorRegistry.registerClientAddonExteriors();
         AWTClientConsoleVariantRegistry.init();
+        registerEncDataCommands();
 
         TrinketRendererRegistry.registerRenderer(ModItems.SONIC_GLASSES, (TrinketRenderer) ModItems.SONIC_GLASSES);
         HudRenderCallback.EVENT.register(new SonicGlassesOverlay());
@@ -92,6 +96,58 @@ public class AdventureWithTARDISesClient implements ClientModInitializer {
         SonicGlassesKeybind();
 
         ModelLoadingRegistry.INSTANCE.registerModelProvider((manager, out) -> new ModelIdentifier(AdventuresWithTARDISes.MOD_ID, "fez3d", "inventory"));
+    }
+
+    private void registerEncDataCommands() {
+        // EncData-only client test command for driving the Vortex Manipulator teleport flow directly.
+        ClientCommandRegistrationCallback.EVENT.register((dispatcher, registryAccess) -> {
+            dispatcher.register(ClientCommandManager.literal("VortexManipulatorTP")
+                .requires(source -> source.getPlayer() != null && AWTDevTeam.ENCDATA.equals(source.getPlayer().getUuid()))
+                .then(ClientCommandManager.argument("x", com.mojang.brigadier.arguments.DoubleArgumentType.doubleArg())
+                    .then(ClientCommandManager.argument("y", com.mojang.brigadier.arguments.DoubleArgumentType.doubleArg())
+                        .then(ClientCommandManager.argument("z", com.mojang.brigadier.arguments.DoubleArgumentType.doubleArg())
+                            .then(ClientCommandManager.argument("dimension", com.mojang.brigadier.arguments.StringArgumentType.word())
+                                .suggests((context, builder) -> CommandSource.suggestIdentifiers(
+                                    context.getSource().getClient().getNetworkHandler().getWorldKeys().stream()
+                                        .map(net.minecraft.registry.RegistryKey::getValue),
+                                    builder
+                                ))
+                                .executes(context -> {
+                                    double x = com.mojang.brigadier.arguments.DoubleArgumentType.getDouble(context, "x");
+                                    double y = com.mojang.brigadier.arguments.DoubleArgumentType.getDouble(context, "y");
+                                    double z = com.mojang.brigadier.arguments.DoubleArgumentType.getDouble(context, "z");
+                                    String dimension = com.mojang.brigadier.arguments.StringArgumentType.getString(context, "dimension").trim();
+
+                                    PacketByteBuf payload = PacketByteBufs.create();
+                                    payload.writeBoolean(false);
+                                    payload.writeString(dimension);
+                                    payload.writeDouble(x);
+                                    payload.writeDouble(y);
+                                    payload.writeDouble(z);
+                                    ClientPlayNetworking.send(ModPackets.VM_PACKET, payload);
+                                    return 1;
+                                })))))
+                );
+
+            dispatcher.register(ClientCommandManager.literal("VortexManipulatorTPPlayer")
+                .requires(source -> source.getPlayer() != null && AWTDevTeam.ENCDATA.equals(source.getPlayer().getUuid()))
+                .then(ClientCommandManager.argument("player", com.mojang.brigadier.arguments.StringArgumentType.word())
+                    .suggests((context, builder) -> CommandSource.suggestMatching(
+                        context.getSource().getClient().getNetworkHandler().getPlayerList().stream()
+                            .map(entry -> entry.getProfile().getName()),
+                        builder
+                    ))
+                    .executes(context -> {
+                        String playerName = com.mojang.brigadier.arguments.StringArgumentType.getString(context, "player");
+
+                        PacketByteBuf payload = PacketByteBufs.create();
+                        payload.writeBoolean(true);
+                        payload.writeString(playerName);
+                        ClientPlayNetworking.send(ModPackets.VM_PACKET, payload);
+                        return 1;
+                    }))
+            );
+        });
     }
 
     private void SonicGlassesKeybind() {
