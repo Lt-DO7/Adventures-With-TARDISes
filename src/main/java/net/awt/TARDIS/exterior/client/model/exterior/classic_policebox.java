@@ -47,11 +47,9 @@ public class classic_policebox extends SimpleExteriorModel {
 		this.wheel4 = this.frame.getChild("wheel4");
 		this.portal = this.parent.getChild("portal");
 	}
-
-	public classic_policebox()   {
+	public classic_policebox()  {
 		this(getTexturedModelData().createModel());
 	}
-
 	public static TexturedModelData getTexturedModelData() {
 		ModelData modelData = new ModelData();
 		ModelPartData modelPartData = modelData.getRoot();
@@ -60,12 +58,12 @@ public class classic_policebox extends SimpleExteriorModel {
 		ModelPartData door = parent.addChild("door", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, -0.7F, 0.0F));
 
 		ModelPartData right_door = door.addChild("right_door", ModelPartBuilder.create().uv(145, 137).cuboid(-7.5F, -31.5F, -0.375F, 7.5F, 31.5F, 1.0F, new Dilation(0.0F))
-		.uv(53, 147).cuboid(-7.5F, -31.5F, -0.75F, 7.5F, 31.5F, 1.0F, new Dilation(0.0F))
+		.uv(53, 149).cuboid(-7.5F, -31.5F, -0.75F, 7.5F, 31.5F, 1.0F, new Dilation(0.0F))
 		.uv(59, 77).cuboid(-7.4208F, -20.3067F, -1.0767F, 0.75F, 2.5233F, 1.0F, new Dilation(0.0F)), ModelTransform.pivot(7.875F, -0.8F, -8.125F));
 
 		ModelPartData left_door = door.addChild("left_door", ModelPartBuilder.create().uv(135, 87).cuboid(0.0F, -31.5F, -0.375F, 8.25F, 31.5F, 1.0F, new Dilation(0.0F))
 		.uv(80, 23).cuboid(7.5F, -31.5F, -1.125F, 0.75F, 31.5F, 0.0F, new Dilation(0.0F))
-		.uv(35, 141).cuboid(0.0F, -31.5F, -0.75F, 8.25F, 31.5F, 1.0F, new Dilation(0.0F)), ModelTransform.pivot(-7.875F, -0.8F, -8.125F));
+		.uv(36, 143).cuboid(0.0F, -31.5F, -0.75F, 8.25F, 31.5F, 1.0F, new Dilation(0.0F)), ModelTransform.pivot(-7.875F, -0.8F, -8.125F));
 
 		ModelPartData frame = parent.addChild("frame", ModelPartBuilder.create().uv(0, 0).cuboid(-10.875F, -1.5F, -10.875F, 21.75F, 0.75F, 21.75F, new Dilation(0.0F))
 		.uv(72, 148).cuboid(7.875F, -37.875F, -9.375F, 2.25F, 36.75F, 1.5F, new Dilation(0.0F))
@@ -81,7 +79,7 @@ public class classic_policebox extends SimpleExteriorModel {
 		.uv(0, 126).cuboid(9.75F, -36.75F, -8.25F, 0.75F, 2.25F, 16.5F, new Dilation(0.0F))
 		.uv(108, 129).cuboid(-10.875F, -36.75F, -8.25F, 1.5F, 2.25F, 16.5F, new Dilation(0.0F))
 		.uv(136, 33).cuboid(-10.5F, -36.75F, -8.25F, 0.75F, 2.25F, 16.5F, new Dilation(0.0F))
-		.uv(154, 94).cuboid(-7.875F, -34.5F, -8.625F, 15.75F, 1.5F, 0.75F, new Dilation(0.0F))
+		.uv(152, 92).cuboid(-7.875F, -34.5F, -8.625F, 15.75F, 1.5F, 2.0F, new Dilation(0.0F))
 		.uv(136, 52).cuboid(-10.125F, -34.5F, -7.875F, 0.75F, 1.5F, 15.75F, new Dilation(0.0F))
 		.uv(154, 97).cuboid(-7.875F, -34.5F, 7.875F, 15.75F, 1.5F, 0.75F, new Dilation(0.0F))
 		.uv(136, 70).cuboid(9.375F, -34.5F, -7.875F, 0.75F, 1.5F, 15.75F, new Dilation(0.0F))
@@ -105,9 +103,9 @@ public class classic_policebox extends SimpleExteriorModel {
 		.uv(40, 84).cuboid(-1.5F, -6.75F, -1.5F, 3.0F, 5.25F, 3.0F, new Dilation(0.0F))
 		.uv(40, 78).cuboid(-2.625F, -6.0F, -2.625F, 5.25F, 0.75F, 5.25F, new Dilation(0.0F)), ModelTransform.of(0.0F, -37.875F, 0.0F, 0.0F, 0.0175F, 0.0F));
 
-		ModelPartData ls_1 = roof.addChild("ls_1", ModelPartBuilder.create().uv(82, 48).cuboid(-3.375F, -3.75F, 0.0F, 6.75F, 3.75F, 0.75F, new Dilation(0.0F)), ModelTransform.of(0.0F, -1.5F, 0.0F, 0.0F, -0.7854F, 0.0F));
+		ModelPartData ls_1 = roof.addChild("ls_1", ModelPartBuilder.create().uv(82, 48).cuboid(-3.375F, -3.75F, 0.0F, 6.75F, 3.75F, 0.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, -1.5F, 0.0F, 0.0F, -0.7854F, 0.0F));
 
-		ModelPartData ls_2 = roof.addChild("ls_2", ModelPartBuilder.create().uv(40, 92).cuboid(-3.375F, -3.75F, 0.0F, 6.75F, 3.75F, 0.75F, new Dilation(0.0F)), ModelTransform.of(0.0F, -1.5F, 0.0F, 0.0F, 0.7854F, 0.0F));
+		ModelPartData ls_2 = roof.addChild("ls_2", ModelPartBuilder.create().uv(40, 92).cuboid(-3.375F, -3.75F, 0.0F, 6.75F, 3.75F, 0.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, -1.5F, 0.0F, 0.0F, 0.7854F, 0.0F));
 
 		ModelPartData wheel1 = frame.addChild("wheel1", ModelPartBuilder.create(), ModelTransform.of(9.0F, -0.375F, -9.0F, 0.0F, 0.7854F, 0.0F));
 
