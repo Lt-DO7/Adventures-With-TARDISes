@@ -1,13 +1,13 @@
 {
   "parent": "block/cube",
   "textures": {
-    "down": "awt:block/wasted_log_top",
-    "up": "awt:block/wasted_log_top",
-    "north": "awt:block/wasted_log",
-    "east": "awt:block/wasted_log",
-    "south": "awt:block/wasted_log",
-    "west": "awt:block/wasted_log",
-    "particle": "awt:block/wasted_log_top"
+    "down": "awt:block/ddwa/wasted_log_top",
+    "up": "awt:block/ddwa/wasted_log_top",
+    "north": "awt:block/ddwa/wasted_log",
+    "east": "awt:block/ddwa/wasted_log",
+    "south": "awt:block/ddwa/wasted_log",
+    "west": "awt:block/ddwa/wasted_log",
+    "particle": "awt:block/ddwa/wasted_log_top"
   },
   "render_type": "solid"
 }

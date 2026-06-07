@@ -84,7 +84,8 @@ public class AdventureWithTARDISesClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.RUSTY_GRATE_BLOCK,RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.RUSTY_THICK_GRATE_BLOCK,RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PREHISTORIC_LEAVES,RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WASTED_BUSH_PLANT,RenderLayer.getCutout());
+      //  BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WASTED_BUSH_PLANT,RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WASTED_LEAVES,RenderLayer.getCutout());
 
         EntityRendererRegistry.register(ModEntities.K9, K9Renderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.K9, K9Model::getTexturedModelData);

@@ -67,5 +67,19 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
 
         addDrop(ModBlocks.STEEL_BLOCK);
         addDrop(ModBlocks.METALERTANIUM_BLOCK);
+
+        addDrop(ModBlocks.WASTED_LEAVES);
+        addDrop(ModBlocks.WASTED_DIRT);
+        addDrop(ModBlocks.WASTED_LOG);
+        addDrop(ModBlocks.WASTED_PLANK_SLAB);
+        addDrop(ModBlocks.WASTED_PLANKS);
+        addDrop(ModBlocks.KALETITE);
+        addDrop(ModBlocks.KALETITE_BRICKS);
+        addDrop(ModBlocks.COBBLED_KALETITE);
+        addDrop(ModBlocks.ECAT);
+        addDrop(ModBlocks.GOODHEAVENS);
+
+
+
     }
 }

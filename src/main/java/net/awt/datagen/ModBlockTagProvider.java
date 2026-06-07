@@ -99,16 +99,16 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.PREHISTORIC_LOG)
                 .add(ModBlocks.PREHISTORIC_STAIRS)
                 .add(ModBlocks.PREHISTORIC_SLAB)
-                .add(ModBlocks.WASTED_BUTTON)
-                .add(ModBlocks.WASTED_DOOR)
+              //  .add(ModBlocks.WASTED_BUTTON)
+              //  .add(ModBlocks.WASTED_DOOR)
                 .add(ModBlocks.WASTED_LEAVES)
-                .add(ModBlocks.WASTED_BUSH_PLANT)
+               // .add(ModBlocks.WASTED_BUSH_PLANT)
                 .add(ModBlocks.WASTED_LOG)
                 .add(ModBlocks.WASTED_PLANK_SLAB)
-                .add(ModBlocks.WASTED_PLANK_STAIRS)
+               // .add(ModBlocks.WASTED_PLANK_STAIRS)
                 .add(ModBlocks.WASTED_PLANKS)
-                .add(ModBlocks.WASTED_PRESSURE_PLATE)
-                .add(ModBlocks.WASTED_TRAP_DOOR)
+              //  .add(ModBlocks.WASTED_PRESSURE_PLATE)
+               // .add(ModBlocks.WASTED_TRAP_DOOR)
         ;
 
 
@@ -177,16 +177,16 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.PREHISTORIC_LOG)
                 .add(ModBlocks.PREHISTORIC_STAIRS)
                 .add(ModBlocks.PREHISTORIC_SLAB)
-                .add(ModBlocks.WASTED_BUTTON)
-                .add(ModBlocks.WASTED_DOOR)
+              //  .add(ModBlocks.WASTED_BUTTON)
+               // .add(ModBlocks.WASTED_DOOR)
                 .add(ModBlocks.WASTED_LEAVES)
-                .add(ModBlocks.WASTED_BUSH_PLANT)
+              //  .add(ModBlocks.WASTED_BUSH_PLANT)
                 .add(ModBlocks.WASTED_LOG)
                 .add(ModBlocks.WASTED_PLANK_SLAB)
-                .add(ModBlocks.WASTED_PLANK_STAIRS)
+             //   .add(ModBlocks.WASTED_PLANK_STAIRS)
                 .add(ModBlocks.WASTED_PLANKS)
-                .add(ModBlocks.WASTED_PRESSURE_PLATE)
-                .add(ModBlocks.WASTED_TRAP_DOOR)
+              //  .add(ModBlocks.WASTED_PRESSURE_PLATE)
+              //  .add(ModBlocks.WASTED_TRAP_DOOR)
         ;
 
 
@@ -195,7 +195,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.MOSS_ROUNDEL)
                 .add(ModBlocks.DIRT_ROUNDEL)
                 .add(ModBlocks.WASTED_DIRT)
-                .add(ModBlocks.WASTED_GRASS)
+              //  .add(ModBlocks.WASTED_GRASS)
         ;
 
     }
