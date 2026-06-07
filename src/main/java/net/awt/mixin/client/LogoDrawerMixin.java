@@ -54,7 +54,7 @@ public class LogoDrawerMixin {
         }
 
 
-        int logoWidth = 300;
+        int logoWidth = 400;
         int logoHeight = 90;
 
         int centerX = (screenWidth - logoWidth) / 2;
