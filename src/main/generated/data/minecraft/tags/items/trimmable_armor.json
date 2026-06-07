@@ -16,10 +16,6 @@
     "awt:metalertanium_helmet",
     "awt:metalertanium_chestplate",
     "awt:metalertanium_leggings",
-    "awt:metalertanium_boots",
-    "awt:prehistoric_metalertanium_helmet",
-    "awt:prehistoric_metalertanium_chestplate",
-    "awt:prehistoric_metalertanium_leggings",
-    "awt:prehistoric_metalertanium_boots"
+    "awt:metalertanium_boots"
   ]
 }
