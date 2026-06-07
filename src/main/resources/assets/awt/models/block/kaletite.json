@@ -1,0 +1,8 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "awt:block/stone",
+    "particle": "awt:block/stone"
+  },
+  "render_type": "solid"
+}

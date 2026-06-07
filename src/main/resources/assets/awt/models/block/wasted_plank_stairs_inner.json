@@ -1,0 +1,9 @@
+{
+  "parent": "block/inner_stairs",
+  "textures": {
+    "bottom": "awt:block/wasted_planks",
+    "top": "awt:block/wasted_planks",
+    "side": "awt:block/wasted_planks"
+  },
+  "render_type": "solid"
+}

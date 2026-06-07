@@ -233,6 +233,61 @@ public class ModBlocks {
     public static final Block METALERTANIUM_BLOCK = registerBlock("metalertanium_block",
             new Block(FabricBlockSettings.copyOf(Blocks.NETHERITE_BLOCK).sounds(BlockSoundGroup.NETHERITE).requiresTool()));
 
+
+    //Skaro
+
+    public static final Block ECAT  = registerBlock("exquisite_cat",
+            new RoundelBlock(FabricBlockSettings.copyOf(Blocks.STONE).sounds(BlockSoundGroup.STONE)));
+
+    public static final Block GOODHEAVENS = registerBlock("good_heavens",
+            new RoundelBlock(FabricBlockSettings.copyOf(Blocks.STONE).sounds(BlockSoundGroup.STONE)));
+
+    public static final Block COBBLED_KALETITE = registerBlock("cobbled_kaletite",
+            new RoundelBlock(FabricBlockSettings.copyOf(Blocks.STONE).sounds(BlockSoundGroup.STONE).requiresTool()));
+
+    public static final Block KALETITE = registerBlock("kaletite",
+            new RoundelBlock(FabricBlockSettings.copyOf(Blocks.STONE).sounds(BlockSoundGroup.STONE).requiresTool()));
+
+    public static final Block KALETITE_BRICKS = registerBlock("kaletite_bricks",
+            new RoundelBlock(FabricBlockSettings.copyOf(Blocks.STONE).sounds(BlockSoundGroup.STONE).requiresTool()));
+
+    public static final Block WASTED_BUSH_PLANT = registerBlock("wasted_bush_plant",
+            new RoundelBlock(FabricBlockSettings.copyOf(Blocks.GRASS).sounds(BlockSoundGroup.GRASS)));
+
+    public static final Block WASTED_BUTTON = registerBlock("wasted_button",
+            new RoundelBlock(FabricBlockSettings.copyOf(Blocks.OAK_BUTTON).sounds(BlockSoundGroup.WOOD)));
+
+    public static final Block WASTED_DIRT = registerBlock("wasted_dirt",
+            new RoundelBlock(FabricBlockSettings.copyOf(Blocks.DIRT).sounds(BlockSoundGroup.ROOTED_DIRT)));
+
+    public static final Block WASTED_DOOR = registerBlock("wasted_door",
+            new RoundelBlock(FabricBlockSettings.copyOf(Blocks.OAK_DOOR).sounds(BlockSoundGroup.WOOD)));
+
+    public static final Block WASTED_LEAVES = registerBlock("wasted_leaves",
+            new RoundelBlock(FabricBlockSettings.copyOf(Blocks.OAK_LEAVES).sounds(BlockSoundGroup.AZALEA_LEAVES)));
+
+    public static final Block WASTED_LOG = registerBlock("wasted_log",
+            new RoundelBlock(FabricBlockSettings.copyOf(Blocks.OAK_LOG).sounds(BlockSoundGroup.WOOD)));
+
+    public static final Block WASTED_PLANK_SLAB = registerBlock("wasted_plank_slab",
+            new RoundelBlock(FabricBlockSettings.copyOf(Blocks.OAK_SLAB).sounds(BlockSoundGroup.WOOD)));
+
+    public static final Block WASTED_PLANK_STAIRS = registerBlock("wasted_plank_stairs",
+            new RoundelBlock(FabricBlockSettings.copyOf(Blocks.OAK_STAIRS).sounds(BlockSoundGroup.WOOD)));
+
+    public static final Block WASTED_PLANKS = registerBlock("wasted_planks",
+            new RoundelBlock(FabricBlockSettings.copyOf(Blocks.OAK_PLANKS).sounds(BlockSoundGroup.WOOD)));
+
+    public static final Block WASTED_PRESSURE_PLATE = registerBlock("wasted_pressure_plate",
+            new RoundelBlock(FabricBlockSettings.copyOf(Blocks.OAK_PRESSURE_PLATE).sounds(BlockSoundGroup.WOOD)));
+
+    public static final Block WASTED_TRAP_DOOR = registerBlock("wasted_trapdoor",
+            new RoundelBlock(FabricBlockSettings.copyOf(Blocks.OAK_TRAPDOOR).sounds(BlockSoundGroup.WOOD).requiresTool()));
+
+    public static final Block WASTED_GRASS = registerBlock("wastedgrass",
+            new RoundelBlock(FabricBlockSettings.copyOf(Blocks.GRASS_BLOCK).sounds(BlockSoundGroup.ROOTED_DIRT).requiresTool()));
+
+
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);
         return Registry.register(Registries.BLOCK, new Identifier(AdventuresWithTARDISes.MOD_ID, name), block);

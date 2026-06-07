@@ -1,0 +1,10 @@
+{
+  "parent": "awt:custom/model",
+  "textures": {
+    "all": "awt:block/2",
+    "particle": "awt:block/2",
+    "0": "awt:block/2",
+    "missing": "awt:block/2"
+  },
+  "render_type": "cutout"
+}

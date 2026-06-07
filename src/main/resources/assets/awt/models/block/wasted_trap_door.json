@@ -1,0 +1,8 @@
+{
+  "parent": "block/template_orientable_trapdoor_bottom",
+  "textures": {
+    "texture": "awt:block/warped_trapdoor",
+    "particle": "awt:block/warped_trapdoor"
+  },
+  "render_type": "solid"
+}

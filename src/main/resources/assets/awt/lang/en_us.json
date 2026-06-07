@@ -4,7 +4,7 @@
   "entity.awt.k9": "K-9",
   "entity.awt.cybermat": "Cybermat",
 
-  "dimension.awt.skarodim": "Skaro",
+  "dimension.awt.skaro": "Skaro",
   "dimension.awt.thelostworld": "The Lost Reality",
 
   "item.awt.atrium":"Atrium",
@@ -368,7 +368,30 @@
   "item_group.Atrium": "AWT: Main",
   "item_group.awt.Clothing": "AWT: Clothing",
   "item_group.awt.Prehistoric": "AWT: Prehistoric",
+  "item_group.awt.ddwa": "AWT: Skaro",
 
   "key.awt.sgm": "Sonic Shades",
-  "category.awt": "AWT"
+  "category.awt": "AWT",
+
+  "block.awt.wasted_trap_door": "Wasted Trap Door",
+  "block.awt.wasted_dirt": "Wasted Dirt",
+  "block.awt.cobbled_kaletite": "Cobbled Kaletite",
+  "block.awt.exquisite_cat": "Exquisite Cat",
+  "block.awt.kaletite": "Kaletite",
+  "block.awt.crackedinfortnite_kaletite": "Cracked Kaletite",
+  "block.awt.wasted_door": "Wasted Door",
+  "block.awt.wasted_log": "Wasted Log",
+  "block.awt.wasted_plank_stairs": "Wasted Plank Stair",
+  "block.awt.wastedgrass": "Wasted Grass",
+  "block.awt.wasted_button": "Wasted Button",
+  "block.awt.cat": "Cat",
+  "block.awt.wasted_pressure_plate": "Wasted Pressure Plate",
+  "block.awt.wasted_bush_plant": "Wasted Bush",
+  "block.awt.kaletite_bricks": "Kaletite Bricks",
+  "block.awt.wasted_plank_slab": "Wasted Plank Slab",
+  "biome.awt.skaro_waste_land": "Skaro Waste Land",
+  "block.awt.wasted_planks": "Wasted Planks",
+  "block.awt.good_heavens": "Good Heavens!",
+  "block.awt.wasted_leaves": "Wasted Leaves"
+
 }

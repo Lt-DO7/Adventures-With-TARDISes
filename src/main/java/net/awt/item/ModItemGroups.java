@@ -164,6 +164,8 @@ public class ModItemGroups {
                         entries.add(ModBlocks.THICK_GRATE_BLOCK);
                         entries.add(ModBlocks.RUSTY_GRATE_BLOCK);
                         entries.add(ModBlocks.RUSTY_THICK_GRATE_BLOCK);
+                        entries.add(ModBlocks.ECAT);
+                        entries.add(ModBlocks.GOODHEAVENS);
 
                     }).build());
     public static final ItemGroup CLOTHING_GROUP = Registry.register(Registries.ITEM_GROUP,
@@ -230,6 +232,28 @@ public class ModItemGroups {
                         entries.add(ModBlocks.PREHISTORIC_STAIRS);
                         entries.add(ModBlocks.PREHISTORIC_SLAB);
                         entries.add(ModBlocks.PREHISTORIC_LEAVES);
+
+                    }).build());
+
+    public static final ItemGroup SKARO_GROUP = Registry.register(Registries.ITEM_GROUP,
+            new Identifier(AdventuresWithTARDISes.MOD_ID, "skaro"),
+            FabricItemGroup.builder().displayName(Text.translatable("item_group.awt.skaro"))
+                    .icon(() -> new ItemStack(ModBlocks.KALETITE)).entries((displayContext, entries) -> {
+                        entries.add(ModBlocks.WASTED_DIRT);
+                        entries.add(ModBlocks.WASTED_GRASS);
+                        entries.add(ModBlocks.WASTED_BUSH_PLANT);
+                        entries.add(ModBlocks.WASTED_LOG);
+                        entries.add(ModBlocks.WASTED_LEAVES);
+                        entries.add(ModBlocks.WASTED_PLANKS);
+                        entries.add(ModBlocks.WASTED_PLANK_SLAB);
+                        entries.add(ModBlocks.WASTED_PLANK_STAIRS);
+                        entries.add(ModBlocks.WASTED_DOOR);
+                        entries.add(ModBlocks.WASTED_TRAP_DOOR);
+                        entries.add(ModBlocks.WASTED_BUTTON);
+                        entries.add(ModBlocks.WASTED_PRESSURE_PLATE);
+                        entries.add(ModBlocks.KALETITE);
+                        entries.add(ModBlocks.COBBLED_KALETITE);
+                        entries.add(ModBlocks.KALETITE_BRICKS);
 
                     }).build());
 
