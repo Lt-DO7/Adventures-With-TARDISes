@@ -1,0 +1,11 @@
+{
+  "music.menu": {
+    "replace": true,
+    "sounds": [
+      {
+        "name": "awt:awtmenu2026",
+        "stream": true
+      }
+    ]
+  }
+}

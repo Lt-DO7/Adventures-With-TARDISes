@@ -142,10 +142,20 @@
   },
   "doctorwho1411": {
     "category": "jukebox",
-    "subtitle": "AWT's Main Theme!!!",
+    "subtitle": "AWT's Main Theme for 2025",
     "sounds": [
       {
         "name": "awt:doctorwho1411",
+        "stream": true
+      }
+    ]
+  },
+  "awtmenu2026": {
+    "category": "jukebox",
+    "subtitle": "The Theme Song for 2026",
+    "sounds": [
+      {
+        "name": "awt:awtmenu2026",
         "stream": true
       }
     ]
