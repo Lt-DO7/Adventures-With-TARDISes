@@ -143,6 +143,12 @@ public class AdventuresWithTARDISes implements ModInitializer {
 
         // Resource Packs
         var modContainer = FabricLoader.getInstance().getModContainer("awt").orElseThrow();
+        ResourceManagerHelper.registerBuiltinResourcePack(
+                new Identifier("awt","awtmenubackground"),
+                modContainer,
+                Text.literal("AWT - Menu Panorama"),
+                ResourcePackActivationType.ALWAYS_ENABLED
+        );
 
         ResourceManagerHelper.registerBuiltinResourcePack(
                 new Identifier("awt", "awtmenu2026"),
