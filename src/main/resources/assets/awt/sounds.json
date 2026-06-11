@@ -186,7 +186,7 @@
     "sounds": [
       {
         "name": "awt:dugga_doo",
-        "stream": false
+        "stream": true
       }
     ]
   },
