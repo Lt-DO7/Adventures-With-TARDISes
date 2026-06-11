@@ -450,7 +450,7 @@ public class TardisExteriorRegistry {
         TIMEPOD.setModel(new timepod(timepod.getTexturedModelData().createModel())).toClient().register();
         TIMEPOD.toDoor().setModel(new timepoddoor(timepoddoor.getTexturedModelData().createModel())).toClient().register();
 
-         BEEHIVE.setModel(new beehive()).toClient().register();
+        BEEHIVE.setModel(new beehive()).toClient().register();
         BEEHIVE.toDoor().setModel(new beehivedoor(beehivedoor.getTexturedModelData().createModel())).toClient().register();
         BEEHIVE.setSonicItemTranslations(new Vector3f(0, 0, 0));
 
