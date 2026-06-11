@@ -235,11 +235,11 @@ public class TardisExteriorRegistry {
         HARTNELL = new AddonExterior(new Identifier(MOD_ID, "classicboxes"), MOD_ID, "hartnell").register();
         HARTNELL.setDoor(new AddonExterior.Door(HARTNELL, true, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
 
-        TROUGHTON = new AddonExterior(new Identifier(MOD_ID, "classicboxes"), MOD_ID, "troughton").register();
-        TROUGHTON.setDoor(new AddonExterior.Door(TROUGHTON, true, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
+     //  TROUGHTON = new AddonExterior(new Identifier(MOD_ID, "classicboxes"), MOD_ID, "troughton").register();
+        //TROUGHTON.setDoor(new AddonExterior.Door(TROUGHTON, true, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
 
-        PERTWEE = new AddonExterior(new Identifier(MOD_ID, "classicboxes"), MOD_ID, "pertwee").register();
-        PERTWEE.setDoor(new AddonExterior.Door(PERTWEE, true, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
+       // PERTWEE = new AddonExterior(new Identifier(MOD_ID, "classicboxes"), MOD_ID, "pertwee").register();
+       // PERTWEE.setDoor(new AddonExterior.Door(PERTWEE, true, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
 
         LEGODIMALT = new AddonExterior(new Identifier(MOD_ID, "legoboxes"), MOD_ID, "lego_dimensions_police_box_alt").register();
         LEGODIMALT.setDoor(new AddonExterior.Door(LEGODIMALT, true, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
@@ -491,13 +491,13 @@ public class TardisExteriorRegistry {
         HARTNELL.toDoor().setModel(new classic_policebox_door(classic_policebox_door.getTexturedModelData().createModel())).toClient().register();
         HARTNELL.setSonicItemTranslations(new Vector3f(0, 0, 0));
 
-        TROUGHTON.setModel(new classic_policebox()).toClient().register();
-        TROUGHTON.toDoor().setModel(new classic_policebox_door(classic_policebox_door.getTexturedModelData().createModel())).toClient().register();
-        TROUGHTON.setSonicItemTranslations(new Vector3f(0, 0, 0));
+        //TROUGHTON.setModel(new classic_policebox()).toClient().register();
+       // TROUGHTON.toDoor().setModel(new classic_policebox_door(classic_policebox_door.getTexturedModelData().createModel())).toClient().register();
+       // TROUGHTON.setSonicItemTranslations(new Vector3f(0, 0, 0));
 
-        PERTWEE.setModel(new classic_policebox()).toClient().register();
-        PERTWEE.toDoor().setModel(new classic_policebox_door(classic_policebox_door.getTexturedModelData().createModel())).toClient().register();
-        PERTWEE.setSonicItemTranslations(new Vector3f(0, 0, 0));
+      //  PERTWEE.setModel(new classic_policebox()).toClient().register();
+       // PERTWEE.toDoor().setModel(new classic_policebox_door(classic_policebox_door.getTexturedModelData().createModel())).toClient().register();
+       // PERTWEE.setSonicItemTranslations(new Vector3f(0, 0, 0));
 
         POLICEBOXINVERTED.setModel(new policebox()).toClient().register();
         POLICEBOXINVERTED.toDoor().setModel(new policeboxdoor(policeboxdoor.getTexturedModelData().createModel())).toClient().register();
