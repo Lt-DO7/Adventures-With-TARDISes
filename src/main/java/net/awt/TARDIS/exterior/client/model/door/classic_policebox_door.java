@@ -55,19 +55,19 @@ public class classic_policebox_door extends DoorModel {
 
 		ModelPartData door = parent.addChild("door", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, -0.7F, 0.0F));
 
-		ModelPartData right_door = door.addChild("right_door", ModelPartBuilder.create().uv(145, 137).cuboid(-7.5F, -31.5F, -0.375F, 7.5F, 31.5F, 1.0F, new Dilation(0.0F))
-		.uv(53, 149).cuboid(-7.5F, -31.5F, -0.75F, 7.5F, 31.5F, 1.0F, new Dilation(0.0F))
-		.uv(59, 77).cuboid(-7.4208F, -20.3067F, -1.0767F, 0.75F, 2.5233F, 1.0F, new Dilation(0.0F)), ModelTransform.pivot(7.875F, -0.8F, -8.125F));
+		ModelPartData right_door = door.addChild("right_door", ModelPartBuilder.create().uv(70, 145).cuboid(-7.5F, -31.5F, -0.375F, 7.5F, 31.5F, 1.0F, new Dilation(0.0F))
+		.uv(88, 145).cuboid(-7.5F, -31.5F, -0.75F, 7.5F, 31.5F, 1.0F, new Dilation(0.0F))
+		.uv(60, 78).cuboid(-6.6708F, -20.3067F, -1.3433F, 0.0F, 2.5233F, 1.0F, new Dilation(0.0F)), ModelTransform.pivot(7.875F, -0.8F, -8.125F));
 
-		ModelPartData left_door = door.addChild("left_door", ModelPartBuilder.create().uv(135, 87).cuboid(0.0F, -31.5F, -0.375F, 8.25F, 31.5F, 1.0F, new Dilation(0.0F))
+		ModelPartData left_door = door.addChild("left_door", ModelPartBuilder.create().uv(136, 51).cuboid(0.0F, -31.5F, -0.375F, 8.25F, 31.5F, 1.0F, new Dilation(0.0F))
 		.uv(80, 23).cuboid(7.5F, -31.5F, -1.125F, 0.75F, 31.5F, 0.0F, new Dilation(0.0F))
-		.uv(36, 143).cuboid(0.0F, -31.5F, -0.75F, 8.25F, 31.5F, 1.0F, new Dilation(0.0F)), ModelTransform.pivot(-7.875F, -0.8F, -8.125F));
+		.uv(138, 83).cuboid(0.0F, -31.5F, -0.75F, 8.25F, 31.5F, 1.0F, new Dilation(0.0F)), ModelTransform.pivot(-7.875F, -0.8F, -8.125F));
 
-		ModelPartData frame = parent.addChild("frame", ModelPartBuilder.create().uv(72, 148).cuboid(7.875F, -37.875F, -9.375F, 2.25F, 36.75F, 1.5F, new Dilation(0.0F))
-		.uv(80, 148).cuboid(-10.125F, -37.875F, -9.375F, 2.25F, 36.75F, 1.5F, new Dilation(0.0F))
-		.uv(104, 148).cuboid(-8.625F, -36.75F, -10.125F, 17.25F, 2.25F, 1.5F, new Dilation(0.0F))
-		.uv(154, 88).cuboid(-8.625F, -36.75F, -9.75F, 17.25F, 2.25F, 0.75F, new Dilation(0.0F))
-		.uv(152, 92).cuboid(-7.875F, -34.5F, -8.625F, 15.75F, 1.5F, 2.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
+		ModelPartData frame = parent.addChild("frame", ModelPartBuilder.create().uv(156, 51).cuboid(7.875F, -37.875F, -9.375F, 2.25F, 36.75F, 1.5F, new Dilation(0.0F))
+		.uv(156, 90).cuboid(-10.125F, -37.875F, -9.375F, 2.25F, 36.75F, 1.5F, new Dilation(0.0F))
+		.uv(146, 129).cuboid(-8.625F, -36.75F, -10.125F, 17.25F, 2.25F, 1.5F, new Dilation(0.0F))
+		.uv(146, 137).cuboid(-8.625F, -36.75F, -9.75F, 17.25F, 2.25F, 0.75F, new Dilation(0.0F))
+		.uv(146, 140).cuboid(-7.875F, -34.5F, -8.625F, 15.75F, 1.5F, 2.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
 
 		ModelPartData doorstop = frame.addChild("doorstop", ModelPartBuilder.create(), ModelTransform.of(1.5F, -33.0F, -8.625F, 0.3927F, 0.0F, 0.0F));
 
