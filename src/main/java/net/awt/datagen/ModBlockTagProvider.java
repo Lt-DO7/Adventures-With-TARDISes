@@ -53,6 +53,9 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.COPPER_ROUNDEL)
                 .add(ModBlocks.HARTNELL_ROUNDEL)
                 .add(ModBlocks.HARTNELL_WALL)
+                .add(ModBlocks.COBBLED_KALETITE)
+                .add(ModBlocks.KALETITE)
+                .add(ModBlocks.KALETITE_BRICKS)
         ;
 
         getOrCreateTagBuilder(BlockTags.NEEDS_IRON_TOOL)
@@ -82,15 +85,31 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, new Identifier("fabric", "needs_tool_level_5")));
 
-        getOrCreateTagBuilder(BlockTags.FENCES);
-        getOrCreateTagBuilder(BlockTags.FENCE_GATES);
-        getOrCreateTagBuilder(BlockTags.WALLS);
+        getOrCreateTagBuilder(BlockTags.FENCES)
+        ;
+
+        getOrCreateTagBuilder(BlockTags.FENCE_GATES)
+        ;
+
+        getOrCreateTagBuilder(BlockTags.WALLS)
+        ;
 
         getOrCreateTagBuilder(BlockTags.LOGS_THAT_BURN)
                 .add(ModBlocks.PREHISTORIC_PLANKS)
                 .add(ModBlocks.PREHISTORIC_LOG)
                 .add(ModBlocks.PREHISTORIC_STAIRS)
-                .add(ModBlocks.PREHISTORIC_SLAB);
+                .add(ModBlocks.PREHISTORIC_SLAB)
+              //  .add(ModBlocks.WASTED_BUTTON)
+              //  .add(ModBlocks.WASTED_DOOR)
+                .add(ModBlocks.WASTED_LEAVES)
+               // .add(ModBlocks.WASTED_BUSH_PLANT)
+                .add(ModBlocks.WASTED_LOG)
+                .add(ModBlocks.WASTED_PLANK_SLAB)
+               // .add(ModBlocks.WASTED_PLANK_STAIRS)
+                .add(ModBlocks.WASTED_PLANKS)
+              //  .add(ModBlocks.WASTED_PRESSURE_PLATE)
+               // .add(ModBlocks.WASTED_TRAP_DOOR)
+        ;
 
 
         getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
@@ -140,6 +159,9 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.DEEPSLATE_DALEKANIUM_ORE)
                 .add(ModBlocks.STEEL_BLOCK)
                 .add(ModBlocks.METALERTANIUM_BLOCK)
+                .add(ModBlocks.COBBLED_KALETITE)
+                .add(ModBlocks.KALETITE)
+                .add(ModBlocks.KALETITE_BRICKS)
         ;
 
         getOrCreateTagBuilder(BlockTags.AXE_MINEABLE)
@@ -154,12 +176,27 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.PREHISTORIC_PLANKS)
                 .add(ModBlocks.PREHISTORIC_LOG)
                 .add(ModBlocks.PREHISTORIC_STAIRS)
-                .add(ModBlocks.PREHISTORIC_SLAB);
+                .add(ModBlocks.PREHISTORIC_SLAB)
+              //  .add(ModBlocks.WASTED_BUTTON)
+               // .add(ModBlocks.WASTED_DOOR)
+                .add(ModBlocks.WASTED_LEAVES)
+              //  .add(ModBlocks.WASTED_BUSH_PLANT)
+                .add(ModBlocks.WASTED_LOG)
+                .add(ModBlocks.WASTED_PLANK_SLAB)
+             //   .add(ModBlocks.WASTED_PLANK_STAIRS)
+                .add(ModBlocks.WASTED_PLANKS)
+              //  .add(ModBlocks.WASTED_PRESSURE_PLATE)
+              //  .add(ModBlocks.WASTED_TRAP_DOOR)
+        ;
+
 
 
         getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE)
                 .add(ModBlocks.MOSS_ROUNDEL)
-                .add(ModBlocks.DIRT_ROUNDEL);
+                .add(ModBlocks.DIRT_ROUNDEL)
+                .add(ModBlocks.WASTED_DIRT)
+              //  .add(ModBlocks.WASTED_GRASS)
+        ;
 
     }
 }

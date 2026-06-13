@@ -1,0 +1,10 @@
+{
+  "parent": "awt:custom/model",
+  "textures": {
+    "all": "awt:block/ddwa/2",
+    "particle": "awt:block/ddwa/2",
+    "0": "awt:block/ddwa/2",
+    "missing": "awt:block/ddwa/2"
+  },
+  "render_type": "cutout"
+}

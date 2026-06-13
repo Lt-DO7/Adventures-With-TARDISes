@@ -19,6 +19,9 @@ import net.minecraft.util.math.RotationAxis;
 // Paste this class into your mod and generate all required imports
 public class classic_policebox_door extends DoorModel {
 	private final ModelPart parent;
+	private final ModelPart door;
+	private final ModelPart right_door;
+	private final ModelPart left_door;
 	private final ModelPart frame;
 	private final ModelPart doorstop;
 	private final ModelPart roof;
@@ -28,10 +31,12 @@ public class classic_policebox_door extends DoorModel {
 	private final ModelPart wheel2;
 	private final ModelPart wheel3;
 	private final ModelPart wheel4;
-	private final ModelPart right_door;
-	private final ModelPart left_door;
+	private final ModelPart portal;
 	public classic_policebox_door(ModelPart root) {
 		this.parent = root.getChild("parent");
+		this.door = this.parent.getChild("door");
+		this.right_door = this.door.getChild("right_door");
+		this.left_door = this.door.getChild("left_door");
 		this.frame = this.parent.getChild("frame");
 		this.doorstop = this.frame.getChild("doorstop");
 		this.roof = this.frame.getChild("roof");
@@ -41,19 +46,28 @@ public class classic_policebox_door extends DoorModel {
 		this.wheel2 = this.frame.getChild("wheel2");
 		this.wheel3 = this.frame.getChild("wheel3");
 		this.wheel4 = this.frame.getChild("wheel4");
-		this.right_door = this.parent.getChild("right_door");
-		this.left_door = this.parent.getChild("left_door");
+		this.portal = this.parent.getChild("portal");
 	}
 	public static TexturedModelData getTexturedModelData() {
 		ModelData modelData = new ModelData();
 		ModelPartData modelPartData = modelData.getRoot();
-		ModelPartData parent = modelPartData.addChild("parent", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, 25.6F, 1.0F));
+		ModelPartData parent = modelPartData.addChild("parent", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, 25.7F, 2.0F));
 
-		ModelPartData frame = parent.addChild("frame", ModelPartBuilder.create().uv(72, 148).cuboid(7.875F, -37.875F, -9.375F, 2.25F, 36.75F, 1.5F, new Dilation(0.0F))
-		.uv(80, 148).cuboid(-10.125F, -37.875F, -9.375F, 2.25F, 36.75F, 1.5F, new Dilation(0.0F))
-		.uv(104, 148).cuboid(-8.625F, -36.75F, -10.125F, 17.25F, 2.25F, 1.5F, new Dilation(0.0F))
-		.uv(154, 88).cuboid(-8.625F, -36.75F, -9.75F, 17.25F, 2.25F, 0.75F, new Dilation(0.0F))
-		.uv(154, 94).cuboid(-7.875F, -34.5F, -8.625F, 15.75F, 1.5F, 0.75F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
+		ModelPartData door = parent.addChild("door", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, -0.7F, 0.0F));
+
+		ModelPartData right_door = door.addChild("right_door", ModelPartBuilder.create().uv(70, 145).cuboid(-7.5F, -31.5F, -0.375F, 7.5F, 31.5F, 1.0F, new Dilation(0.0F))
+		.uv(88, 145).cuboid(-7.5F, -31.5F, -0.75F, 7.5F, 31.5F, 1.0F, new Dilation(0.0F))
+		.uv(60, 78).cuboid(-6.6708F, -20.3067F, -1.3433F, 0.0F, 2.5233F, 1.0F, new Dilation(0.0F)), ModelTransform.pivot(7.875F, -0.8F, -8.125F));
+
+		ModelPartData left_door = door.addChild("left_door", ModelPartBuilder.create().uv(136, 51).cuboid(0.0F, -31.5F, -0.375F, 8.25F, 31.5F, 1.0F, new Dilation(0.0F))
+		.uv(80, 23).cuboid(7.5F, -31.5F, -1.125F, 0.75F, 31.5F, 0.0F, new Dilation(0.0F))
+		.uv(138, 83).cuboid(0.0F, -31.5F, -0.75F, 8.25F, 31.5F, 1.0F, new Dilation(0.0F)), ModelTransform.pivot(-7.875F, -0.8F, -8.125F));
+
+		ModelPartData frame = parent.addChild("frame", ModelPartBuilder.create().uv(156, 51).cuboid(7.875F, -37.875F, -9.375F, 2.25F, 36.75F, 1.5F, new Dilation(0.0F))
+		.uv(156, 90).cuboid(-10.125F, -37.875F, -9.375F, 2.25F, 36.75F, 1.5F, new Dilation(0.0F))
+		.uv(146, 129).cuboid(-8.625F, -36.75F, -10.125F, 17.25F, 2.25F, 1.5F, new Dilation(0.0F))
+		.uv(146, 137).cuboid(-8.625F, -36.75F, -9.75F, 17.25F, 2.25F, 0.75F, new Dilation(0.0F))
+		.uv(146, 140).cuboid(-7.875F, -34.5F, -8.625F, 15.75F, 1.5F, 2.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
 
 		ModelPartData doorstop = frame.addChild("doorstop", ModelPartBuilder.create(), ModelTransform.of(1.5F, -33.0F, -8.625F, 0.3927F, 0.0F, 0.0F));
 
@@ -71,14 +85,7 @@ public class classic_policebox_door extends DoorModel {
 
 		ModelPartData wheel4 = frame.addChild("wheel4", ModelPartBuilder.create(), ModelTransform.of(-9.0F, -0.375F, 9.0F, 0.0F, 0.7854F, 0.0F));
 
-		ModelPartData right_door = parent.addChild("right_door", ModelPartBuilder.create().uv(146, 138).cuboid(-7.5F, -31.5F, -0.375F, 7.5F, 31.5F, 0.75F, new Dilation(0.0F))
-		.uv(54, 148).cuboid(-7.5F, -31.5F, -0.75F, 7.5F, 31.5F, 0.75F, new Dilation(0.0F))
-		.uv(60, 78).cuboid(-7.4208F, -20.3067F, -1.0767F, 0.75F, 2.5233F, 0.5F, new Dilation(0.0F)), ModelTransform.pivot(7.875F, -1.5F, -8.125F));
-
-		ModelPartData left_door = parent.addChild("left_door", ModelPartBuilder.create().uv(136, 88).cuboid(0.0F, -31.5F, -0.375F, 8.25F, 31.5F, 0.75F, new Dilation(0.0F))
-		.uv(80, 23).cuboid(7.5F, -31.5F, -1.125F, 0.75F, 31.5F, 0.375F, new Dilation(0.0F))
-		.uv(36, 142).cuboid(0.0F, -31.5F, -0.75F, 8.25F, 31.5F, 0.75F, new Dilation(0.0F)), ModelTransform.pivot(-7.875F, -1.5F, -8.125F));
-
+		ModelPartData portal = parent.addChild("portal", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, 0.0F, 0.5F));
 		return TexturedModelData.of(modelData, 256, 256);
 	}
 	@Override

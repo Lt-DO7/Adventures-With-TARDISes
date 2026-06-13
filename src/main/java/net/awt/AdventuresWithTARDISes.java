@@ -41,6 +41,7 @@ import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRe
 
 import net.minecraft.entity.SpawnRestriction;
 import net.minecraft.entity.mob.MobEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
@@ -59,6 +60,7 @@ public class AdventuresWithTARDISes implements ModInitializer {
     private static final String DEO_JOIN_GIFT_TAG = MOD_ID + ".deo_join_gift";
     private static final String SCARFO_JOIN_GIFT_TAG = MOD_ID + ".scarfo_join_gift";
     private static final String BLUEBERRY_JOIN_GIFT_TAG = MOD_ID + ".blueberry_join_gift";
+    private static final String RHAMMII_JOIN_GIFT_TAG = MOD_ID + ".rhammii_join_gift";
 
     @Override
     public void onInitialize() {
@@ -103,7 +105,7 @@ public class AdventuresWithTARDISes implements ModInitializer {
         AWTCategoryRegistry.init();
 
         // Fuel
-        FuelRegistry.INSTANCE.add(ModItems.ATRIUM_FUEL, 12800);
+        FuelRegistry.INSTANCE.add(ModItems.ATRIUM_FUEL, 6400);
 
         // Handles
         HandlesResponseRegistry.register(new HandlesResponse() {
@@ -131,6 +133,7 @@ public class AdventuresWithTARDISes implements ModInitializer {
         ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> giveDeoJoinGift(handler.player));
         ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> giveScarfoJoinGift(handler.player));
         ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> giveBlueBerryJoinGift(handler.player));
+        ServerPlayConnectionEvents.JOIN.register((handler, packetSender, minecraftServer) -> giveRhamnousJoinGift(handler.player));
 
         ModWorldGeneration.generateModWorldGen();
         ModPackets.registerC2SPackets();
@@ -140,26 +143,39 @@ public class AdventuresWithTARDISes implements ModInitializer {
 
         // Resource Packs
         var modContainer = FabricLoader.getInstance().getModContainer("awt").orElseThrow();
+        ResourceManagerHelper.registerBuiltinResourcePack(
+                new Identifier("awt","awtmenubackground"),
+                modContainer,
+                Text.literal("AWT - Menu Panorama"),
+                ResourcePackActivationType.ALWAYS_ENABLED
+        );
 
         ResourceManagerHelper.registerBuiltinResourcePack(
-                new Identifier("awt", "awtmenu"),
+                new Identifier("awt", "awtmenu2026"),
                 modContainer,
-                Text.literal("Main Menu Music"),
-                ResourcePackActivationType.DEFAULT_ENABLED
+                Text.literal("AWT - Main Menu Music (2026)"),
+                ResourcePackActivationType.ALWAYS_ENABLED
+        );
+
+        ResourceManagerHelper.registerBuiltinResourcePack(
+                new Identifier("awt","awtmenu"),
+                modContainer,
+                Text.literal("AWT - Main Menu Music (2025)"),
+                ResourcePackActivationType.NORMAL
         );
 
         ResourceManagerHelper.registerBuiltinResourcePack(
                 new Identifier("awt", "awttesterrorsound"),
                 modContainer,
-                Text.literal("Rhamnous Error"),
+                Text.literal("AWT - Alternate Error Sound"),
                 ResourcePackActivationType.DEFAULT_ENABLED
         );
 
         ResourceManagerHelper.registerBuiltinResourcePack(
                 new Identifier("awt", "blueshiftgui"),
                 modContainer,
-                Text.literal("Blue Shift GUI"),
-                ResourcePackActivationType.DEFAULT_ENABLED
+                Text.literal("AWT - Blueshift"),
+                ResourcePackActivationType.NORMAL
         );
 
         ResourceManagerHelper.registerBuiltinResourcePack(
@@ -173,20 +189,20 @@ public class AdventuresWithTARDISes implements ModInitializer {
                 new Identifier("awt", "greyedgui"),
                 modContainer,
                 Text.literal("Grey Shift GUI"),
-                ResourcePackActivationType.DEFAULT_ENABLED
+                ResourcePackActivationType.NORMAL
         );
         ResourceManagerHelper.registerBuiltinResourcePack(
                 new Identifier("awt", "lebronjamesgui"),
                 modContainer,
                 Text.literal("Lebron James GUI"),
-                ResourcePackActivationType.DEFAULT_ENABLED
+                ResourcePackActivationType.NORMAL
         );
 
         ResourceManagerHelper.registerBuiltinResourcePack(
                 new Identifier("awt", "redshiftgui"),
                 modContainer,
                 Text.literal("Red Shift GUI"),
-                ResourcePackActivationType.DEFAULT_ENABLED
+                ResourcePackActivationType.NORMAL
         );
 
     }
@@ -239,6 +255,18 @@ public class AdventuresWithTARDISes implements ModInitializer {
         giveOrDrop(player, new ItemStack(ModItems.VORTEX_MANIPULATOR));
         giveOrDrop(player, new ItemStack(AITItems.TARDIS_ITEM));
         player.addCommandTag(BLUEBERRY_JOIN_GIFT_TAG);
+    }
+
+    private static void giveRhamnousJoinGift(ServerPlayerEntity player) {
+        if (!player.getUuid().equals(AWTDevTeam.RHAMMII) || player.getCommandTags().contains(RHAMMII_JOIN_GIFT_TAG)) {
+    return;
+        }
+
+        giveOrDrop(player, new ItemStack(AITItems.SONIC_SCREWDRIVER));
+        giveOrDrop(player, new ItemStack(AITItems.GOOD_MAN_MUSIC_DISC));
+        giveOrDrop(player, new ItemStack(AITItems.SKELETON_KEY));
+        giveOrDrop(player, new ItemStack(AITItems.TARDIS_ITEM));
+        player.addCommandTag(RHAMMII_JOIN_GIFT_TAG);
     }
     private static void giveOrDrop(ServerPlayerEntity player, ItemStack stack) {
         if (!player.getInventory().insertStack(stack)) {

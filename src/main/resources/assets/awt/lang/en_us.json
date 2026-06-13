@@ -4,7 +4,7 @@
   "entity.awt.k9": "K-9",
   "entity.awt.cybermat": "Cybermat",
 
-  "dimension.awt.skarodim": "Skaro",
+  "dimension.awt.skaro": "Skaro",
   "dimension.awt.thelostworld": "The Lost Reality",
 
   "item.awt.atrium":"Atrium",
@@ -124,6 +124,8 @@
   "exterior.awt.policebox_texture": "Textured...? Box",
   "exterior.awt.policebox_inverted": "Inverted Box",
 
+  "exterior.awt.blueberry": "Blueberry Box",
+
   "exterior.awt.phonebooth": "Phonebooth",
   "exterior.awt.gloomphonebooth": "Gloom Phonebooth",
   "exterior.awt.fadedphonebooth": "Faded Phonebooth",
@@ -138,18 +140,12 @@
   "exterior.awt.troughton": "Troughton",
   "exterior.awt.pertwee": "Pertwee",
 
-  "exterior.awt.inverted_police": "Inverted",
-  "exterior.awt.burntcapsule": "Burnt Capsule",
   "exterior.awt.k6booth": "K6",
   "exterior.awt.futurek6": "Future K6",
-  "exterior.awt.texture": "Textured...?",
   "exterior.awt.glasgow": "Glasgow",
   "exterior.awt.tardimog": "OG TARDIM",
-  "exterior.awt.atrium_box": "Atrium Box",
   "exterior.awt.bee_k6": "Bee Booth",
   "exterior.awt.creamk6booth": "Gloom Booth",
-  "exterior.awt.eleventh": "Smith",
-  "exterior.awt.dimensional": "Dimensional",
 
 
   "sonic.awt.blunt": "Blunt",
@@ -177,6 +173,7 @@
   "sonic.awt.laser_screwdriver": "Laser Screwdriver",
   "sonic.awt.dbz_sonic": "Dragon Ball Radar",
   "sonic.awt.alstaff": "Alastor's Staff",
+  "sonic.awt.pride_sonic": "Pride Sonic",
 
   "desktop.awt.fnaf4": "FNAF 4",
   "desktop.awt.darkrock": "DarkRock",
@@ -206,15 +203,17 @@
   "desktop.awt.travelers_respite": "Travelers Respite",
   "desktop.awt.70default": "Type 70",
   "desktop.awt.classic_neon": "Classic Neon",
-  "desktop.awt.upgraded4thsec": "Light's Interior",
-  "desktop.awt.bluetardis": "Blue's Interior",
+  "desktop.awt.upgraded4thsec": "Wodden Classic",
+  "desktop.awt.bluetardis": "Blueberry Interior",
   "desktop.awt.fugitive": "Fugitive",
   "desktop.awt.capalditoyota": "Capaldi's Toyota",
   "desktop.awt.copper": "Matt's Copper",
-  "desktop.awt.scarfo": "Scarfo's Library",
+  "desktop.awt.scarfo": "Library",
   "desktop.awt.ladylibertyinterior": "Lady Liberty",
   "desktop.awt.medieval_int": "Medieval Interior",
   "desktop.awt.mcgann": "McGann's Victorian",
+  "desktop.awt.skratardis": "Skratardis",
+  "desktop.awt.sanguine_chamber": "Sanguine Chamber",
 
   "animation.awt.paradox_mat": "Paradox Mat",
   "animation.awt.goofy_fall_demat": "Oops I Died",
@@ -367,7 +366,30 @@
   "item_group.Atrium": "AWT: Main",
   "item_group.awt.Clothing": "AWT: Clothing",
   "item_group.awt.Prehistoric": "AWT: Prehistoric",
+  "item_group.awt.skaro": "AWT: Skaro",
 
   "key.awt.sgm": "Sonic Shades",
-  "category.awt": "AWT"
+  "category.awt": "AWT",
+
+  "block.awt.wasted_trap_door": "Wasted Trap Door",
+  "block.awt.wasted_dirt": "Wasted Dirt",
+  "block.awt.cobbled_kaletite": "Cobbled Kaletite",
+  "block.awt.exquisite_cat": "Exquisite Cat",
+  "block.awt.kaletite": "Kaletite",
+  "block.awt.crackedinfortnite_kaletite": "Cracked Kaletite",
+  "block.awt.wasted_door": "Wasted Door",
+  "block.awt.wasted_log": "Wasted Log",
+  "block.awt.wasted_plank_stairs": "Wasted Plank Stair",
+  "block.awt.wastedgrass": "Wasted Grass",
+  "block.awt.wasted_button": "Wasted Button",
+  "block.awt.cat": "Cat",
+  "block.awt.wasted_pressure_plate": "Wasted Pressure Plate",
+  "block.awt.wasted_bush_plant": "Wasted Bush",
+  "block.awt.kaletite_bricks": "Kaletite Bricks",
+  "block.awt.wasted_plank_slab": "Wasted Plank Slab",
+  "biome.awt.skaro_waste_land": "Skaro Waste Land",
+  "block.awt.wasted_planks": "Wasted Planks",
+  "block.awt.good_heavens": "Good Heavens!",
+  "block.awt.wasted_leaves": "Wasted Leaves"
+
 }

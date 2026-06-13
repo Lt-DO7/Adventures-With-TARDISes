@@ -1,0 +1,9 @@
+{
+  "parent": "block/slab",
+  "textures": {
+    "bottom": "awt:block/ddwa/wasted_planks",
+    "top": "awt:block/ddwa/wasted_planks",
+    "side": "awt:block/ddwa/wasted_planks"
+  },
+  "render_type": "solid"
+}

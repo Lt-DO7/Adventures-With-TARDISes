@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "a"
+  ],
+  "key": {
+    "a": {
+      "item": "awt:wasted_planks"
+    }
+  },
+  "result": {
+    "item": "awt:wasted_button",
+    "count": 1
+  }
+}

@@ -46,6 +46,9 @@
     "awt:dalekanium_ore",
     "awt:deepslate_dalekanium_ore",
     "awt:steel_block",
-    "awt:metalertanium_block"
+    "awt:metalertanium_block",
+    "awt:cobbled_kaletite",
+    "awt:kaletite",
+    "awt:kaletite_bricks"
   ]
 }

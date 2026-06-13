@@ -4,17 +4,12 @@ import net.awt.AdventuresWithTARDISes;
 import net.awt.block.custom.RoundelBlock;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.GlassBlock;
+import net.minecraft.block.*;
 import net.minecraft.item.BlockItem;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
-import net.minecraft.block.PillarBlock;
-import net.minecraft.block.SlabBlock;
-import net.minecraft.block.StairsBlock;
 
 public class ModBlocks {
     //AWT
@@ -32,13 +27,13 @@ public class ModBlocks {
             new Block(FabricBlockSettings.copyOf(Blocks.DEEPSLATE_DIAMOND_ORE).sounds(BlockSoundGroup.DEEPSLATE).requiresTool()));
 
     public static final Block GRATE_BLOCK = registerBlock("grate_block",
-            new GlassBlock(FabricBlockSettings.copyOf(Blocks.IRON_BARS).sounds(BlockSoundGroup.CHAIN).requiresTool()));
+            new Block(FabricBlockSettings.copyOf(Blocks.IRON_BARS).sounds(BlockSoundGroup.CHAIN).requiresTool()));
 
     public static final Block THICK_GRATE_BLOCK = registerBlock("thick_grate_block",
-            new GlassBlock(FabricBlockSettings.copyOf(Blocks.IRON_BARS).sounds(BlockSoundGroup.CHAIN).requiresTool()));
+            new Block(FabricBlockSettings.copyOf(Blocks.IRON_BARS).sounds(BlockSoundGroup.CHAIN).requiresTool()));
 
     public static final Block RUSTY_GRATE_BLOCK = registerBlock("rusty_grate_block",
-            new GlassBlock(FabricBlockSettings.copyOf(Blocks.IRON_BARS).sounds(BlockSoundGroup.CHAIN).requiresTool()));
+            new Block(FabricBlockSettings.copyOf(Blocks.IRON_BARS).sounds(BlockSoundGroup.CHAIN).requiresTool()));
 
     public static final Block RUSTY_THICK_GRATE_BLOCK = registerBlock("rusty_thick_grate_block",
             new GlassBlock(FabricBlockSettings.copyOf(Blocks.IRON_BARS).sounds(BlockSoundGroup.CHAIN).requiresTool()));
@@ -232,6 +227,63 @@ public class ModBlocks {
 
     public static final Block METALERTANIUM_BLOCK = registerBlock("metalertanium_block",
             new Block(FabricBlockSettings.copyOf(Blocks.NETHERITE_BLOCK).sounds(BlockSoundGroup.NETHERITE).requiresTool()));
+
+
+    //Skaro
+
+    public static final Block ECAT  = registerBlock("exquisite_cat",
+            new Block(FabricBlockSettings.copyOf(Blocks.STONE).sounds(BlockSoundGroup.STONE)));
+
+    public static final Block GOODHEAVENS = registerBlock("good_heavens",
+            new Block(FabricBlockSettings.copyOf(Blocks.STONE).sounds(BlockSoundGroup.STONE)));
+
+    public static final Block COBBLED_KALETITE = registerBlock("cobbled_kaletite",
+            new Block(FabricBlockSettings.copyOf(Blocks.STONE).sounds(BlockSoundGroup.STONE).requiresTool()));
+
+    public static final Block KALETITE = registerBlock("kaletite",
+            new Block(FabricBlockSettings.copyOf(Blocks.STONE).sounds(BlockSoundGroup.STONE).requiresTool()));
+
+    public static final Block KALETITE_BRICKS = registerBlock("kaletite_bricks",
+            new Block(FabricBlockSettings.copyOf(Blocks.STONE).sounds(BlockSoundGroup.STONE).requiresTool()));
+
+  //  public static final Block WASTED_BUSH_PLANT = registerBlock("wasted_bush_plant",
+  //          new RoundelBlock(FabricBlockSettings.copyOf(Blocks.GRASS).sounds(BlockSoundGroup.GRASS)));
+
+ //   public static final Block WASTED_BUTTON = registerBlock("wasted_button",
+   //         new RoundelBlock(FabricBlockSettings.copyOf(Blocks.OAK_BUTTON).sounds(BlockSoundGroup.WOOD)));
+
+    public static final Block WASTED_DIRT = registerBlock("wasted_dirt",
+            new GlassBlock(FabricBlockSettings.copyOf(Blocks.DIRT).sounds(BlockSoundGroup.ROOTED_DIRT)));
+
+  // public static final Block WASTED_DOOR = registerBlock("wasted_door",
+         //  new DoorBlock(DoorBlocks.WASTED_DOOR.getDefaultState(),
+               //    FabricBlockSettings.copyOf(Blocks.OAK_DOOR)));
+
+    public static final Block WASTED_LEAVES = registerBlock("wasted_leaves",
+            new Block(FabricBlockSettings.copyOf(Blocks.OAK_LEAVES).sounds(BlockSoundGroup.AZALEA_LEAVES)));
+
+    public static final Block WASTED_LOG = registerBlock("wasted_log",
+            new PillarBlock(FabricBlockSettings.copyOf(Blocks.OAK_LOG).sounds(BlockSoundGroup.WOOD)));
+
+    public static final Block WASTED_PLANK_SLAB = registerBlock("wasted_plank_slab",
+            new SlabBlock(FabricBlockSettings.copyOf(Blocks.OAK_SLAB).sounds(BlockSoundGroup.WOOD)));
+
+  // public static final Block WASTED_PLANK_STAIRS = registerBlock("wasted_plank_stairs",
+       //    new StairsBlock(ModBlocks.WASTED_PLANK_STAIRS.getDefaultState(),
+             //      FabricBlockSettings.copyOf(Blocks.OAK_STAIRS)));
+
+    public static final Block WASTED_PLANKS = registerBlock("wasted_planks",
+            new Block(FabricBlockSettings.copyOf(Blocks.OAK_PLANKS).sounds(BlockSoundGroup.WOOD)));
+
+  //  public static final Block WASTED_PRESSURE_PLATE = registerBlock("wasted_pressure_plate",
+    //        new RoundelBlock(FabricBlockSettings.copyOf(Blocks.OAK_PRESSURE_PLATE).sounds(BlockSoundGroup.WOOD)));
+
+   // public static final Block WASTED_TRAP_DOOR = registerBlock("wasted_trapdoor",
+   //         new RoundelBlock(FabricBlockSettings.copyOf(Blocks.OAK_TRAPDOOR).sounds(BlockSoundGroup.WOOD).requiresTool()));
+
+   // public static final Block WASTED_GRASS = registerBlock("wastedgrass",
+    //        new GlassBlock(FabricBlockSettings.copyOf(Blocks.GRASS_BLOCK).sounds(BlockSoundGroup.ROOTED_DIRT).requiresTool()));
+
 
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);

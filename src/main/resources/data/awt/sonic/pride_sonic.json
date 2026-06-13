@@ -1,0 +1,13 @@
+{
+  "id": "awt:pride_sonic",
+  "models": {
+    "inactive": "awt:item/sonic/pride_inactive",
+    "interaction": "awt:item/sonic/pride_interaction",
+    "overload": "awt:item/sonic/pride_overload",
+    "scanning": "awt:item/sonic/pride_scanning",
+    "tardis": "awt:item/sonic/pride_tardis"
+  },
+  "loyalty": {
+    "type": "OWNER"
+  }
+}

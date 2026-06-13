@@ -1,0 +1,8 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "awt:block/ddwa/kaletite_bricks",
+    "particle": "awt:block/ddwa/kaletite_bricks"
+  },
+  "render_type": "solid"
+}
