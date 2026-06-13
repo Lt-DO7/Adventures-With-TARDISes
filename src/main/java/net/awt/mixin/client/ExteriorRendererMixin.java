@@ -35,7 +35,6 @@ public abstract class ExteriorRendererMixin {
 
         profiler.push("awt_custom_siege");
         matrices.push();
-        matrices.translate(0.5f, 0.5f, 0.5f);
 
         ModelPart root = entry.model().getPart();
         VertexConsumer vertices = vertexConsumers.getBuffer(RenderLayer.getEntityCutout(entry.texture(variantId)));
