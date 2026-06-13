@@ -120,6 +120,7 @@ public class SeigedOnion extends SimpleExteriorModel {
 	@Override
 	public <T extends Entity & Linkable> void renderEntity(T falling, ModelPart root, MatrixStack matrices, VertexConsumer vertexConsumer, int light, int overlay, float red, float green, float blue, float alpha) {
 		matrices.push();
+		// Corrected Y-offset
 		matrices.translate(0.0f, -1.5f, 0.0f);
 		super.renderEntity(falling, root, matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
 		matrices.pop();
@@ -128,8 +129,8 @@ public class SeigedOnion extends SimpleExteriorModel {
 	@Override
 	public void renderWithAnimations(ClientTardis tardis, ExteriorBlockEntity exterior, ModelPart root, MatrixStack matrices, VertexConsumer vertices, int light, int overlay, float red, float green, float blue, float alpha) {
 		matrices.push();
-		matrices.translate(0.5f, 1.5f, 0.5f);
-		matrices.multiply(RotationAxis.POSITIVE_X.rotationDegrees(180.0f));
+		// Corrected Y-offset
+		matrices.translate(0.0f, -1.5f, 0.0f);
 		super.renderWithAnimations(tardis, exterior, root, matrices, vertices, light, overlay, red, green, blue, alpha);
 		matrices.pop();
 	}
