@@ -46,7 +46,7 @@ public class k2phonebooth_door extends DoorModel {
 		}
 
 		matrices.push();
-		matrices.scale(1, 1, 1);
+		matrices.scale(0.95f, 0.95f, 0.95f);
 		matrices.translate(0.0F, -1.5F, 0.0F);
 		matrices.multiply(RotationAxis.NEGATIVE_Y.rotationDegrees(180.0F));
 		super.renderWithAnimations(tardis, doorEntity, root, matrices, vertices, light, overlay, red, green, blue, pAlpha, tickDelta);

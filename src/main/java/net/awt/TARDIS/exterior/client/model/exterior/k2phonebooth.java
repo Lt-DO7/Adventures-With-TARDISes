@@ -128,7 +128,7 @@ public class k2phonebooth extends SimpleExteriorModel {
 			return;
 
 		matrices.push();
-		matrices.scale(1, 1, 1);
+		matrices.scale(0.95f, 0.95f, 0.95f);
 		matrices.translate(0, -1.5f, 0);
 
 		DoorHandler door = exterior.tardis().get().door();
@@ -147,7 +147,7 @@ public class k2phonebooth extends SimpleExteriorModel {
 	@Override
 	public <T extends Entity & Linkable> void renderEntity(T falling, ModelPart root, MatrixStack matrices, VertexConsumer vertexConsumer, int light, int overlay, float red, float green, float blue, float alpha) {
 		matrices.push();
-		matrices.scale(1, 1, 1);
+		matrices.scale(1, 1f, 1);
 		matrices.translate(0, -1.5f, 0);
 		super.renderEntity(falling, root, matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
 		matrices.pop();
