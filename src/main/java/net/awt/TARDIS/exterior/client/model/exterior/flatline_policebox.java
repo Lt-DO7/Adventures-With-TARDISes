@@ -197,7 +197,7 @@ public class flatline_policebox extends SimpleExteriorModel {
     @Override
     public <T extends Entity & Linkable> void renderEntity(T falling, ModelPart root, MatrixStack matrices, VertexConsumer vertexConsumer, int light, int overlay, float red, float green, float blue, float alpha) {
         matrices.push();
-        matrices.scale(1, 1, 1);
+        matrices.scale(0.25f, 0.25f, 0.25f);
         matrices.translate(0, -1.5f, 0);
         super.renderEntity(falling, root, matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
         matrices.pop();
