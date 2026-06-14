@@ -81,6 +81,7 @@ public class TardisExteriorRegistry {
     public static AddonExterior K6PHONEBOOTHFUTURE;
     public static AddonExterior K6PHONEBOOTHBEE;
     public static AddonExterior K6PHONEBOOTHGHOST;
+    public static AddonExterior POLICEBOXENC;
 
     public static AddonExterior JAKE;
 
@@ -286,6 +287,9 @@ public class TardisExteriorRegistry {
         K6PHONEBOOTHGHOST = new AddonExterior(new Identifier(MOD_ID, "phonebooths"), MOD_ID, "k6phonebooth_ghost").register();
         K6PHONEBOOTHGHOST.setDoor(new AddonExterior.Door(K6PHONEBOOTHGHOST, false, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
 
+        POLICEBOXENC = new AddonExterior(AWTExclusiveCategory.REFERENCE, MOD_ID, "policebox_enc").register();
+        POLICEBOXENC.setDoor(new AddonExterior.Door(POLICEBOXENC, true, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
+
     }
 
     @Environment(EnvType.CLIENT)
@@ -487,6 +491,10 @@ public class TardisExteriorRegistry {
         POLICEBOXORANGE.setModel(new policebox()).toClient().register();
         POLICEBOXORANGE.toDoor().setModel(new policeboxdoor(policeboxdoor.getTexturedModelData().createModel())).toClient().register();
         POLICEBOXORANGE.setSonicItemTranslations(new Vector3f(0, 0, 0));
+
+        POLICEBOXENC.setModel(new policebox()).toClient().register();
+        POLICEBOXENC.toDoor().setModel(new policeboxdoor(policeboxdoor.getTexturedModelData().createModel())).toClient().register();
+        POLICEBOXENC.setSonicItemTranslations(new Vector3f(0, 0, 0));
 
         TIMEPOD.setModel(new timepod(timepod.getTexturedModelData().createModel())).toClient().register();
         TIMEPOD.toDoor().setModel(new timepoddoor(timepoddoor.getTexturedModelData().createModel())).toClient().register();
