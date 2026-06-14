@@ -3,6 +3,7 @@ package net.awt.mixin.client;
 import dev.amble.ait.client.renderers.exteriors.ExteriorRenderer;
 import dev.amble.ait.client.tardis.ClientTardis;
 import dev.amble.ait.core.blockentities.ExteriorBlockEntity;
+import net.awt.TARDIS.exterior.client.animation.ExteriorAnimationApplier;
 import net.awt.TARDIS.exterior.client.render.SiegeExteriorOverrideRegistry;
 import net.minecraft.client.model.ModelPart;
 import net.minecraft.client.render.RenderLayer;
@@ -14,6 +15,7 @@ import net.minecraft.util.profiler.Profiler;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(value = ExteriorRenderer.class, remap = false)
@@ -35,6 +37,7 @@ public abstract class ExteriorRendererMixin {
 
         profiler.push("awt_custom_siege");
         matrices.push();
+        matrices.translate(0.5f, 0.5f, 0.5f);
 
         ModelPart root = entry.model().getPart();
         VertexConsumer vertices = vertexConsumers.getBuffer(RenderLayer.getEntityCutout(entry.texture(variantId)));
@@ -43,5 +46,17 @@ public abstract class ExteriorRendererMixin {
         matrices.pop();
         profiler.pop();
         ci.cancel();
+    }
+
+    @Redirect(method = "renderExterior",
+        at = @At(value = "INVOKE", target = "Ldev/amble/ait/client/models/exteriors/ExteriorModel;getPart()Lnet/minecraft/client/model/ModelPart;"),
+        remap = false)
+    private ModelPart awt$applyExteriorAnimationOverride(dev.amble.ait.client.models.exteriors.ExteriorModel model,
+                                                         Profiler profiler, ClientTardis tardis, ExteriorBlockEntity exterior, float tickDelta,
+                                                         MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay) {
+        ModelPart root = model.getPart();
+        ExteriorAnimationApplier.reset(root);
+        ExteriorAnimationApplier.apply(tardis.getExterior().getVariant().id(), tardis, root, tickDelta);
+        return root;
     }
 }

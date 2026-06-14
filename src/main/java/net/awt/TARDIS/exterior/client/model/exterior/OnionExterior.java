@@ -6,11 +6,8 @@ import dev.amble.ait.client.models.exteriors.SimpleExteriorModel;
 import dev.amble.ait.client.tardis.ClientTardis;
 import dev.amble.ait.core.blockentities.ExteriorBlockEntity;
 import dev.amble.ait.core.tardis.handler.DoorHandler;
-import dev.amble.ait.core.tardis.handler.travel.TravelHandlerBase;
-import net.awt.TARDIS.exterior.client.render.ExteriorTravelAnimationOverrideRegistry;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
-import net.minecraft.client.render.entity.animation.Animation;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.Entity;
 
@@ -36,33 +33,6 @@ public class OnionExterior extends SimpleExteriorModel {
 	private final ModelPart Joint7;
 	private final ModelPart Joint8;
 	private final ModelPart Joint9;
-	private final float defaultRootPivotX;
-	private final float defaultRootPivotY;
-	private final float defaultRootPivotZ;
-	private final float defaultRootPitch;
-	private final float defaultRootYaw;
-	private final float defaultRootRoll;
-	private final float defaultBodyPivotX;
-	private final float defaultBodyPivotY;
-	private final float defaultBodyPivotZ;
-	private final float defaultBodyPitch;
-	private final float defaultBodyYaw;
-	private final float defaultBodyRoll;
-	private final float defaultPetalsPitch;
-	private final float defaultPetalsYaw;
-	private final float defaultPetalsRoll;
-	private final float defaultLeg1Pitch;
-	private final float defaultLeg2Pitch;
-	private final float defaultLeg3Pitch;
-	private final float defaultJoint2Pitch;
-	private final float defaultJoint3Pitch;
-	private final float defaultJoint5Pitch;
-	private final float defaultJoint6Pitch;
-	private final float defaultJoint8Pitch;
-	private final float defaultJoint9Pitch;
-	private static final float RADIANS_PER_DEGREE = (float) (Math.PI / 180.0);
-	private static final float TAKEOFF_LENGTH = 10.5f;
-	private static final float LANDING_LENGTH = 12.0f;
 	public OnionExterior(ModelPart root) {
 		this.Root = root.getChild("Root");
 		this.Body = this.Root.getChild("Body");
@@ -82,30 +52,6 @@ public class OnionExterior extends SimpleExteriorModel {
 		this.Joint7 = this.Leg3.getChild("Joint7");
 		this.Joint8 = this.Joint7.getChild("Joint8");
 		this.Joint9 = this.Joint8.getChild("Joint9");
-		this.defaultRootPivotX = this.Root.pivotX;
-		this.defaultRootPivotY = this.Root.pivotY;
-		this.defaultRootPivotZ = this.Root.pivotZ;
-		this.defaultRootPitch = this.Root.pitch;
-		this.defaultRootYaw = this.Root.yaw;
-		this.defaultRootRoll = this.Root.roll;
-		this.defaultBodyPivotX = this.Body.pivotX;
-		this.defaultBodyPivotY = this.Body.pivotY;
-		this.defaultBodyPivotZ = this.Body.pivotZ;
-		this.defaultBodyPitch = this.Body.pitch;
-		this.defaultBodyYaw = this.Body.yaw;
-		this.defaultBodyRoll = this.Body.roll;
-		this.defaultPetalsPitch = this.Petals.pitch;
-		this.defaultPetalsYaw = this.Petals.yaw;
-		this.defaultPetalsRoll = this.Petals.roll;
-		this.defaultLeg1Pitch = this.Leg1.pitch;
-		this.defaultLeg2Pitch = this.Leg2.pitch;
-		this.defaultLeg3Pitch = this.Leg3.pitch;
-		this.defaultJoint2Pitch = this.Joint2.pitch;
-		this.defaultJoint3Pitch = this.Joint3.pitch;
-		this.defaultJoint5Pitch = this.Joint5.pitch;
-		this.defaultJoint6Pitch = this.Joint6.pitch;
-		this.defaultJoint8Pitch = this.Joint8.pitch;
-		this.defaultJoint9Pitch = this.Joint9.pitch;
 	}
 	public OnionExterior()  {
 		this(getTexturedModelData().createModel());
@@ -230,9 +176,6 @@ public class OnionExterior extends SimpleExteriorModel {
 
 		DoorHandler door =  exterior.tardis().get().door();
 		this.OmgitsaUFO.visible = door.isOpen();
-		if (!ExteriorTravelAnimationOverrideRegistry.apply(tardis.getExterior().getVariant().id(), this, tardis, 0.0f)) {
-			this.resetAnimatedPose();
-		}
 
 		matrices.push();
 		matrices.scale(1, 1, 1);
@@ -244,180 +187,5 @@ public class OnionExterior extends SimpleExteriorModel {
 	@Override
 	public ModelPart getPart() {
 		return Root;
-	}
-
-	public void applyTravelAnimation(ClientTardis tardis, float tickDelta) {
-		this.resetAnimatedPose();
-
-		TravelHandlerBase.State state = tardis.travel().getState();
-		float time = tardis.travel().getAnimations().getTicks() + tickDelta;
-		if (state == TravelHandlerBase.State.DEMAT) {
-			this.applyTakeoffPose(Math.min(time, TAKEOFF_LENGTH));
-		} else if (state == TravelHandlerBase.State.MAT) {
-			this.applyLandingPose(Math.min(time, LANDING_LENGTH));
-		}
-	}
-
-	private void resetAnimatedPose() {
-		this.Root.setPivot(this.defaultRootPivotX, this.defaultRootPivotY, this.defaultRootPivotZ);
-		this.Root.pitch = this.defaultRootPitch;
-		this.Root.yaw = this.defaultRootYaw;
-		this.Root.roll = this.defaultRootRoll;
-		this.Body.setPivot(this.defaultBodyPivotX, this.defaultBodyPivotY, this.defaultBodyPivotZ);
-		this.Body.pitch = this.defaultBodyPitch;
-		this.Body.yaw = this.defaultBodyYaw;
-		this.Body.roll = this.defaultBodyRoll;
-		this.Petals.pitch = this.defaultPetalsPitch;
-		this.Petals.yaw = this.defaultPetalsYaw;
-		this.Petals.roll = this.defaultPetalsRoll;
-		this.Leg1.pitch = this.defaultLeg1Pitch;
-		this.Leg2.pitch = this.defaultLeg2Pitch;
-		this.Leg3.pitch = this.defaultLeg3Pitch;
-		this.Joint2.pitch = this.defaultJoint2Pitch;
-		this.Joint3.pitch = this.defaultJoint3Pitch;
-		this.Joint5.pitch = this.defaultJoint5Pitch;
-		this.Joint6.pitch = this.defaultJoint6Pitch;
-		this.Joint8.pitch = this.defaultJoint8Pitch;
-		this.Joint9.pitch = this.defaultJoint9Pitch;
-	}
-
-	private void applyTakeoffPose(float time) {
-		float petalsYaw = sample(time,
-			0.0f, 0.0f,
-			0.25f, 66.0f,
-			0.5f, 180.0f,
-			1.0f, 540.0f,
-			1.5f, 900.0f,
-			2.0f, 1260.0f,
-			2.5f, 1620.0f,
-			3.0f, 1980.0f,
-			4.0f, 2700.0f,
-			5.0f, 3420.0f,
-			6.0f, 4140.0f,
-			7.0f, 4860.0f,
-			8.0f, 5580.0f,
-			9.0f, 6300.0f,
-			10.0f, 7020.0f,
-			10.5f, 7380.0f);
-		float bodyYaw = sample(time,
-			0.0f, 0.0f,
-			3.0f, 0.0f,
-			4.0f, -90.0f,
-			5.5f, -270.0f,
-			7.0f, -540.0f,
-			8.5f, -900.0f,
-			10.5f, -1260.0f);
-		float bodyLift = sample(time,
-			0.0f, 0.0f,
-			1.5f, 0.0f,
-			2.5f, 2.0f,
-			3.5f, 1.0f,
-			4.5f, 2.0f,
-			10.5f, 2.0f);
-
-		this.Petals.yaw += petalsYaw * RADIANS_PER_DEGREE;
-		this.Root.yaw += bodyYaw * RADIANS_PER_DEGREE;
-		this.Root.setPivot(this.defaultRootPivotX, this.defaultRootPivotY - bodyLift, this.defaultRootPivotZ);
-		this.Leg1.pitch += sample(time, 0.0f, 0.0f, 2.5f, 0.0f, 4.0f, -30.0f) * RADIANS_PER_DEGREE;
-		this.Leg2.pitch += sample(time, 0.0f, 0.0f, 2.5f, 0.0f, 4.0f, -30.0f) * RADIANS_PER_DEGREE;
-		this.Leg3.pitch += sample(time, 0.0f, 0.0f, 2.5f, 0.0f, 4.0f, -30.0f) * RADIANS_PER_DEGREE;
-		this.Joint2.pitch += sample(time, 0.0f, 0.0f, 2.5f, 0.0f, 3.5f, 90.0f) * RADIANS_PER_DEGREE;
-		this.Joint5.pitch += sample(time, 0.0f, 0.0f, 2.5f, 0.0f, 3.5f, 90.0f) * RADIANS_PER_DEGREE;
-		this.Joint8.pitch += sample(time, 0.0f, 0.0f, 2.5f, 0.0f, 3.5f, 90.0f) * RADIANS_PER_DEGREE;
-		this.Joint3.pitch += sample(time, 0.0f, 0.0f, 2.5f, 0.0f, 3.0f, 67.5f) * RADIANS_PER_DEGREE;
-		this.Joint6.pitch += sample(time, 0.0f, 0.0f, 2.5f, 0.0f, 3.0f, 67.5f) * RADIANS_PER_DEGREE;
-		this.Joint9.pitch += sample(time, 0.0f, 0.0f, 2.5f, 0.0f, 3.0f, 67.5f) * RADIANS_PER_DEGREE;
-	}
-
-	private void applyLandingPose(float time) {
-		float petalsYaw = sample(time,
-			0.0f, -3240.0f,
-			1.0f, -2520.0f,
-			2.0f, -1800.0f,
-			3.0f, -1080.0f,
-			4.0f, -360.0f,
-			5.0f, 360.0f,
-			6.0f, 1080.0f,
-			7.0f, 1800.0f,
-			8.0f, 2520.0f,
-			9.0f, 3240.0f,
-			10.0f, 3420.0f,
-			11.0f, 3510.0f,
-			11.5f, 3510.0f,
-			12.0f, 3510.0f);
-		float bodyYaw = sample(time,
-			0.0f, -1845.0f,
-			1.0f, -1485.0f,
-			2.0f, -1125.0f,
-			3.0f, -855.0f,
-			4.0f, -675.0f,
-			5.0f, -495.0f,
-			6.0f, -315.0f,
-			7.0f, -135.0f,
-			8.0f, -45.0f,
-			9.0f, 0.0f,
-			9.5f, 0.0f,
-			12.0f, 0.0f);
-		float bodyLift = sample(time,
-			0.0f, 0.0f,
-			8.0f, 0.0f,
-			9.0f, 4.0f,
-			10.0f, 0.0f,
-			12.0f, 0.0f);
-		float legPitch = sample(time,
-			0.0f, -30.0f,
-			9.0f, -30.0f,
-			10.0f, 0.0f,
-			12.0f, 0.0f);
-		float midJointPitch = sample(time,
-			0.0f, 90.0f,
-			9.0f, 90.0f,
-			10.0f, 0.0f,
-			12.0f, 0.0f);
-		float endJointPitch = sample(time,
-			0.0f, 67.5f,
-			9.0f, 67.5f,
-			10.0f, 0.0f,
-			12.0f, 0.0f);
-
-		this.Petals.yaw += petalsYaw * RADIANS_PER_DEGREE;
-		this.Root.yaw += bodyYaw * RADIANS_PER_DEGREE;
-		this.Root.setPivot(this.defaultRootPivotX, this.defaultRootPivotY - bodyLift, this.defaultRootPivotZ);
-		this.Leg1.pitch += legPitch * RADIANS_PER_DEGREE;
-		this.Leg2.pitch += legPitch * RADIANS_PER_DEGREE;
-		this.Leg3.pitch += legPitch * RADIANS_PER_DEGREE;
-		this.Joint2.pitch += midJointPitch * RADIANS_PER_DEGREE;
-		this.Joint5.pitch += midJointPitch * RADIANS_PER_DEGREE;
-		this.Joint8.pitch += midJointPitch * RADIANS_PER_DEGREE;
-		this.Joint3.pitch += endJointPitch * RADIANS_PER_DEGREE;
-		this.Joint6.pitch += endJointPitch * RADIANS_PER_DEGREE;
-		this.Joint9.pitch += endJointPitch * RADIANS_PER_DEGREE;
-	}
-
-	private static float sample(float time, float... keyframes) {
-		if (keyframes.length < 2) {
-			return 0.0f;
-		}
-
-		if (time <= keyframes[0]) {
-			return keyframes[1];
-		}
-
-		for (int i = 2; i < keyframes.length; i += 2) {
-			float frameTime = keyframes[i];
-			float frameValue = keyframes[i + 1];
-			float previousTime = keyframes[i - 2];
-			float previousValue = keyframes[i - 1];
-			if (time <= frameTime) {
-				float delta = frameTime - previousTime;
-				if (delta <= 0.0f) {
-					return frameValue;
-				}
-				float progress = (time - previousTime) / delta;
-				return previousValue + ((frameValue - previousValue) * progress);
-			}
-		}
-
-		return keyframes[keyframes.length - 1];
 	}
 }

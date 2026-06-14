@@ -11,11 +11,13 @@
     "PlayerEntityMixin"
   ],
   "client": [
+    "client.AnimationHolderAccessor",
     "client.ControlEntityRendererMixin",
     "client.DebugRendererMixin",
     "client.ExteriorRendererMixin",
     "client.FallingTardisRendererMixin",
     "client.LogoDrawerMixin",
+    "client.TardisAnimationAccessor",
     "console.ClientConsoleVariantRegistryMixin",
     "ItemRendererAccessor",
     "ItemRendererMixin",

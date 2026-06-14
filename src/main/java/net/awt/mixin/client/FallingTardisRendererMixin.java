@@ -48,8 +48,6 @@ public abstract class FallingTardisRendererMixin {
                 matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(rotationDegrees + 180.0f));
             }
 
-            matrices.multiply(RotationAxis.POSITIVE_X.rotationDegrees(180.0f));
-
             ExteriorModel model = entry.model();
             ModelPart root = model.getPart();
             VertexConsumer vertices = vertexConsumers.getBuffer(RenderLayer.getEntityCutout(entry.texture(variantId)));
