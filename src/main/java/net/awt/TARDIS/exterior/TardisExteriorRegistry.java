@@ -40,6 +40,7 @@ public class TardisExteriorRegistry {
     public static AddonExterior LEFTHOTTUB;
     public static AddonExterior POLICEBOXCORAL;
     public static AddonExterior POLICEBOXBADWOLF;
+    public static AddonExterior POLICEBOXBADGHOST;
     public static AddonExterior GAMBLEBOX;
     public static AddonExterior POLICEBOXTOKOMAK;
     public static AddonExterior POLICEBOXALT2;
@@ -173,6 +174,9 @@ public class TardisExteriorRegistry {
 
         POLICEBOXBADWOLF = new AddonExterior(new Identifier(MOD_ID, "modernboxes"), MOD_ID, "policebox_badwolf").register();
         POLICEBOXBADWOLF.setDoor(new AddonExterior.Door(POLICEBOXBADWOLF, true, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
+
+        POLICEBOXBADGHOST = new AddonExterior(new Identifier(MOD_ID, "modernboxes"), MOD_ID, "policebox_badghost").register();
+        POLICEBOXBADGHOST.setDoor(new AddonExterior.Door(POLICEBOXBADGHOST, true, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
 
         GAMBLEBOX = new AddonExterior(AWTExclusiveCategory.REFERENCE, MOD_ID, "gamblebox").register();
         GAMBLEBOX.setDoor(new AddonExterior.Door(GAMBLEBOX, true, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
@@ -432,6 +436,10 @@ public class TardisExteriorRegistry {
         POLICEBOXBADWOLF.setModel(new policebox()).toClient().register();
         POLICEBOXBADWOLF.toDoor().setModel(new policeboxdoor(policeboxdoor.getTexturedModelData().createModel())).toClient().register();
         POLICEBOXBADWOLF.setSonicItemTranslations(new Vector3f(0, 0, 0));
+
+        POLICEBOXBADGHOST.setModel(new policebox()).toClient().register();
+        POLICEBOXBADGHOST.toDoor().setModel(new policeboxdoor(policeboxdoor.getTexturedModelData().createModel())).toClient().register();
+        POLICEBOXBADGHOST.setSonicItemTranslations(new Vector3f(0, 0, 0));
 
         GAMBLEBOX.setModel(new policebox()).toClient().register();
         GAMBLEBOX.toDoor().setModel(new policeboxdoor(policeboxdoor.getTexturedModelData().createModel())).toClient().register();
