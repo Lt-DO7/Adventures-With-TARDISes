@@ -236,7 +236,7 @@ public class TardisExteriorRegistry {
         LEGODIMINVERTED = new AddonExterior(new Identifier(MOD_ID, "legoboxes"), MOD_ID, "inverted_lego_dimensions_police_box").register();
         LEGODIMINVERTED.setDoor(new AddonExterior.Door(LEGODIMINVERTED, true, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
 
-        BLUEBERRY = new AddonExterior(new Identifier(MOD_ID, "modernboxes"), MOD_ID, "blueberry").register();
+        BLUEBERRY = new AddonExterior(AWTExclusiveCategory.REFERENCE, MOD_ID, "blueberry").register();
         BLUEBERRY.setDoor(new AddonExterior.Door(BLUEBERRY, true, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
 
         K2PHONEBOOTH = new AddonExterior(new Identifier(MOD_ID, "phonebooths"), MOD_ID, "k2phonebooth").register();
