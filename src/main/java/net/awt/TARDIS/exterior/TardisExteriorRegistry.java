@@ -79,6 +79,7 @@ public class TardisExteriorRegistry {
     public static AddonExterior K6PHONEBOOTHGLOOM;
     public static AddonExterior K6PHONEBOOTHFUTURE;
     public static AddonExterior K6PHONEBOOTHBEE;
+    public static AddonExterior K6PHONEBOOTHGHOST;
 
     public static AddonExterior JAKE;
 
@@ -278,6 +279,8 @@ public class TardisExteriorRegistry {
         K6PHONEBOOTHBEE = new AddonExterior(new Identifier(MOD_ID, "phonebooths"), MOD_ID, "k6phonebooth_bee").register();
         K6PHONEBOOTHBEE.setDoor(new AddonExterior.Door(K6PHONEBOOTHBEE, false, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
 
+        K6PHONEBOOTHGHOST = new AddonExterior(new Identifier(MOD_ID, "phonebooths"), MOD_ID, "k6phonebooth_ghost").register();
+        K6PHONEBOOTHGHOST.setDoor(new AddonExterior.Door(K6PHONEBOOTHGHOST, false, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
 
     }
 
@@ -575,5 +578,9 @@ public class TardisExteriorRegistry {
         K6PHONEBOOTHBEE.setModel(new k2phonebooth()).toClient().register();
         K6PHONEBOOTHBEE.toDoor().setModel(new k2phonebooth_door(k2phonebooth_door.getTexturedModelData().createModel())).toClient().register();
         K6PHONEBOOTHBEE.setSonicItemTranslations(new Vector3f(0, 0, 0));
+
+        K6PHONEBOOTHGHOST.setModel(new k2phonebooth()).toClient().register();
+        K6PHONEBOOTHGHOST.toDoor().setModel(new k2phonebooth_door(k2phonebooth_door.getTexturedModelData().createModel())).toClient().register();
+        K6PHONEBOOTHGHOST.setSonicItemTranslations(new Vector3f(0, 0, 0));
     }
 }
