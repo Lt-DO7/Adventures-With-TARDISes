@@ -58,7 +58,6 @@ public class TardisExteriorRegistry {
    public static AddonExterior NEZUKO;
    public static AddonExterior POLICEBOXCANDY;
    public static AddonExterior POLICEBOXGLASGLOW;
-    public static AddonExterior K2PHONEBOOTH;
     public static AddonExterior POLICEBOXTEXTURE;
     public static AddonExterior HARTNELL;
     public static AddonExterior TROUGHTON;
@@ -67,6 +66,14 @@ public class TardisExteriorRegistry {
     public static AddonExterior LEGODIMALT;
     public static AddonExterior LEGODIMINVERTED;
     public static AddonExterior BLUEBERRY;
+    public static AddonExterior K2PHONEBOOTH;
+    public static AddonExterior K2PHONEBOOTHBATTERED;
+    public static AddonExterior K2PHONEBOOTHBLUE;
+    public static AddonExterior K2PHONEBOOTHGREY;
+    public static AddonExterior K2PHONEBOOTHPINK;
+    public static AddonExterior K2PHONEBOOTHGLOOM;
+    public static AddonExterior K2PHONEBOOTHGHOST;
+    public static AddonExterior K2PHONEBOOTHFUTURE;
 
     public static AddonExterior JAKE;
 
@@ -209,9 +216,6 @@ public class TardisExteriorRegistry {
         GLASGLOW = new AddonExterior(new Identifier(MOD_ID, "classicboxes"), MOD_ID, "glasglow").register();
         GLASGLOW.setDoor(new AddonExterior.Door(GLASGLOW, true, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
 
-        K2PHONEBOOTH = new AddonExterior(new Identifier(MOD_ID, "phonebooths"), MOD_ID, "k2phonebooth").register();
-        K2PHONEBOOTH.setDoor(new AddonExterior.Door(K2PHONEBOOTH, false, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
-
         HARTNELL = new AddonExterior(new Identifier(MOD_ID, "classicboxes"), MOD_ID, "hartnell").register();
         HARTNELL.setDoor(new AddonExterior.Door(HARTNELL, true, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
 
@@ -229,6 +233,30 @@ public class TardisExteriorRegistry {
 
         BLUEBERRY = new AddonExterior(new Identifier(MOD_ID, "modernboxes"), MOD_ID, "blueberry").register();
         BLUEBERRY.setDoor(new AddonExterior.Door(BLUEBERRY, true, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
+
+        K2PHONEBOOTH = new AddonExterior(new Identifier(MOD_ID, "phonebooths"), MOD_ID, "k2phonebooth").register();
+        K2PHONEBOOTH.setDoor(new AddonExterior.Door(K2PHONEBOOTH, false, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
+
+        K2PHONEBOOTHBATTERED = new AddonExterior(new Identifier(MOD_ID, "phonebooths"), MOD_ID, "k2phonebooth_battered").register();
+        K2PHONEBOOTHBATTERED.setDoor(new AddonExterior.Door(K2PHONEBOOTHBATTERED, false, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
+
+        K2PHONEBOOTHBLUE = new AddonExterior(new Identifier(MOD_ID, "phonebooths"), MOD_ID, "k2phonebooth_blue").register();
+        K2PHONEBOOTHBLUE.setDoor(new AddonExterior.Door(K2PHONEBOOTHBLUE, false, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
+
+        K2PHONEBOOTHGREY = new AddonExterior(new Identifier(MOD_ID, "phonebooths"), MOD_ID, "k2phonebooth_grey").register();
+        K2PHONEBOOTHGREY.setDoor(new AddonExterior.Door(K2PHONEBOOTHGREY, false, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
+
+        K2PHONEBOOTHPINK = new AddonExterior(new Identifier(MOD_ID, "phonebooths"), MOD_ID, "k2phonebooth_pink").register();
+        K2PHONEBOOTHPINK.setDoor(new AddonExterior.Door(K2PHONEBOOTHPINK, false, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
+
+        K2PHONEBOOTHGLOOM = new AddonExterior(new Identifier(MOD_ID, "phonebooths"), MOD_ID, "k2phonebooth_gloom").register();
+        K2PHONEBOOTHGLOOM.setDoor(new AddonExterior.Door(K2PHONEBOOTHGLOOM, false, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
+
+        K2PHONEBOOTHGHOST = new AddonExterior(new Identifier(MOD_ID, "phonebooths"), MOD_ID, "k2phonebooth_ghost").register();
+        K2PHONEBOOTHGHOST.setDoor(new AddonExterior.Door(K2PHONEBOOTHGHOST, false, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
+
+        K2PHONEBOOTHFUTURE = new AddonExterior(new Identifier(MOD_ID, "phonebooths"), MOD_ID, "k2phonebooth_futuristic").register();
+        K2PHONEBOOTHFUTURE.setDoor(new AddonExterior.Door(K2PHONEBOOTHFUTURE, false, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
 
     }
 
@@ -439,10 +467,6 @@ public class TardisExteriorRegistry {
         GLASGLOW.toDoor().setModel(new GlasgowDoor(GlasgowDoor.getTexturedModelData().createModel())).toClient().register();
         GLASGLOW.setSonicItemTranslations(new Vector3f(0, 0, 0));
 
-        K2PHONEBOOTH.setModel(new k2phonebooth()).toClient().register();
-        K2PHONEBOOTH.toDoor().setModel(new k2phonebooth_door(k2phonebooth_door.getTexturedModelData().createModel())).toClient().register();
-        K2PHONEBOOTH.setSonicItemTranslations(new Vector3f(0, 0, 0));
-
         POLICEBOXTEXTURE.setModel(new policebox()).toClient().register();
         POLICEBOXTEXTURE.toDoor().setModel(new policeboxdoor(policeboxdoor.getTexturedModelData().createModel())).toClient().register();
         POLICEBOXTEXTURE.setSonicItemTranslations(new Vector3f(0, 0, 0));
@@ -478,5 +502,37 @@ public class TardisExteriorRegistry {
         BLUEBERRY.setModel(new blueberry()).toClient().register();
         BLUEBERRY.toDoor().setModel(new blueberry_door(blueberry_door.getTexturedModelData().createModel())).toClient().register();
         BLUEBERRY.setSonicItemTranslations(new Vector3f(0, 0, 0));
+
+        K2PHONEBOOTH.setModel(new k2phonebooth()).toClient().register();
+        K2PHONEBOOTH.toDoor().setModel(new k2phonebooth_door(k2phonebooth_door.getTexturedModelData().createModel())).toClient().register();
+        K2PHONEBOOTH.setSonicItemTranslations(new Vector3f(0, 0, 0));
+
+        K2PHONEBOOTHBATTERED.setModel(new k2phonebooth()).toClient().register();
+        K2PHONEBOOTHBATTERED.toDoor().setModel(new k2phonebooth_door(k2phonebooth_door.getTexturedModelData().createModel())).toClient().register();
+        K2PHONEBOOTHBATTERED.setSonicItemTranslations(new Vector3f(0, 0, 0));
+
+        K2PHONEBOOTHBLUE.setModel(new k2phonebooth()).toClient().register();
+        K2PHONEBOOTHBLUE.toDoor().setModel(new k2phonebooth_door(k2phonebooth_door.getTexturedModelData().createModel())).toClient().register();
+        K2PHONEBOOTHBLUE.setSonicItemTranslations(new Vector3f(0, 0, 0));
+
+        K2PHONEBOOTHGREY.setModel(new k2phonebooth()).toClient().register();
+        K2PHONEBOOTHGREY.toDoor().setModel(new k2phonebooth_door(k2phonebooth_door.getTexturedModelData().createModel())).toClient().register();
+        K2PHONEBOOTHGREY.setSonicItemTranslations(new Vector3f(0, 0, 0));
+
+        K2PHONEBOOTHPINK.setModel(new k2phonebooth()).toClient().register();
+        K2PHONEBOOTHPINK.toDoor().setModel(new k2phonebooth_door(k2phonebooth_door.getTexturedModelData().createModel())).toClient().register();
+        K2PHONEBOOTHPINK.setSonicItemTranslations(new Vector3f(0, 0, 0));
+
+        K2PHONEBOOTHGHOST.setModel(new k2phonebooth()).toClient().register();
+        K2PHONEBOOTHGHOST.toDoor().setModel(new k2phonebooth_door(k2phonebooth_door.getTexturedModelData().createModel())).toClient().register();
+        K2PHONEBOOTHGHOST.setSonicItemTranslations(new Vector3f(0, 0, 0));
+
+        K2PHONEBOOTHGLOOM.setModel(new k2phonebooth()).toClient().register();
+        K2PHONEBOOTHGLOOM.toDoor().setModel(new k2phonebooth_door(k2phonebooth_door.getTexturedModelData().createModel())).toClient().register();
+        K2PHONEBOOTHGLOOM.setSonicItemTranslations(new Vector3f(0, 0, 0));
+
+        K2PHONEBOOTHFUTURE.setModel(new k2phonebooth()).toClient().register();
+        K2PHONEBOOTHFUTURE.toDoor().setModel(new k2phonebooth_door(k2phonebooth_door.getTexturedModelData().createModel())).toClient().register();
+        K2PHONEBOOTHFUTURE.setSonicItemTranslations(new Vector3f(0, 0, 0));
     }
 }

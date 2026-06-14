@@ -72,9 +72,9 @@ public class k2phonebooth extends SimpleExteriorModel {
 		.uv(82, 36).cuboid(-10.5F, -42.0F, -10.5F, 21.0F, 3.0F, 3.0F, new Dilation(0.01F)), ModelTransform.of(0.0F, 0.0F, 0.0F, 0.0F, 3.1416F, 0.0F));
 
 		ModelPartData thing_r2 = frame.addChild("thing_r2", ModelPartBuilder.create().uv(84, 79).cuboid(-10.0F, -47.0F, -10.0F, 1.0F, 5.0F, 20.0F, new Dilation(0.001F))
-		.uv(82, 36).cuboid(-10.5F, -42.0F, -10.5F, 21.0F, 3.0F, 3.0F, new Dilation(0.01F)), ModelTransform.of(0.0F, 0.0F, 0.0F, 0.0F, -1.5708F, 0.0F));
+		.uv(82, 36).cuboid(-10.5F, -42.0F, -10.5F, 21.0F, 3.0F, 3.0F, new Dilation(0.001F)), ModelTransform.of(0.0F, 0.0F, 0.0F, 0.0F, -1.5708F, 0.0F));
 
-		ModelPartData thing_r3 = frame.addChild("thing_r3", ModelPartBuilder.create().uv(84, 79).cuboid(-10.0F, -47.0F, -10.0F, 1.0F, 5.0F, 20.0F, new Dilation(0.0F))
+		ModelPartData thing_r3 = frame.addChild("thing_r3", ModelPartBuilder.create().uv(84, 79).cuboid(-10.0F, -47.0F, -10.0F, 1.0F, 5.0F, 20.0F, new Dilation(0.1F))
 		.uv(82, 36).cuboid(-10.5F, -42.0F, -10.5F, 21.0F, 3.0F, 3.0F, new Dilation(0.001F)), ModelTransform.of(0.0F, 0.0F, 0.0F, 0.0F, 1.5708F, 0.0F));
 
 		ModelPartData bulb = frame.addChild("bulb", ModelPartBuilder.create().uv(148, 24).cuboid(-1.0F, -2.0F, -1.0F, 2.0F, 4.0F, 2.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, -45.0F, 0.0F, 0.0F, 0.7854F, 0.0F));
