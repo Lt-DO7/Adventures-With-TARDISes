@@ -133,7 +133,7 @@ public class blueberry extends SimpleExteriorModel {
 	@Override
 	public <T extends Entity & Linkable> void renderEntity(T falling, ModelPart root, MatrixStack matrices, VertexConsumer vertexConsumer, int light, int overlay, float red, float green, float blue, float alpha) {
 		matrices.push();
-		matrices.scale(1, 1, 1);
+		matrices.scale(0.65f, 0.65f, 0.65f);
 		matrices.translate(0, -1f, 0);
 		super.renderEntity(falling, root, matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
 		matrices.pop();

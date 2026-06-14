@@ -121,18 +121,25 @@
   "exterior.awt.policebox_lux": "Midnight",
   "exterior.awt.policebox_candy": "Candy Box",
   "exterior.awt.policebox_glasglow": "Glasglow Box",
+  "exterior.awt.policebox_orange": "Evil Police Box",
   "exterior.awt.policebox_texture": "Textured...? Box",
-  "exterior.awt.policebox_inverted": "Inverted Box",
 
   "exterior.awt.blueberry": "Blueberry Box",
 
-  "exterior.awt.phonebooth": "Phonebooth",
-  "exterior.awt.gloomphonebooth": "Gloom Phonebooth",
-  "exterior.awt.fadedphonebooth": "Faded Phonebooth",
-  "exterior.awt.pinkphonebooth": "Pink Phonebooth",
-  "exterior.awt.greenphonebooth": "Green Phonebooth",
-  "exterior.awt.bluephonebooth": "Blue Phonebooth",
+  "exterior.awt.k2phonebooth": "K2 Phonebooth",
+  "exterior.awt.k2phonebooth_blue": "K2 Phonebooth Blue",
+  "exterior.awt.k2phonebooth_pink": "K2 Phonebooth Pink",
+  "exterior.awt.k2phonebooth_grey": "K2 Phonebooth Grey",
+  "exterior.awt.k2phonebooth_ghost": "K2 Phonebooth Ghost",
+  "exterior.awt.k2phonebooth_gloom": "K2 Phonebooth Gloom",
+  "exterior.awt.k2phonebooth_battered": "K2 Phonebooth Battered",
+  "exterior.awt.k2phonebooth_futuristic": "K2 Phonebooth Futuristic",
 
+  "exterior.awt.k6phonebooth": "K6 Phonebooth",
+  "exterior.awt.k6phonebooth_gloom": "K6 Phonebooth Gloom",
+  "exterior.awt.k6phonebooth_battered": "K6 Phonebooth Battered",
+  "exterior.awt.k6phonebooth_futuristic": "K6 Phonebooth Futuristic",
+  "exterior.awt.k6phonebooth_bee": "K6 Phonebooth Bee",
 
   "exterior.awt.glasglow": "Glasglow",
 
