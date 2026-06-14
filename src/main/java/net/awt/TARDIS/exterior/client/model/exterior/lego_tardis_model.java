@@ -128,7 +128,7 @@ public class lego_tardis_model extends SimpleExteriorModel {
 	@Override
 	public <T extends Entity & Linkable> void renderEntity(T falling, ModelPart root, MatrixStack matrices, VertexConsumer vertexConsumer, int light, int overlay, float red, float green, float blue, float alpha) {
 		matrices.push();
-		matrices.scale(1.5F, 1.5F, 1.5F);
+		matrices.scale(1, 1, 1);
 		matrices.translate(0, -1.5f, 0);
 		super.renderEntity(falling, root, matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
 		matrices.pop();
