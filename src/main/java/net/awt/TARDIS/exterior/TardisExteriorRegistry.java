@@ -46,6 +46,7 @@ public class TardisExteriorRegistry {
     public static AddonExterior POLICEBOXRHAMNOUS;
     public static AddonExterior POLICEBOXNATHAN;
     public static AddonExterior POLICEBOXDINO;
+    public static AddonExterior POLICEBOXORANGE;
     public static AddonExterior POLICEBOXFLATLINE;
     public static AddonExterior RHAMNOUSVANILLA;
     public static AddonExterior GLASGLOWVANILLA;
@@ -188,6 +189,9 @@ public class TardisExteriorRegistry {
 
         POLICEBOXDINO = new AddonExterior(AWTExclusiveCategory.REFERENCE, MOD_ID, "policebox_dino").register();
         POLICEBOXDINO.setDoor(new AddonExterior.Door(POLICEBOXDINO, true, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
+
+        POLICEBOXORANGE = new AddonExterior(new Identifier(MOD_ID, "modernboxes"), MOD_ID, "policebox_orange").register();
+        POLICEBOXORANGE.setDoor(new AddonExterior.Door(POLICEBOXORANGE, true, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
 
         POLICEBOXFLATLINE = new AddonExterior(new Identifier(MOD_ID, "modernboxes"), MOD_ID, "policebox_flatline").register();
         POLICEBOXFLATLINE.setDoor(new AddonExterior.Door(POLICEBOXFLATLINE, true, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
@@ -464,6 +468,10 @@ public class TardisExteriorRegistry {
         POLICEBOXGLASGLOW.setModel(new policebox()).toClient().register();
         POLICEBOXGLASGLOW.toDoor().setModel(new policeboxdoor(policeboxdoor.getTexturedModelData().createModel())).toClient().register();
         POLICEBOXGLASGLOW.setSonicItemTranslations(new Vector3f(0, 0, 0));
+
+        POLICEBOXORANGE.setModel(new policebox()).toClient().register();
+        POLICEBOXORANGE.toDoor().setModel(new policeboxdoor(policeboxdoor.getTexturedModelData().createModel())).toClient().register();
+        POLICEBOXORANGE.setSonicItemTranslations(new Vector3f(0, 0, 0));
 
         TIMEPOD.setModel(new timepod(timepod.getTexturedModelData().createModel())).toClient().register();
         TIMEPOD.toDoor().setModel(new timepoddoor(timepoddoor.getTexturedModelData().createModel())).toClient().register();
