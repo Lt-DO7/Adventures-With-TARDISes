@@ -14,7 +14,6 @@ import net.minecraft.client.model.TexturedModelData;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.Entity;
-import net.minecraft.util.math.RotationAxis;
 
 public class SeigedOnion extends SimpleExteriorModel {
 	private final ModelPart Root;
@@ -120,8 +119,7 @@ public class SeigedOnion extends SimpleExteriorModel {
 	@Override
 	public <T extends Entity & Linkable> void renderEntity(T falling, ModelPart root, MatrixStack matrices, VertexConsumer vertexConsumer, int light, int overlay, float red, float green, float blue, float alpha) {
 		matrices.push();
-		// Corrected Y-offset
-		matrices.translate(0.0f, -1.5f, 0.0f);
+		matrices.translate(0.5f, 1.5f, 0.5f);
 		super.renderEntity(falling, root, matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
 		matrices.pop();
 	}
@@ -129,8 +127,7 @@ public class SeigedOnion extends SimpleExteriorModel {
 	@Override
 	public void renderWithAnimations(ClientTardis tardis, ExteriorBlockEntity exterior, ModelPart root, MatrixStack matrices, VertexConsumer vertices, int light, int overlay, float red, float green, float blue, float alpha) {
 		matrices.push();
-		// Corrected Y-offset
-		matrices.translate(0.0f, -1.5f, 0.0f);
+		matrices.translate(0.5f, 1.5f, 0.5f);
 		super.renderWithAnimations(tardis, exterior, root, matrices, vertices, light, overlay, red, green, blue, alpha);
 		matrices.pop();
 	}

@@ -36,6 +36,12 @@ public class OnionExterior extends SimpleExteriorModel {
 	private final ModelPart Joint7;
 	private final ModelPart Joint8;
 	private final ModelPart Joint9;
+	private final float defaultRootPivotX;
+	private final float defaultRootPivotY;
+	private final float defaultRootPivotZ;
+	private final float defaultRootPitch;
+	private final float defaultRootYaw;
+	private final float defaultRootRoll;
 	private final float defaultBodyPivotX;
 	private final float defaultBodyPivotY;
 	private final float defaultBodyPivotZ;
@@ -76,6 +82,12 @@ public class OnionExterior extends SimpleExteriorModel {
 		this.Joint7 = this.Leg3.getChild("Joint7");
 		this.Joint8 = this.Joint7.getChild("Joint8");
 		this.Joint9 = this.Joint8.getChild("Joint9");
+		this.defaultRootPivotX = this.Root.pivotX;
+		this.defaultRootPivotY = this.Root.pivotY;
+		this.defaultRootPivotZ = this.Root.pivotZ;
+		this.defaultRootPitch = this.Root.pitch;
+		this.defaultRootYaw = this.Root.yaw;
+		this.defaultRootRoll = this.Root.roll;
 		this.defaultBodyPivotX = this.Body.pivotX;
 		this.defaultBodyPivotY = this.Body.pivotY;
 		this.defaultBodyPivotZ = this.Body.pivotZ;
@@ -247,6 +259,10 @@ public class OnionExterior extends SimpleExteriorModel {
 	}
 
 	private void resetAnimatedPose() {
+		this.Root.setPivot(this.defaultRootPivotX, this.defaultRootPivotY, this.defaultRootPivotZ);
+		this.Root.pitch = this.defaultRootPitch;
+		this.Root.yaw = this.defaultRootYaw;
+		this.Root.roll = this.defaultRootRoll;
 		this.Body.setPivot(this.defaultBodyPivotX, this.defaultBodyPivotY, this.defaultBodyPivotZ);
 		this.Body.pitch = this.defaultBodyPitch;
 		this.Body.yaw = this.defaultBodyYaw;
@@ -300,8 +316,8 @@ public class OnionExterior extends SimpleExteriorModel {
 			10.5f, 2.0f);
 
 		this.Petals.yaw += petalsYaw * RADIANS_PER_DEGREE;
-		this.Body.yaw += bodyYaw * RADIANS_PER_DEGREE;
-		this.Body.setPivot(this.defaultBodyPivotX, this.defaultBodyPivotY - bodyLift, this.defaultBodyPivotZ);
+		this.Root.yaw += bodyYaw * RADIANS_PER_DEGREE;
+		this.Root.setPivot(this.defaultRootPivotX, this.defaultRootPivotY - bodyLift, this.defaultRootPivotZ);
 		this.Leg1.pitch += sample(time, 0.0f, 0.0f, 2.5f, 0.0f, 4.0f, -30.0f) * RADIANS_PER_DEGREE;
 		this.Leg2.pitch += sample(time, 0.0f, 0.0f, 2.5f, 0.0f, 4.0f, -30.0f) * RADIANS_PER_DEGREE;
 		this.Leg3.pitch += sample(time, 0.0f, 0.0f, 2.5f, 0.0f, 4.0f, -30.0f) * RADIANS_PER_DEGREE;
@@ -365,8 +381,8 @@ public class OnionExterior extends SimpleExteriorModel {
 			12.0f, 0.0f);
 
 		this.Petals.yaw += petalsYaw * RADIANS_PER_DEGREE;
-		this.Body.yaw += bodyYaw * RADIANS_PER_DEGREE;
-		this.Body.setPivot(this.defaultBodyPivotX, this.defaultBodyPivotY - bodyLift, this.defaultBodyPivotZ);
+		this.Root.yaw += bodyYaw * RADIANS_PER_DEGREE;
+		this.Root.setPivot(this.defaultRootPivotX, this.defaultRootPivotY - bodyLift, this.defaultRootPivotZ);
 		this.Leg1.pitch += legPitch * RADIANS_PER_DEGREE;
 		this.Leg2.pitch += legPitch * RADIANS_PER_DEGREE;
 		this.Leg3.pitch += legPitch * RADIANS_PER_DEGREE;
