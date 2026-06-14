@@ -95,6 +95,7 @@ public class AdventureWithTARDISesClient implements ClientModInitializer {
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.CYBERMAT, CybermatModel::getTexturedModelData);
 
         SonicGlassesKeybind();
+        registerEncDataCommands();
 
         ModelLoadingRegistry.INSTANCE.registerModelProvider((manager, out) -> new ModelIdentifier(AdventuresWithTARDISes.MOD_ID, "fez3d", "inventory"));
     }
@@ -131,8 +132,7 @@ public class AdventureWithTARDISesClient implements ClientModInitializer {
         // EncData-only client test command for driving the Vortex Manipulator teleport flow directly.
         ClientCommandRegistrationCallback.EVENT.register((dispatcher, registryAccess) -> {
             dispatcher.register(ClientCommandManager.literal("VortexManipulatorTP")
-                    .requires(source -> source.getPlayer() != null && AWTDevTeam.ENCDATA.equals(source.getPlayer().getUuid()))
-                    .requires(source -> source.getPlayer() != null && AWTDevTeam.DEO.equals(source.getPlayer().getUuid()))
+                    .requires(source -> source.getPlayer() != null && awt$isVmDev(source.getPlayer().getUuid()))
                     .then(ClientCommandManager.argument("x", com.mojang.brigadier.arguments.DoubleArgumentType.doubleArg())
                             .then(ClientCommandManager.argument("y", com.mojang.brigadier.arguments.DoubleArgumentType.doubleArg())
                                     .then(ClientCommandManager.argument("z", com.mojang.brigadier.arguments.DoubleArgumentType.doubleArg())
@@ -160,8 +160,7 @@ public class AdventureWithTARDISesClient implements ClientModInitializer {
             );
 
             dispatcher.register(ClientCommandManager.literal("VortexManipulatorTPPlayer")
-                    .requires(source -> source.getPlayer() != null && AWTDevTeam.ENCDATA.equals(source.getPlayer().getUuid()))
-                    .requires(source -> source.getPlayer() != null && AWTDevTeam.DEO.equals(source.getPlayer().getUuid()))
+                    .requires(source -> source.getPlayer() != null && awt$isVmDev(source.getPlayer().getUuid()))
                     .then(ClientCommandManager.argument("player", com.mojang.brigadier.arguments.StringArgumentType.word())
                             .suggests((context, builder) -> CommandSource.suggestMatching(
                                     context.getSource().getClient().getNetworkHandler().getPlayerList().stream()
@@ -179,5 +178,9 @@ public class AdventureWithTARDISesClient implements ClientModInitializer {
                             }))
             );
         });
+    }
+
+    private static boolean awt$isVmDev(java.util.UUID uuid) {
+        return AWTDevTeam.ENCDATA.equals(uuid) || AWTDevTeam.DEO.equals(uuid);
     }
 }
