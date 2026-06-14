@@ -40,6 +40,7 @@ public class TardisExteriorRegistry {
     public static AddonExterior LEFTHOTTUB;
     public static AddonExterior POLICEBOXCORAL;
     public static AddonExterior POLICEBOXBADWOLF;
+    public static AddonExterior POLICEBOXBADGHOST;
     public static AddonExterior GAMBLEBOX;
     public static AddonExterior POLICEBOXTOKOMAK;
     public static AddonExterior POLICEBOXALT2;
@@ -79,6 +80,9 @@ public class TardisExteriorRegistry {
     public static AddonExterior K6PHONEBOOTHGLOOM;
     public static AddonExterior K6PHONEBOOTHFUTURE;
     public static AddonExterior K6PHONEBOOTHBEE;
+    public static AddonExterior K6PHONEBOOTHGHOST;
+    public static AddonExterior POLICEBOXENC;
+    public static AddonExterior SCARFO;
 
     public static AddonExterior JAKE;
 
@@ -173,6 +177,9 @@ public class TardisExteriorRegistry {
         POLICEBOXBADWOLF = new AddonExterior(new Identifier(MOD_ID, "modernboxes"), MOD_ID, "policebox_badwolf").register();
         POLICEBOXBADWOLF.setDoor(new AddonExterior.Door(POLICEBOXBADWOLF, true, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
 
+        POLICEBOXBADGHOST = new AddonExterior(new Identifier(MOD_ID, "modernboxes"), MOD_ID, "policebox_badghost").register();
+        POLICEBOXBADGHOST.setDoor(new AddonExterior.Door(POLICEBOXBADGHOST, true, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
+
         GAMBLEBOX = new AddonExterior(AWTExclusiveCategory.REFERENCE, MOD_ID, "gamblebox").register();
         GAMBLEBOX.setDoor(new AddonExterior.Door(GAMBLEBOX, true, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
 
@@ -236,7 +243,7 @@ public class TardisExteriorRegistry {
         LEGODIMINVERTED = new AddonExterior(new Identifier(MOD_ID, "legoboxes"), MOD_ID, "inverted_lego_dimensions_police_box").register();
         LEGODIMINVERTED.setDoor(new AddonExterior.Door(LEGODIMINVERTED, true, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
 
-        BLUEBERRY = new AddonExterior(new Identifier(MOD_ID, "modernboxes"), MOD_ID, "blueberry").register();
+        BLUEBERRY = new AddonExterior(AWTExclusiveCategory.REFERENCE, MOD_ID, "blueberry").register();
         BLUEBERRY.setDoor(new AddonExterior.Door(BLUEBERRY, true, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
 
         K2PHONEBOOTH = new AddonExterior(new Identifier(MOD_ID, "phonebooths"), MOD_ID, "k2phonebooth").register();
@@ -278,6 +285,14 @@ public class TardisExteriorRegistry {
         K6PHONEBOOTHBEE = new AddonExterior(new Identifier(MOD_ID, "phonebooths"), MOD_ID, "k6phonebooth_bee").register();
         K6PHONEBOOTHBEE.setDoor(new AddonExterior.Door(K6PHONEBOOTHBEE, false, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
 
+        K6PHONEBOOTHGHOST = new AddonExterior(new Identifier(MOD_ID, "phonebooths"), MOD_ID, "k6phonebooth_ghost").register();
+        K6PHONEBOOTHGHOST.setDoor(new AddonExterior.Door(K6PHONEBOOTHGHOST, false, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
+
+        POLICEBOXENC = new AddonExterior(AWTExclusiveCategory.REFERENCE, MOD_ID, "policebox_enc").register();
+        POLICEBOXENC.setDoor(new AddonExterior.Door(POLICEBOXENC, true, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
+
+        SCARFO = new AddonExterior(AWTExclusiveCategory.REFERENCE, MOD_ID, "scorched_earth").register();
+        SCARFO.setDoor(new AddonExterior.Door(SCARFO, true, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
 
     }
 
@@ -430,6 +445,10 @@ public class TardisExteriorRegistry {
         POLICEBOXBADWOLF.toDoor().setModel(new policeboxdoor(policeboxdoor.getTexturedModelData().createModel())).toClient().register();
         POLICEBOXBADWOLF.setSonicItemTranslations(new Vector3f(0, 0, 0));
 
+        POLICEBOXBADGHOST.setModel(new policebox()).toClient().register();
+        POLICEBOXBADGHOST.toDoor().setModel(new policeboxdoor(policeboxdoor.getTexturedModelData().createModel())).toClient().register();
+        POLICEBOXBADGHOST.setSonicItemTranslations(new Vector3f(0, 0, 0));
+
         GAMBLEBOX.setModel(new policebox()).toClient().register();
         GAMBLEBOX.toDoor().setModel(new policeboxdoor(policeboxdoor.getTexturedModelData().createModel())).toClient().register();
         GAMBLEBOX.setSonicItemTranslations(new Vector3f(0, 0, 0));
@@ -476,6 +495,10 @@ public class TardisExteriorRegistry {
         POLICEBOXORANGE.setModel(new policebox()).toClient().register();
         POLICEBOXORANGE.toDoor().setModel(new policeboxdoor(policeboxdoor.getTexturedModelData().createModel())).toClient().register();
         POLICEBOXORANGE.setSonicItemTranslations(new Vector3f(0, 0, 0));
+
+        POLICEBOXENC.setModel(new policebox()).toClient().register();
+        POLICEBOXENC.toDoor().setModel(new policeboxdoor(policeboxdoor.getTexturedModelData().createModel())).toClient().register();
+        POLICEBOXENC.setSonicItemTranslations(new Vector3f(0, 0, 0));
 
         TIMEPOD.setModel(new timepod(timepod.getTexturedModelData().createModel())).toClient().register();
         TIMEPOD.toDoor().setModel(new timepoddoor(timepoddoor.getTexturedModelData().createModel())).toClient().register();
@@ -575,5 +598,13 @@ public class TardisExteriorRegistry {
         K6PHONEBOOTHBEE.setModel(new k2phonebooth()).toClient().register();
         K6PHONEBOOTHBEE.toDoor().setModel(new k2phonebooth_door(k2phonebooth_door.getTexturedModelData().createModel())).toClient().register();
         K6PHONEBOOTHBEE.setSonicItemTranslations(new Vector3f(0, 0, 0));
+
+        K6PHONEBOOTHGHOST.setModel(new k2phonebooth()).toClient().register();
+        K6PHONEBOOTHGHOST.toDoor().setModel(new k2phonebooth_door(k2phonebooth_door.getTexturedModelData().createModel())).toClient().register();
+        K6PHONEBOOTHGHOST.setSonicItemTranslations(new Vector3f(0, 0, 0));
+
+        SCARFO.setModel(new scarfs()).toClient().register();
+        SCARFO.toDoor().setModel(new scarfs_door(scarfs_door.getTexturedModelData().createModel())).toClient().register();
+        SCARFO.setSonicItemTranslations(new Vector3f(0, 0, 0));
     }
 }
