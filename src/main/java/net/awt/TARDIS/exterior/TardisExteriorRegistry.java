@@ -74,6 +74,10 @@ public class TardisExteriorRegistry {
     public static AddonExterior K2PHONEBOOTHGLOOM;
     public static AddonExterior K2PHONEBOOTHGHOST;
     public static AddonExterior K2PHONEBOOTHFUTURE;
+    public static AddonExterior K6PHONEBOOTH;
+    public static AddonExterior K6PHONEBOOTHBATTERED;
+    public static AddonExterior K6PHONEBOOTHGLOOM;
+    public static AddonExterior K6PHONEBOOTHFUTURE;
 
     public static AddonExterior JAKE;
 
@@ -257,6 +261,19 @@ public class TardisExteriorRegistry {
 
         K2PHONEBOOTHFUTURE = new AddonExterior(new Identifier(MOD_ID, "phonebooths"), MOD_ID, "k2phonebooth_futuristic").register();
         K2PHONEBOOTHFUTURE.setDoor(new AddonExterior.Door(K2PHONEBOOTHFUTURE, false, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
+
+        K6PHONEBOOTH = new AddonExterior(new Identifier(MOD_ID, "phonebooths"), MOD_ID, "k6phonebooth").register();
+        K6PHONEBOOTH.setDoor(new AddonExterior.Door(K6PHONEBOOTH, false, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
+
+        K6PHONEBOOTHBATTERED = new AddonExterior(new Identifier(MOD_ID, "phonebooths"), MOD_ID, "k6phonebooth_battered").register();
+        K6PHONEBOOTHBATTERED.setDoor(new AddonExterior.Door(K6PHONEBOOTHBATTERED, false, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
+
+        K6PHONEBOOTHGLOOM = new AddonExterior(new Identifier(MOD_ID, "phonebooths"), MOD_ID, "k6phonebooth_gloom").register();
+        K6PHONEBOOTHGLOOM.setDoor(new AddonExterior.Door(K6PHONEBOOTHGLOOM, false, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
+
+        K6PHONEBOOTHFUTURE = new AddonExterior(new Identifier(MOD_ID, "phonebooths"), MOD_ID, "k6phonebooth_futuristic").register();
+        K6PHONEBOOTHFUTURE.setDoor(new AddonExterior.Door(K6PHONEBOOTHFUTURE, false, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
+
 
     }
 
@@ -534,5 +551,21 @@ public class TardisExteriorRegistry {
         K2PHONEBOOTHFUTURE.setModel(new k2phonebooth()).toClient().register();
         K2PHONEBOOTHFUTURE.toDoor().setModel(new k2phonebooth_door(k2phonebooth_door.getTexturedModelData().createModel())).toClient().register();
         K2PHONEBOOTHFUTURE.setSonicItemTranslations(new Vector3f(0, 0, 0));
+
+        K6PHONEBOOTH.setModel(new k2phonebooth()).toClient().register();
+        K6PHONEBOOTH.toDoor().setModel(new k2phonebooth_door(k2phonebooth_door.getTexturedModelData().createModel())).toClient().register();
+        K6PHONEBOOTH.setSonicItemTranslations(new Vector3f(0, 0, 0));
+
+        K6PHONEBOOTHBATTERED.setModel(new k2phonebooth()).toClient().register();
+        K6PHONEBOOTHBATTERED.toDoor().setModel(new k2phonebooth_door(k2phonebooth_door.getTexturedModelData().createModel())).toClient().register();
+        K6PHONEBOOTHBATTERED.setSonicItemTranslations(new Vector3f(0, 0, 0));
+
+        K6PHONEBOOTHGLOOM.setModel(new k2phonebooth()).toClient().register();
+        K6PHONEBOOTHGLOOM.toDoor().setModel(new k2phonebooth_door(k2phonebooth_door.getTexturedModelData().createModel())).toClient().register();
+        K6PHONEBOOTHGLOOM.setSonicItemTranslations(new Vector3f(0, 0, 0));
+
+        K6PHONEBOOTHFUTURE.setModel(new k2phonebooth()).toClient().register();
+        K6PHONEBOOTHFUTURE.toDoor().setModel(new k2phonebooth_door(k2phonebooth_door.getTexturedModelData().createModel())).toClient().register();
+        K6PHONEBOOTHFUTURE.setSonicItemTranslations(new Vector3f(0, 0, 0));
     }
 }
