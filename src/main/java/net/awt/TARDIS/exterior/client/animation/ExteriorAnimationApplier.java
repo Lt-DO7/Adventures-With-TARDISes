@@ -14,6 +14,8 @@ import net.minecraft.util.Identifier;
 import org.joml.Vector3f;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -128,12 +130,29 @@ public final class ExteriorAnimationApplier {
     }
 
     private static Field awt$findChildrenField() {
-        try {
-            Field field = ModelPart.class.getDeclaredField("children");
+        for (Field field : ModelPart.class.getDeclaredFields()) {
+            if (!Map.class.isAssignableFrom(field.getType())) {
+                continue;
+            }
+
+            Type genericType = field.getGenericType();
+            if (!(genericType instanceof ParameterizedType parameterizedType)) {
+                continue;
+            }
+
+            Type[] typeArguments = parameterizedType.getActualTypeArguments();
+            if (typeArguments.length != 2) {
+                continue;
+            }
+
+            if (typeArguments[0] != String.class || typeArguments[1] != ModelPart.class) {
+                continue;
+            }
+
             field.setAccessible(true);
             return field;
-        } catch (NoSuchFieldException e) {
-            throw new IllegalStateException("Unable to locate ModelPart children field", e);
         }
+
+        throw new IllegalStateException("Unable to locate ModelPart child map field");
     }
 }
