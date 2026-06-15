@@ -177,6 +177,7 @@ java {
 
 jar {
 	inputs.property "archivesName", project.base.archivesName
+	duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 
 	from("LICENSE") {
 		rename { "${it}_${inputs.properties.archivesName}"}
