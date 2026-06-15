@@ -16,6 +16,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
+import org.spongepowered.asm.mixin.injection.Group;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(value = ExteriorRenderer.class, remap = false)
@@ -48,12 +49,30 @@ public abstract class ExteriorRendererMixin {
         ci.cancel();
     }
 
+    @Group(name = "awt$exteriorPartLookup", min = 1, max = 1)
     @Redirect(method = "renderExterior",
         at = @At(value = "INVOKE", target = "Ldev/amble/ait/client/models/exteriors/ExteriorModel;getPart()Lnet/minecraft/client/model/ModelPart;"),
-        remap = false)
+        remap = false,
+        require = 0)
+    private ModelPart awt$applyExteriorAnimationOverrideLegacy(dev.amble.ait.client.models.exteriors.ExteriorModel model,
+                                                               Profiler profiler, ClientTardis tardis, ExteriorBlockEntity exterior, float tickDelta,
+                                                               MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay) {
+        return awt$applyExteriorAnimationOverride(model, tardis, tickDelta);
+    }
+
+    @Group(name = "awt$exteriorPartLookup", min = 1, max = 1)
+    @Redirect(method = "renderExterior",
+        at = @At(value = "INVOKE", target = "Ldev/amble/ait/client/models/exteriors/ExteriorModel;method_32008()Lnet/minecraft/class_630;"),
+        remap = false,
+        require = 0)
+    private ModelPart awt$applyExteriorAnimationOverrideCurrent(dev.amble.ait.client.models.exteriors.ExteriorModel model,
+                                                                Profiler profiler, ClientTardis tardis, ExteriorBlockEntity exterior, float tickDelta,
+                                                                MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay) {
+        return awt$applyExteriorAnimationOverride(model, tardis, tickDelta);
+    }
+
     private ModelPart awt$applyExteriorAnimationOverride(dev.amble.ait.client.models.exteriors.ExteriorModel model,
-                                                         Profiler profiler, ClientTardis tardis, ExteriorBlockEntity exterior, float tickDelta,
-                                                         MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay) {
+                                                         ClientTardis tardis, float tickDelta) {
         ModelPart root = model.getPart();
         ExteriorAnimationApplier.reset(root);
         ExteriorAnimationApplier.apply(tardis.getExterior().getVariant().id(), tardis, root, tickDelta);
