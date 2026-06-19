@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "id": "awt",
+  "version": "0.1-1.20.1",
+  "name": "Adventures With TARDISes",
+  "description": "I live, I see, I conquer. An addon specially designed for AIT by a group of mates.",
+  "authors": [
+    "Lieutenant_DO7",
+    "Dino",
+    "EncData",
+    "Rhamn0us",
+    "Left",
+    "NathanR2",
+    "torchwood1"
+  ],
+  "contact": {
+    "homepage": "https://fabricmc.net/",
+    "sources": "https://github.com/Lt-DO7/Adventures-With-TARDISes",
+    "issues": "https://github.com/Lt-DO7/Adventures-With-TARDISes/issues"
+  },
+  "license": "CC0-1.0",
+  "icon": "assets/awt/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.awt.AdventuresWithTARDISes"
+    ],
+    "client": [
+      "net.awt.AdventureWithTARDISesClient"
+    ],
+    "fabric-datagen": [
+      "net.awt.AdventuresWithTARDISesDataGenerator"
+    ],
+    "ait-main": [
+      "net.awt.amblekit.ait.AITUtil"
+    ],
+    "cardinal-components": [
+      "net.awt.components.ModComponents"
+    ]
+  },
+  "mixins": [
+    "awt.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": "\u003e\u003d0.16.14",
+    "minecraft": "~1.20.1",
+    "java": "\u003e\u003d17",
+    "fabric-api": "*"
+  },
+  "suggests": {
+    "another-mod": "*"
+  },
+  "custom": {
+    "cardinal-components": [
+      "awt:sonic_glasses_component"
+    ]
+  },
+  "jars": [
+    {
+      "file": "META-INF/jars/cardinal-components-base-5.2.3.jar"
+    },
+    {
+      "file": "META-INF/jars/cardinal-components-entity-5.2.3.jar"
+    },
+    {
+      "file": "META-INF/jars/exp4j-0.4.8.jar"
+    },
+    {
+      "file": "META-INF/jars/multidim-2.1.4.jar"
+    },
+    {
+      "file": "META-INF/jars/queue-1.1.0-1.20.jar"
+    },
+    {
+      "file": "META-INF/jars/scheduler-1.1.0.jar"
+    }
+  ]
+}

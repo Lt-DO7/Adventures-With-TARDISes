@@ -1,0 +1,1 @@
+{"id":"ait:demat_circuit","input":[{"Count":1,"id":"minecraft:iron_ingot"},{"Count":1,"id":"ait:orthogonal_engine_filter"},{"Count":1,"id":"ait:photon_accelerator"},{"Count":1,"id":"minecraft:emerald"}],"output":{"Count":1,"id":"ait:dematerialization_circuit"}}

@@ -1,0 +1,1 @@
+{"category":"misc","key":{"C":{"item":"minecraft:comparator"},"E":{"item":"minecraft:end_crystal"},"G":{"item":"minecraft:glass"},"I":{"item":"minecraft:iron_ingot"}},"pattern":[" G ","CEC"," I "],"result":{"item":"ait:console_generator"},"show_notification":true,"type":"minecraft:crafting_shaped"}

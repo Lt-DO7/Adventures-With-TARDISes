@@ -1,0 +1,1 @@
+{"category":"misc","key":{"C":{"item":"minecraft:comparator"},"D":{"item":"minecraft:daylight_detector"},"I":{"item":"minecraft:iron_ingot"},"R":{"item":"minecraft:redstone"}},"pattern":[" D ","ICI"," R "],"result":{"count":4,"item":"ait:detector_block"},"show_notification":true,"type":"minecraft:crafting_shaped"}

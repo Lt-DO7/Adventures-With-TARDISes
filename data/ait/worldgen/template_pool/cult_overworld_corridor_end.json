@@ -1,0 +1,1 @@
+{"elements":[{"element":{"element_type":"minecraft:single_pool_element","location":"ait:cultist/overworld/cultist_corridor_end","processors":"minecraft:mossify_10_percent","projection":"rigid"},"weight":100}],"fallback":"ait:cult_overworld_corridor_end","name":"ait:cult_overworld_corridor_end"}

@@ -1,0 +1,1 @@
+{"elements":[{"element":{"element_type":"minecraft:single_pool_element","location":"ait:mars_rover","processors":"minecraft:mossify_10_percent","projection":"rigid"},"weight":100}],"fallback":"ait:mars_rover","name":"ait:mars_rover"}

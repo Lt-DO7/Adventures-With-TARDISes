@@ -1,0 +1,1 @@
+{"category":"building","key":{"B":{"item":"ait:zeiton_block"},"O":{"item":"ait:zeiton_shard"},"P":{"item":"ait:zeiton_cobble"},"S":{"item":"minecraft:cobblestone"}},"pattern":["OBO","BSB","OPO"],"result":{"item":"ait:compact_zeiton"},"show_notification":true,"type":"minecraft:crafting_shaped"}

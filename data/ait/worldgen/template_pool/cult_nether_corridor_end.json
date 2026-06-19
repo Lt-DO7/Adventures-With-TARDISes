@@ -1,0 +1,1 @@
+{"elements":[{"element":{"element_type":"minecraft:single_pool_element","location":"ait:cultist/nether/cultist_corridor_end","processors":"ait:cult_nether","projection":"rigid"},"weight":100}],"fallback":"ait:cult_nether_corridor_end","name":"ait:cult_nether_corridor_end"}

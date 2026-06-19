@@ -21,10 +21,10 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(value = FallingTardisRenderer.class, remap = false)
+@Mixin(FallingTardisRenderer.class)
 public abstract class FallingTardisRendererMixin {
 
-    @Inject(method = "render", at = @At("HEAD"), cancellable = true, remap = false)
+    @Inject(method = "render", at = @At("HEAD"), cancellable = true)
     private void awt$renderCustomSiege(FallingTardisEntity entity, float yaw, float tickDelta, MatrixStack matrices,
                                        VertexConsumerProvider vertexConsumers, int light, CallbackInfo ci) {
         try {

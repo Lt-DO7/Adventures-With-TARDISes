@@ -1,0 +1,1 @@
+{"category":"equipment","key":{"B":{"item":"ait:artron_collector"},"I":{"item":"minecraft:iron_ingot"},"X":{"item":"ait:superheated_zeiton"}},"pattern":["III","IBI","IXI"],"result":{"item":"ait:orthogonal_engine_filter"},"show_notification":true,"type":"minecraft:crafting_shaped"}

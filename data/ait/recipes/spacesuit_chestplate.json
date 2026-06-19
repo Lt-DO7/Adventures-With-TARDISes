@@ -1,0 +1,1 @@
+{"category":"misc","key":{"B":{"item":"minecraft:bucket"},"C":{"item":"minecraft:iron_chestplate"},"F":{"item":"ait:fabric"}},"pattern":["F F","FCF","FBF"],"result":{"item":"ait:spacesuit_chestplate"},"show_notification":true,"type":"minecraft:crafting_shaped"}
