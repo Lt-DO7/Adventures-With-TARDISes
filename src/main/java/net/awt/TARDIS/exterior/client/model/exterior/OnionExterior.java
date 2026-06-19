@@ -6,6 +6,7 @@ import dev.amble.ait.client.models.exteriors.SimpleExteriorModel;
 import dev.amble.ait.client.tardis.ClientTardis;
 import dev.amble.ait.core.blockentities.ExteriorBlockEntity;
 import dev.amble.ait.core.tardis.handler.DoorHandler;
+import net.awt.TARDIS.exterior.client.animation.ExteriorAnimationApplier;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.util.math.MatrixStack;
@@ -170,17 +171,20 @@ public class OnionExterior extends SimpleExteriorModel {
 	}
 
 	@Override
-	public void renderWithAnimations(ClientTardis tardis, ExteriorBlockEntity exterior, ModelPart root, MatrixStack matrices, VertexConsumer vertices, int light, int overlay, float red, float green, float blue, float alpha) {
+	public void renderWithAnimations(ClientTardis tardis, ExteriorBlockEntity exterior, ModelPart root, MatrixStack matrices, VertexConsumer vertices, int light, int overlay, float red, float green, float blue, float alpha, float tickDelta) {
 		if ( exterior.tardis().isEmpty())
 			return;
 
 		DoorHandler door =  exterior.tardis().get().door();
 		this.OmgitsaUFO.visible = door.isOpen();
 
+		ExteriorAnimationApplier.reset(root);
+		ExteriorAnimationApplier.apply(tardis.getExterior().getVariant().id(), tardis, root, tickDelta);
+
 		matrices.push();
 		matrices.scale(1, 1, 1);
 		matrices.translate(0, -1.59f, 0);
-		super.renderWithAnimations(tardis, exterior, root, matrices, vertices, light, overlay, red, green, blue, alpha);
+		root.render(matrices, vertices, light, overlay, red, green, blue, alpha);
 		matrices.pop();
 	}
 
