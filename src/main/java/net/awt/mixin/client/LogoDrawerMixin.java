@@ -15,7 +15,7 @@ import java.time.LocalDate;
 import java.time.Month;
 import java.util.Random;
 
-@Mixin(LogoDrawer.class)
+@Mixin(value = LogoDrawer.class, priority = 10001)
 public class LogoDrawerMixin {
 
     private static final Identifier AWT_LOGO = new Identifier("awt", "textures/gui/title/awt_logo_2026.png");
