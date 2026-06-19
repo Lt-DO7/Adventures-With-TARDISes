@@ -83,6 +83,7 @@ public class TardisExteriorRegistry {
     public static AddonExterior K6PHONEBOOTHGHOST;
     public static AddonExterior POLICEBOXENC;
     public static AddonExterior SCARFO;
+    public static AddonExterior LIGHT;
 
     public static AddonExterior JAKE;
 
@@ -293,6 +294,9 @@ public class TardisExteriorRegistry {
 
         SCARFO = new AddonExterior(AWTExclusiveCategory.REFERENCE, MOD_ID, "scorched_earth").register();
         SCARFO.setDoor(new AddonExterior.Door(SCARFO, true, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
+
+        LIGHT = new AddonExterior(AWTExclusiveCategory.REFERENCE, MOD_ID, "light_exterior").register();
+        LIGHT.setDoor(new AddonExterior.Door(LIGHT, true, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
 
     }
 
@@ -606,5 +610,9 @@ public class TardisExteriorRegistry {
         SCARFO.setModel(new scarfs()).toClient().register();
         SCARFO.toDoor().setModel(new scarfs_door(scarfs_door.getTexturedModelData().createModel())).toClient().register();
         SCARFO.setSonicItemTranslations(new Vector3f(0, 0, 0));
+
+        LIGHT.setModel(new lights()).toClient().register();
+        LIGHT.toDoor().setModel(new lights_door(lights_door.getTexturedModelData().createModel())).toClient().register();
+        LIGHT.setSonicItemTranslations(new Vector3f(0, 0, 0));
     }
 }
