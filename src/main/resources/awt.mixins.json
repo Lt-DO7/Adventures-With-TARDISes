@@ -8,7 +8,9 @@
     "client.LogoDrawerMixin",
     "console.ConsoleRegistryMixin",
     "console.ConsoleVariantRegistryMixin",
-    "PlayerEntityMixin"
+    "PlayerEntityMixin",
+    "travel.AnimatedTravelHandlerMixin",
+    "travel.TardisAnimationRegistryMixin"
   ],
   "client": [
     "client.AnimationHolderAccessor",
@@ -17,7 +19,6 @@
     "client.ExteriorRendererMixin",
     "client.FallingTardisRendererMixin",
     "client.LogoDrawerMixin",
-    "client.TardisAnimationAccessor",
     "console.ClientConsoleVariantRegistryMixin",
     "ItemRendererAccessor",
     "ItemRendererMixin",

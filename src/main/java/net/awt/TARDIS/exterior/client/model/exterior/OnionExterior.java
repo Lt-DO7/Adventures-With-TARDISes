@@ -177,14 +177,13 @@ public class OnionExterior extends SimpleExteriorModel {
 
 		DoorHandler door =  exterior.tardis().get().door();
 		this.OmgitsaUFO.visible = door.isOpen();
-
 		ExteriorAnimationApplier.reset(root);
-		ExteriorAnimationApplier.apply(tardis.getExterior().getVariant().id(), tardis, root, tickDelta);
+		ExteriorAnimationApplier.apply(tardis, root, tickDelta);
 
 		matrices.push();
 		matrices.scale(1, 1, 1);
 		matrices.translate(0, -1.59f, 0);
-		root.render(matrices, vertices, light, overlay, red, green, blue, alpha);
+		super.renderWithAnimations(tardis, exterior, root, matrices, vertices, light, overlay, red, green, blue, alpha);
 		matrices.pop();
 	}
 
