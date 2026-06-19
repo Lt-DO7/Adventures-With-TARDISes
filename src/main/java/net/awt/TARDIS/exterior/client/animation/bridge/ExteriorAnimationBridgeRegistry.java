@@ -31,7 +31,9 @@ public final class ExteriorAnimationBridgeRegistry {
             ),
             new ExteriorAnimationSet(OnionExteriorAnimations.TAKEOFF, OnionExteriorAnimations.LANDING),
             "Root",
-            Set.of(),
+            Set.of(
+                new ExteriorAnimationBridgeDefinition.DelegatedTrack("Root", Transformation.Targets.TRANSLATE)
+            ),
             new Identifier("ait", "tardis/demat"),
             new Identifier("ait", "tardis/mat")
         );
