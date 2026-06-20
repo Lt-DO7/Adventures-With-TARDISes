@@ -8,12 +8,9 @@
     "client.LogoDrawerMixin",
     "console.ConsoleRegistryMixin",
     "console.ConsoleVariantRegistryMixin",
-    "PlayerEntityMixin",
-    "travel.AnimatedTravelHandlerMixin",
-    "travel.TardisAnimationRegistryMixin"
+    "PlayerEntityMixin"
   ],
   "client": [
-    "client.AnimationHolderAccessor",
     "client.ControlEntityRendererMixin",
     "client.DebugRendererMixin",
     "client.ExteriorRendererMixin",

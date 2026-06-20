@@ -1,7 +1,6 @@
 package net.awt.TARDIS.exterior.client.model.exterior;
 
 import dev.amble.ait.api.tardis.link.v2.Linkable;
-import dev.amble.ait.client.models.exteriors.ExteriorModel;
 import dev.amble.ait.client.models.exteriors.SimpleExteriorModel;
 import dev.amble.ait.client.tardis.ClientTardis;
 import dev.amble.ait.core.blockentities.ExteriorBlockEntity;
@@ -172,10 +171,10 @@ public class OnionExterior extends SimpleExteriorModel {
 
 	@Override
 	public void renderWithAnimations(ClientTardis tardis, ExteriorBlockEntity exterior, ModelPart root, MatrixStack matrices, VertexConsumer vertices, int light, int overlay, float red, float green, float blue, float alpha, float tickDelta) {
-		if ( exterior.tardis().isEmpty())
+		if (exterior.tardis().isEmpty())
 			return;
 
-		DoorHandler door =  exterior.tardis().get().door();
+		DoorHandler door = exterior.tardis().get().door();
 		this.OmgitsaUFO.visible = door.isOpen();
 		ExteriorAnimationApplier.reset(root);
 		ExteriorAnimationApplier.apply(tardis, root, tickDelta);
@@ -183,7 +182,7 @@ public class OnionExterior extends SimpleExteriorModel {
 		matrices.push();
 		matrices.scale(1, 1, 1);
 		matrices.translate(0, -1.59f, 0);
-		super.renderWithAnimations(tardis, exterior, root, matrices, vertices, light, overlay, red, green, blue, alpha);
+		root.render(matrices, vertices, light, overlay, red, green, blue, alpha);
 		matrices.pop();
 	}
 

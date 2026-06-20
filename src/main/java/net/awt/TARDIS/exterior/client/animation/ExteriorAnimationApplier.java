@@ -1,14 +1,12 @@
 package net.awt.TARDIS.exterior.client.animation;
 
 import dev.amble.ait.client.tardis.ClientTardis;
-import dev.amble.ait.core.tardis.animation.v2.TardisAnimation;
-import net.awt.TARDIS.exterior.client.animation.bridge.ExteriorAnimationBridgeDefinition;
-import net.awt.TARDIS.exterior.client.animation.bridge.RuntimeBridgeTardisAnimation;
-import net.awt.mixin.client.AnimationHolderAccessor;
+import dev.amble.ait.core.tardis.handler.travel.TravelHandlerBase;
 import net.minecraft.client.model.ModelPart;
 import net.minecraft.client.render.entity.animation.Animation;
 import net.minecraft.client.render.entity.animation.Keyframe;
 import net.minecraft.client.render.entity.animation.Transformation;
+import net.minecraft.util.Identifier;
 import org.joml.Vector3f;
 
 import java.lang.reflect.Field;
@@ -17,9 +15,11 @@ import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 public final class ExteriorAnimationApplier {
     private static final Field MODEL_PART_CHILDREN_FIELD = awt$findChildrenField();
+    private static final Map<UUID, AnimationTimer> TIMERS = new HashMap<>();
 
     private ExteriorAnimationApplier() {
     }
@@ -29,19 +29,48 @@ public final class ExteriorAnimationApplier {
     }
 
     public static boolean apply(ClientTardis tardis, ModelPart root, float tickDelta) {
-        TardisAnimation current = ((AnimationHolderAccessor) tardis.travel().getAnimations()).awt$getCurrent();
-        if (!(current instanceof RuntimeBridgeTardisAnimation bridgeAnimation)) {
+        Identifier variantId = tardis.getExterior().getVariant().id();
+        ExteriorAnimationSet animationSet = ExteriorAnimationRegistry.get(variantId);
+        if (animationSet == null) {
             return false;
         }
 
-        awt$applyAnimation(root, bridgeAnimation.definition(), bridgeAnimation.sourceAnimation(), bridgeAnimation.elapsedSeconds(tickDelta), 1.0f);
+        TravelHandlerBase.State state = tardis.travel().getState();
+        Animation animation = switch (state) {
+            case DEMAT -> animationSet.takeoff();
+            case MAT -> animationSet.landing();
+            default -> null;
+        };
+        if (animation == null) {
+            return false;
+        }
+
+        double now = System.nanoTime() / 1_000_000_000.0;
+        UUID uuid = tardis.getUuid();
+        AnimationTimer timer = TIMERS.computeIfAbsent(uuid, k -> new AnimationTimer());
+
+        if (timer.lastState != state || !timer.lastVariantId.equals(variantId)) {
+            timer.startRealTime = now;
+        }
+        timer.lastState = state;
+        timer.lastVariantId = variantId;
+
+        float elapsedSeconds = (float) Math.min(now - timer.startRealTime, animation.lengthInSeconds());
+
+        awt$applyAnimation(root, animation, elapsedSeconds, 1.0f);
         return true;
     }
 
-    private static void awt$applyAnimation(ModelPart root, ExteriorAnimationBridgeDefinition definition, Animation animation, float elapsedSeconds, float scale) {
+    private static class AnimationTimer {
+        double startRealTime = 0;
+        TravelHandlerBase.State lastState = TravelHandlerBase.State.LANDED;
+        Identifier lastVariantId = new Identifier("awt", "none");
+    }
+
+    private static void awt$applyAnimation(ModelPart root, Animation animation, float elapsedSeconds, float scale) {
         Vector3f cache = new Vector3f();
         Map<String, ModelPart> boneMap = new HashMap<>();
-        awt$collectParts(definition.rootBone(), root, boneMap);
+        awt$collectParts("Root", root, boneMap);
 
         for (Map.Entry<String, List<Transformation>> entry : animation.boneAnimations().entrySet()) {
             ModelPart part = boneMap.get(entry.getKey());
@@ -50,37 +79,12 @@ public final class ExteriorAnimationApplier {
             }
 
             for (Transformation transformation : entry.getValue()) {
-                if (definition.delegates(entry.getKey(), transformation.target())) {
-                    continue;
-                }
                 awt$applyTransformation(elapsedSeconds, cache, scale, part, transformation);
             }
         }
     }
 
-    public static Vector3f evaluateVector(Animation animation, String boneName, Transformation.Target target, float elapsedSeconds, Vector3f fallback) {
-        List<Transformation> transformations = animation.boneAnimations().get(boneName);
-        if (transformations == null) {
-            return new Vector3f(fallback);
-        }
-
-        for (Transformation transformation : transformations) {
-            if (transformation.target() != target) {
-                continue;
-            }
-
-            return awt$evaluateTransformation(elapsedSeconds, new Vector3f(), 1.0f, transformation);
-        }
-
-        return new Vector3f(fallback);
-    }
-
     private static void awt$applyTransformation(float elapsedSeconds, Vector3f cache, float scale, ModelPart part, Transformation transformation) {
-        Vector3f value = awt$evaluateTransformation(elapsedSeconds, cache, scale, transformation);
-        transformation.target().apply(part, value);
-    }
-
-    private static Vector3f awt$evaluateTransformation(float elapsedSeconds, Vector3f cache, float scale, Transformation transformation) {
         Keyframe[] keyframes = transformation.keyframes();
         int startIndex = Math.max(0, awt$binarySearch(elapsedSeconds, keyframes) - 1);
         int endIndex = Math.min(keyframes.length - 1, startIndex + 1);
@@ -91,7 +95,7 @@ public final class ExteriorAnimationApplier {
             ? Math.max(0.0f, Math.min(1.0f, delta / (end.timestamp() - start.timestamp())))
             : 0.0f;
         end.interpolation().apply(cache, progress, keyframes, startIndex, endIndex, scale);
-        return new Vector3f(cache);
+        transformation.target().apply(part, cache);
     }
 
     private static int awt$binarySearch(float elapsedSeconds, Keyframe[] keyframes) {
