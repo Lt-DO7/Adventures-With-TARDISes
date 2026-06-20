@@ -38,6 +38,7 @@ public class ModItemGroups {
 
                         entries.add(ModItems.VORTEX_MANIPULATOR);
                         entries.add(ModItems.VORTEX_MANIPULATOR2);
+                        entries.add(ModItems.VORTEX_MANIPULATOR3);
 
                         entries.add(ModItems.SPOON);
 

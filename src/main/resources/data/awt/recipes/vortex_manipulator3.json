@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "bcb",
+    "bab",
+    "bcb"
+  ],
+  "key": {
+    "a": {
+      "item": "awt:weapon_matrix"
+    },
+    "b": {
+      "item": "awt:dalekanium_ingot"
+    },
+    "c": {
+      "item": "awt:processing_unit"
+
+    }},
+    "result": {
+      "item": "awt:vmupdated",
+      "count": 1
+    }
+
+}
+
+
+

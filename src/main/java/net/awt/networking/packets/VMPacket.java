@@ -214,6 +214,9 @@ public class VMPacket {
         for (int i = 0; i < player.getInventory().size(); i++) {
             if (player.getInventory().getStack(i).isOf(ModItems.VORTEX_MANIPULATOR)
                 || player.getInventory().getStack(i).isOf(ModItems.VORTEX_MANIPULATOR2)) {
+                player.getInventory().getStack(i).isOf(ModItems.VORTEX_MANIPULATOR3);
+            }
+            {
                 return true;
             }
         }
