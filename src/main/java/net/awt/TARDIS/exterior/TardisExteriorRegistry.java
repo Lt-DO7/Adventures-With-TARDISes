@@ -84,6 +84,7 @@ public class TardisExteriorRegistry {
     public static AddonExterior POLICEBOXENC;
     public static AddonExterior SCARFO;
     public static AddonExterior LIGHT;
+    public static AddonExterior BLUEBERRYGHOST;
 
     public static AddonExterior JAKE;
 
@@ -297,6 +298,9 @@ public class TardisExteriorRegistry {
 
         LIGHT = new AddonExterior(AWTExclusiveCategory.REFERENCE, MOD_ID, "light_exterior").register();
         LIGHT.setDoor(new AddonExterior.Door(LIGHT, true, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
+
+        BLUEBERRYGHOST = new AddonExterior(AWTExclusiveCategory.REFERENCE, MOD_ID, "blueberry_ghost").register();
+        BLUEBERRYGHOST.setDoor(new AddonExterior.Door(BLUEBERRYGHOST, true, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
 
     }
 
@@ -614,5 +618,9 @@ public class TardisExteriorRegistry {
         LIGHT.setModel(new lights()).toClient().register();
         LIGHT.toDoor().setModel(new lights_door(lights_door.getTexturedModelData().createModel())).toClient().register();
         LIGHT.setSonicItemTranslations(new Vector3f(0, 0, 0));
+
+        BLUEBERRYGHOST.setModel(new blueberry()).toClient().register();
+        BLUEBERRYGHOST.toDoor().setModel(new blueberry_door(blueberry_door.getTexturedModelData().createModel())).toClient().register();
+        BLUEBERRYGHOST.setSonicItemTranslations(new Vector3f(0, 0, 0));
     }
 }
