@@ -1,7 +1,7 @@
 {
+  "temperature": -0.8,
   "precipitation": "snow",
-  "temperature": 0.0,
-  "downfall": 0.5,
+  "downfall": 1.0,
 
   "has_precipitation": true,
 
@@ -16,23 +16,30 @@
     "monster": [
       {
         "type": "awt:cybermat",
-        "weight": 100,
-        "minCount": 1,
-        "maxCount": 3
+        "weight": 200,
+        "minCount": 2,
+        "maxCount": 5
       },
       {
         "type": "awt:proto_cyberman",
-        "weight": 100,
-        "minCount": 1,
-        "maxCount": 3
+        "weight": 200,
+        "minCount": 2,
+        "maxCount": 5
       },
       {
         "type": "awt:mondasian_cyberman",
-        "weight": 100,
-        "minCount": 1,
-        "maxCount": 3
+        "weight": 200,
+        "minCount": 2,
+        "maxCount": 5
       }
-    ]
+    ],
+    "creature": [],
+    "ambient": [],
+    "axolotls": [],
+    "underground_water_creature": [],
+    "water_creature": [],
+    "water_ambient": [],
+    "misc": []
   },
 
   "features": [],

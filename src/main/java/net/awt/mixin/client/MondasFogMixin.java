@@ -26,9 +26,8 @@ public class MondasFogMixin {
 
         if (world.getRegistryKey().getValue().getPath().equals("mondas")) {
 
-            RenderSystem.setShaderFogStart(0.5F);
-            RenderSystem.setShaderFogEnd(8.0F);
-
+            RenderSystem.setShaderFogStart(1.0F);
+            RenderSystem.setShaderFogEnd(16.0F);
             ci.cancel();
         }
     }
