@@ -4,6 +4,7 @@ import net.awt.datagen.ModBlockTagProvider;
 import net.awt.datagen.ModItemTagProvider;
 import net.awt.datagen.ModLootTableProvider;
 import net.awt.datagen.ModWorldGenerator;
+import net.awt.world.biome.ModBiomes;
 import net.awt.world.ModConfiguredFeatures;
 import net.awt.world.ModPlacedFeatures;
 import net.awt.world.dimension.ModDimensions;
@@ -25,9 +26,10 @@ public class AdventuresWithTARDISesDataGenerator implements DataGeneratorEntrypo
 
 	@Override
 	public void buildRegistry(RegistryBuilder registryBuilder) {
+		registryBuilder.addRegistry(RegistryKeys.BIOME, ModBiomes::bootstrap);
 		registryBuilder.addRegistry(RegistryKeys.CONFIGURED_FEATURE, ModConfiguredFeatures::bootstrap);
 		registryBuilder.addRegistry(RegistryKeys.PLACED_FEATURE, ModPlacedFeatures::bootstrap);
+		registryBuilder.addRegistry(RegistryKeys.DIMENSION_TYPE, ModDimensions::bootstrapType);
 		DataGeneratorEntrypoint.super.buildRegistry(registryBuilder);
-        //registryBuilder.addRegistry(RegistryKeys.DIMENSION_TYPE, ModDimensions::bootstrapType);
 	}
 }

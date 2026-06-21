@@ -1,0 +1,39 @@
+{
+  "dimension": "awt:skaro",
+  "gravity": 0.06,
+  "has_landable_surface": true,
+  "has_oxygen": false,
+  "render": {
+    "atmosphere": true,
+    "clouds": false,
+    "color": [
+      0.56,
+      0.69,
+      0.31
+    ],
+    "has_rings": false,
+    "position": [
+      -14500,
+      220,
+      18200
+    ],
+    "radius": 950,
+    "rotation": [
+      18,
+      30,
+      0
+    ],
+    "scale": [
+      820,
+      820,
+      820
+    ],
+    "suction_radius": 700,
+    "texture": "ait:textures/environment/mars.png"
+  },
+  "temperature": 335,
+  "transition": {
+    "height": 500,
+    "target": "ait:space"
+  }
+}
