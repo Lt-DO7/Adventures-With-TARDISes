@@ -61,9 +61,6 @@ public class TardisExteriorRegistry {
    public static AddonExterior POLICEBOXCANDY;
    public static AddonExterior POLICEBOXGLASGLOW;
     public static AddonExterior POLICEBOXTEXTURE;
-    public static AddonExterior HARTNELL;
-    public static AddonExterior TROUGHTON;
-    public static AddonExterior PERTWEE;
     public static AddonExterior LEGODIMALT;
     public static AddonExterior LEGODIMINVERTED;
     public static AddonExterior BLUEBERRY;
@@ -84,6 +81,7 @@ public class TardisExteriorRegistry {
     public static AddonExterior POLICEBOXENC;
     public static AddonExterior SCARFO;
     public static AddonExterior LIGHT;
+    public static AddonExterior BLUEBERRYGHOST;
 
     public static AddonExterior JAKE;
 
@@ -229,15 +227,6 @@ public class TardisExteriorRegistry {
         GLASGLOW = new AddonExterior(new Identifier(MOD_ID, "classicboxes"), MOD_ID, "glasglow").register();
         GLASGLOW.setDoor(new AddonExterior.Door(GLASGLOW, true, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
 
-        HARTNELL = new AddonExterior(new Identifier(MOD_ID, "classicboxes"), MOD_ID, "hartnell").register();
-        HARTNELL.setDoor(new AddonExterior.Door(HARTNELL, true, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
-
-     //  TROUGHTON = new AddonExterior(new Identifier(MOD_ID, "classicboxes"), MOD_ID, "troughton").register();
-        //TROUGHTON.setDoor(new AddonExterior.Door(TROUGHTON, true, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
-
-       // PERTWEE = new AddonExterior(new Identifier(MOD_ID, "classicboxes"), MOD_ID, "pertwee").register();
-       // PERTWEE.setDoor(new AddonExterior.Door(PERTWEE, true, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
-
         LEGODIMALT = new AddonExterior(new Identifier(MOD_ID, "legoboxes"), MOD_ID, "lego_dimensions_police_box_alt").register();
         LEGODIMALT.setDoor(new AddonExterior.Door(LEGODIMALT, true, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
 
@@ -297,6 +286,9 @@ public class TardisExteriorRegistry {
 
         LIGHT = new AddonExterior(AWTExclusiveCategory.REFERENCE, MOD_ID, "light_exterior").register();
         LIGHT.setDoor(new AddonExterior.Door(LIGHT, true, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
+
+        BLUEBERRYGHOST = new AddonExterior(AWTExclusiveCategory.REFERENCE, MOD_ID, "blueberry_ghost").register();
+        BLUEBERRYGHOST.setDoor(new AddonExterior.Door(BLUEBERRYGHOST, true, AWTSound.POLICEBOXDOOROPEN, AWTSound.POLICEBOXDOORCLOSED)).toDoor().register();
 
     }
 
@@ -523,18 +515,6 @@ public class TardisExteriorRegistry {
         POLICEBOXTEXTURE.toDoor().setModel(new policeboxdoor(policeboxdoor.getTexturedModelData().createModel())).toClient().register();
         POLICEBOXTEXTURE.setSonicItemTranslations(new Vector3f(0, 0, 0));
 
-        HARTNELL.setModel(new classic_policebox()).toClient().register();
-        HARTNELL.toDoor().setModel(new classic_policebox_door(classic_policebox_door.getTexturedModelData().createModel())).toClient().register();
-        HARTNELL.setSonicItemTranslations(new Vector3f(0, 0, 0));
-
-        //TROUGHTON.setModel(new classic_policebox()).toClient().register();
-       // TROUGHTON.toDoor().setModel(new classic_policebox_door(classic_policebox_door.getTexturedModelData().createModel())).toClient().register();
-       // TROUGHTON.setSonicItemTranslations(new Vector3f(0, 0, 0));
-
-      //  PERTWEE.setModel(new classic_policebox()).toClient().register();
-       // PERTWEE.toDoor().setModel(new classic_policebox_door(classic_policebox_door.getTexturedModelData().createModel())).toClient().register();
-       // PERTWEE.setSonicItemTranslations(new Vector3f(0, 0, 0));
-
         LEGODIMALT.setModel(new lego_tardis_model()).toClient().register();
         LEGODIMALT.toDoor().setModel(new lego_tardis_model_door(lego_tardis_model_door.getTexturedModelData().createModel())).toClient().register();
         LEGODIMALT.setPortalWidth(0.90f);
@@ -614,5 +594,9 @@ public class TardisExteriorRegistry {
         LIGHT.setModel(new lights()).toClient().register();
         LIGHT.toDoor().setModel(new lights_door(lights_door.getTexturedModelData().createModel())).toClient().register();
         LIGHT.setSonicItemTranslations(new Vector3f(0, 0, 0));
+
+        BLUEBERRYGHOST.setModel(new blueberry()).toClient().register();
+        BLUEBERRYGHOST.toDoor().setModel(new blueberry_door(blueberry_door.getTexturedModelData().createModel())).toClient().register();
+        BLUEBERRYGHOST.setSonicItemTranslations(new Vector3f(0, 0, 0));
     }
 }

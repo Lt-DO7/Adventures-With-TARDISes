@@ -181,6 +181,7 @@ public class ModItems {
     // Vortex Manipulator
     public static final Item VORTEX_MANIPULATOR = registerItem("vortex_manipulator", new VortexManipulator(new FabricItemSettings()));
     public static final Item VORTEX_MANIPULATOR2 = registerItem("vortex_manipulator2", new VortexManipulator(new FabricItemSettings()));
+    public static final Item VORTEX_MANIPULATOR3 = registerItem("vmupdated", new VortexManipulator(new FabricItemSettings()));
 
     // Weapon Matrix
     public static final Item WEAPON_MATRIX = registerItem("weapon_matrix", new Item(new FabricItemSettings()));

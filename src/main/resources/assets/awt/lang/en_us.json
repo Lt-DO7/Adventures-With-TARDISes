@@ -17,6 +17,7 @@
   "item.awt.roundel_mold": "Roundel Mold",
   "item.awt.vortex_manipulator": "Vortex Manipulator",
   "item.awt.vortex_manipulator2": "Vortex Manipulator",
+  "item.awt.vmupdated": "Vortex Manipulator",
   "item.awt.drwhovale_music_disc": "§6Music Disc",
   "item.awt.drwhovale_music_disc.desc": "Murray Gold - Vale Decem",
   "item.awt.doctorwhoxv_music_disc": "§cMusic Disc",
@@ -132,6 +133,7 @@
   "exterior.awt.policebox_enc": "Enc Box",
 
   "exterior.awt.blueberry": "Blueberry Box",
+  "exterior.awt.blueberry_ghost": "Blueberry Box Ghostified",
   "exterior.awt.scorched_earth": "Scorched Earth",
   "exterior.awt.light_exterior": "LightSpeeddd",
 
