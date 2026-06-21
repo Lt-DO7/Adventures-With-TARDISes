@@ -9,19 +9,19 @@ import net.minecraft.entity.EntityPose;
 import net.minecraft.entity.EntityStatuses;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.ai.RangedAttackMob;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.mob.MobEntity;
-import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.Vec3d;
@@ -29,7 +29,7 @@ import net.minecraft.world.EntityView;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public class K9Entity extends TameableEntity {
+public class K9Entity extends TameableEntity implements RangedAttackMob {
 
     public final AnimationState idleAnimationState = new AnimationState();
     private int idleAnimationTimeout = 0;
@@ -72,10 +72,11 @@ public class K9Entity extends TameableEntity {
         this.goalSelector.add(0, new SwimGoal(this));
         this.goalSelector.add(1, new SitGoal(this));
         this.goalSelector.add(2, new FollowOwnerGoal(this, 1.0, 10.0F, 2.0F, false));
-        this.goalSelector.add(3, new MeleeAttackGoal(this, 1.0, true));
-        this.goalSelector.add(4, new WanderAroundGoal(this, 1.0));
-        this.goalSelector.add(5, new LookAtEntityGoal(this, PlayerEntity.class, 4.0F));
-        this.goalSelector.add(6, new LookAroundGoal(this));
+        this.goalSelector.add(3, new ProjectileAttackGoal(this, 1.0D, 20, 16.0F));
+        this.goalSelector.add(4, new MeleeAttackGoal(this, 1.0, true));
+        this.goalSelector.add(5, new WanderAroundGoal(this, 1.0));
+        this.goalSelector.add(6, new LookAtEntityGoal(this, PlayerEntity.class, 4.0F));
+        this.goalSelector.add(7, new LookAroundGoal(this));
 
         this.targetSelector.add(1, new TrackOwnerAttackerGoal(this));
         this.targetSelector.add(2, new AttackWithOwnerGoal(this));
@@ -163,6 +164,20 @@ public class K9Entity extends TameableEntity {
             this.applyDamageEffects(this, target);
         }
         return success;
+    }
+
+    @Override
+    public void attack(LivingEntity target, float pullProgress) {
+        if (this.getWorld().isClient()) {
+            return;
+        }
+
+        Vec3d forward = this.getRotationVec(1.0F).normalize().multiply(0.8D);
+        Vec3d muzzle = this.getPos().add(0.0D, 0.62D, 0.0D).add(forward);
+        Vec3d targetPos = target.getPos().add(0.0D, target.getHeight() * 0.5D, 0.0D);
+
+        LaserEntity.fire(this.getWorld(), this, muzzle, targetPos.subtract(muzzle), LaserEntity.LaserColor.RED, 5.0D, 1.9F, 1.0F);
+        this.playSound(SoundEvents.ENTITY_GUARDIAN_ATTACK, 0.8F, 1.5F);
     }
 
     /* ================= BREEDING ================= */

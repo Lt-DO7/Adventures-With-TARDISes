@@ -3,6 +3,9 @@
 
   "entity.awt.k9": "K-9",
   "entity.awt.cybermat": "Cybermat",
+  "entity.awt.laser": "Laser",
+  "entity.awt.proto_cyberman": "Proto-Cyberman",
+  "entity.awt.mondasian_cyberman": "Mondasian Cyberman",
 
   "dimension.awt.skaro": "Skaro",
   "dimension.awt.thelostworld": "The Lost Reality",
@@ -61,6 +64,8 @@
   "item.awt.spoon": "Spoon",
 
   "item.awt.cybermat_spawn_egg": "Cybermat Spawn Egg",
+  "item.awt.proto_cyberman_spawn_egg": "Proto-Cyberman Spawn Egg",
+  "item.awt.mondasian_cyberman_spawn_egg": "Mondasian Cyberman Spawn Egg",
 
   "effect.awt.Antiradiation":"Anti-Radiation",
 

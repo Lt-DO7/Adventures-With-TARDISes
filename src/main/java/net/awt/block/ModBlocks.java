@@ -281,8 +281,8 @@ public class ModBlocks {
    // public static final Block WASTED_TRAP_DOOR = registerBlock("wasted_trapdoor",
    //         new RoundelBlock(FabricBlockSettings.copyOf(Blocks.OAK_TRAPDOOR).sounds(BlockSoundGroup.WOOD).requiresTool()));
 
-   // public static final Block WASTED_GRASS = registerBlock("wastedgrass",
-    //        new GlassBlock(FabricBlockSettings.copyOf(Blocks.GRASS_BLOCK).sounds(BlockSoundGroup.ROOTED_DIRT).requiresTool()));
+    public static final Block WASTED_GRASS = registerBlock("wastedgrass",
+            new Block(FabricBlockSettings.copyOf(Blocks.GRASS_BLOCK).sounds(BlockSoundGroup.ROOTED_DIRT)));
 
 
     private static Block registerBlock(String name, Block block) {

@@ -19,6 +19,8 @@ import net.awt.effect.ModEffects;
 import net.awt.entity.ModEntities;
 import net.awt.entity.custom.CybermatEntity;
 import net.awt.entity.custom.K9Entity;
+import net.awt.entity.custom.MondasianCybermanEntity;
+import net.awt.entity.custom.ProtoCybermanEntity;
 import net.awt.events.UseEvent;
 import net.awt.events.UseItemEvent;
 import net.awt.item.ModItemGroups;
@@ -140,6 +142,8 @@ public class AdventuresWithTARDISes implements ModInitializer {
 
         FabricDefaultAttributeRegistry.register(ModEntities.K9, K9Entity.createK9Attributes());
         FabricDefaultAttributeRegistry.register(ModEntities.CYBERMAT, CybermatEntity.createCybermatAttributes());
+        FabricDefaultAttributeRegistry.register(ModEntities.PROTO_CYBERMAN, ProtoCybermanEntity.createCybermanAttributes());
+        FabricDefaultAttributeRegistry.register(ModEntities.MONDASIAN_CYBERMAN, MondasianCybermanEntity.createCybermanAttributes());
 
         // Resource Packs
         var modContainer = FabricLoader.getInstance().getModContainer("awt").orElseThrow();

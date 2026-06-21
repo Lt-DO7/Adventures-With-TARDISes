@@ -101,6 +101,8 @@ public class ModItemGroups {
                         //spawn eggs
                         entries.add(ModItems.K9_SPAWN_EGG);
                         entries.add(ModItems.CYBERMAT_SPAWN_EGG);
+                        entries.add(ModItems.PROTO_CYBERMAN_SPAWN_EGG);
+                        entries.add(ModItems.MONDASIAN_CYBERMAN_SPAWN_EGG);
 
                     }).build());
 
@@ -240,7 +242,7 @@ public class ModItemGroups {
             FabricItemGroup.builder().displayName(Text.translatable("item_group.awt.skaro"))
                     .icon(() -> new ItemStack(ModBlocks.KALETITE)).entries((displayContext, entries) -> {
                         entries.add(ModBlocks.WASTED_DIRT);
-                       // entries.add(ModBlocks.WASTED_GRASS);
+                        entries.add(ModBlocks.WASTED_GRASS);
                       //  entries.add(ModBlocks.WASTED_BUSH_PLANT);
                         entries.add(ModBlocks.WASTED_LOG);
                         entries.add(ModBlocks.WASTED_LEAVES);
@@ -250,7 +252,7 @@ public class ModItemGroups {
                       //  entries.add(ModBlocks.WASTED_DOOR);
                        // entries.add(ModBlocks.WASTED_TRAP_DOOR);
                        // entries.add(ModBlocks.WASTED_BUTTON);
-                      //  entries.add(ModBlocks.WASTED_PRESSURE_PLATE);
+                     //  entries.add(ModBlocks.WASTED_PRESSURE_PLATE);
                         entries.add(ModBlocks.KALETITE);
                         entries.add(ModBlocks.COBBLED_KALETITE);
                         entries.add(ModBlocks.KALETITE_BRICKS);

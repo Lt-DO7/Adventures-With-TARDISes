@@ -1,0 +1,47 @@
+{
+  "temperature": 2.0,
+  "downfall": 0.0,
+  "precipitation": "none",
+  "effects": {
+    "fog_color": 10053120,
+    "sky_color": 11313152,
+    "water_color": 5635925,
+    "water_fog_color": 3363123,
+    "grass_color": 7566195,
+    "foliage_color": 6916441,
+    "mood_sound": {
+      "sound": "minecraft:ambient.cave",
+      "tick_delay": 6000,
+      "block_search_extent": 8,
+      "offset": 2.0
+    }
+  },
+  "spawn_settings": {
+    "creature_spawn_probability": 0.1,
+    "spawners": {},
+    "spawn_costs": {}
+  },
+  "generation_settings": {
+    "carvers": [
+      "minecraft:cave",
+      "minecraft:cave_extra_underground",
+      "minecraft:canyon"
+    ],
+    "features": [
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [
+        "awt:skaro_kaletite_placed",
+        "awt:dalekanium_ore_placed"
+      ],
+      [],
+      [],
+      [],
+      []
+    ]
+  }
+}

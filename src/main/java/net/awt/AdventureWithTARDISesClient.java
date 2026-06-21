@@ -6,6 +6,11 @@ import dev.emi.trinkets.api.client.TrinketRendererRegistry;
 import net.awt.TARDIS.console.client.AWTClientConsoleVariantRegistry;
 import net.awt.TARDIS.exterior.TardisExteriorRegistry;
 import net.awt.block.ModBlocks;
+import net.awt.client.models.armor.PrehistoricBootsArmorModel;
+import net.awt.client.models.armor.PrehistoricChestplateArmorModel;
+import net.awt.client.models.armor.PrehistoricHelmetArmorModel;
+import net.awt.client.models.armor.PrehistoricLeggingsArmorModel;
+import net.awt.client.renderers.PrehistoricArmorRenderer;
 import net.awt.components.ModComponents;
 import net.awt.entity.ModEntities;
 import net.awt.entity.client.*;
@@ -90,9 +95,19 @@ public class AdventureWithTARDISesClient implements ClientModInitializer {
         EntityRendererRegistry.register(ModEntities.K9, K9Renderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.K9, K9Model::getTexturedModelData);
 
-       //why wont this crap work
+        EntityRendererRegistry.register(ModEntities.LASER, LaserRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.LASER, LaserModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.PROTO_CYBERMAN, ProtoCybermanRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.PROTO_CYBERMAN, ProtoCybermanModel::getTexturedModelData);
+        EntityRendererRegistry.register(ModEntities.MONDASIAN_CYBERMAN, MondasianCybermanRenderer::new);
+        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.MONDASIAN_CYBERMAN, MondasianCybermanModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.CYBERMAT, CybermatRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.CYBERMAT, CybermatModel::getTexturedModelData);
+        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.PREHISTORIC_HELMET_ARMOR, PrehistoricHelmetArmorModel::getTexturedModelData);
+        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.PREHISTORIC_CHESTPLATE_ARMOR, PrehistoricChestplateArmorModel::getTexturedModelData);
+        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.PREHISTORIC_LEGGINGS_ARMOR, PrehistoricLeggingsArmorModel::getTexturedModelData);
+        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.PREHISTORIC_BOOTS_ARMOR, PrehistoricBootsArmorModel::getTexturedModelData);
+        PrehistoricArmorRenderer.register();
 
         SonicGlassesKeybind();
         registerEncDataCommands();
