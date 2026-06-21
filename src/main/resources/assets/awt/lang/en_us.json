@@ -347,6 +347,7 @@
   "item.awt.dalekanium_shovel":"Dalekanium Shovel",
   "item.awt.dalekanium_hoe":"Dalekanium Hoe",
   "item.awt.liquid_dalekanium":"Liquified Dalekanium",
+  "item.awt.radiation_bucket":"Bucket of Radiation",
 
   "block.awt.dalekanium_block": "Dalekanium Block",
   "block.awt.dalekanium_ore": "Dalekanium Ore",
@@ -409,6 +410,7 @@
   "biome.awt.skaro_waste_land": "Skaro Waste Land",
   "block.awt.wasted_planks": "Wasted Planks",
   "block.awt.good_heavens": "Good Heavens!",
-  "block.awt.wasted_leaves": "Wasted Leaves"
+  "block.awt.wasted_leaves": "Wasted Leaves",
+  "block.awt.radiation": "Radiation"
 
 }

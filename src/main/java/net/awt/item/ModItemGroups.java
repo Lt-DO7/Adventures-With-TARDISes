@@ -39,7 +39,6 @@ public class ModItemGroups {
                         entries.add(ModItems.VORTEX_MANIPULATOR);
                         entries.add(ModItems.VORTEX_MANIPULATOR2);
                         entries.add(ModItems.VORTEX_MANIPULATOR3);
-
                         entries.add(ModItems.SPOON);
 
                         //Dalekanium Shite
@@ -249,6 +248,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.WASTED_LEAVES);
                         entries.add(ModBlocks.WASTED_PLANKS);
                         entries.add(ModBlocks.WASTED_PLANK_SLAB);
+                        entries.add(ModItems.RADIATION_BUCKET);
                        // entries.add(ModBlocks.WASTED_PLANK_STAIRS);
                       //  entries.add(ModBlocks.WASTED_DOOR);
                        // entries.add(ModBlocks.WASTED_TRAP_DOOR);

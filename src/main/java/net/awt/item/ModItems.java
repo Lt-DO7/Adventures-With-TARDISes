@@ -2,6 +2,7 @@ package net.awt.item;
 
 import net.awt.AdventuresWithTARDISes;
 import net.awt.entity.ModEntities;
+import net.awt.fluid.ModFluids;
 import net.awt.item.custom.AtriumFuel;
 import net.awt.item.custom.clothing.Bowtie;
 import net.awt.item.custom.clothing.EyeStalk;
@@ -72,6 +73,8 @@ public class ModItems {
 
     public static final Item DALEKANIUM_INGOT = registerItem("dalekanium_ingot", new Item(new FabricItemSettings()));
     public static final Item LIQUID_DALEKANIUM = registerItem("liquid_dalekanium", new Item(new FabricItemSettings()));
+    public static final Item RADIATION_BUCKET = registerItem("radiation_bucket",
+            new BucketItem(ModFluids.STILL_RADIATION, new FabricItemSettings().recipeRemainder(Items.BUCKET).maxCount(1)));
 
     //Dalekanium Armour
 

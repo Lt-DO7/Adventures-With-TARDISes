@@ -2,6 +2,7 @@ package net.awt.block;
 
 import net.awt.AdventuresWithTARDISes;
 import net.awt.block.custom.RoundelBlock;
+import net.awt.fluid.ModFluids;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
@@ -284,9 +285,12 @@ public class ModBlocks {
     public static final Block WASTED_GRASS = registerBlock("wastedgrass",
             new Block(FabricBlockSettings.copyOf(Blocks.GRASS_BLOCK).sounds(BlockSoundGroup.ROOTED_DIRT)));
 
-
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);
+        return Registry.register(Registries.BLOCK, new Identifier(AdventuresWithTARDISes.MOD_ID, name), block);
+    }
+
+    private static Block registerBlockWithoutItem(String name, Block block) {
         return Registry.register(Registries.BLOCK, new Identifier(AdventuresWithTARDISes.MOD_ID, name), block);
     }
 

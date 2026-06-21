@@ -16,11 +16,14 @@ import net.awt.entity.ModEntities;
 import net.awt.entity.client.*;
 import net.awt.entity.custom.K9Entity;
 import net.awt.entity.custom.CybermatEntity;
+import net.awt.fluid.ModFluids;
 import net.awt.item.ModItems;
 import net.awt.item.custom.sonicglasses.SonicGlassesOverlay;
 import net.awt.networking.ModPackets;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.render.fluid.v1.FluidRenderHandlerRegistry;
+import net.fabricmc.fabric.api.client.render.fluid.v1.SimpleFluidRenderHandler;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandManager;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
@@ -40,6 +43,7 @@ import net.minecraft.client.util.ModelIdentifier;
 import net.minecraft.entity.Entity;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.text.Text;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.BlockPos;
@@ -91,6 +95,12 @@ public class AdventureWithTARDISesClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PREHISTORIC_LEAVES,RenderLayer.getCutout());
       //  BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WASTED_BUSH_PLANT,RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WASTED_LEAVES,RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putFluids(RenderLayer.getTranslucent(), ModFluids.STILL_RADIATION, ModFluids.FLOWING_RADIATION);
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.STILL_RADIATION, ModFluids.FLOWING_RADIATION,
+                new SimpleFluidRenderHandler(
+                        new Identifier(AdventuresWithTARDISes.MOD_ID, "fluid/radiation_still"),
+                        new Identifier(AdventuresWithTARDISes.MOD_ID, "fluid/radiation_flow")
+                ));
 
         EntityRendererRegistry.register(ModEntities.K9, K9Renderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.K9, K9Model::getTexturedModelData);

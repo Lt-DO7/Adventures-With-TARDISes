@@ -23,11 +23,13 @@ import net.awt.entity.custom.MondasianCybermanEntity;
 import net.awt.entity.custom.ProtoCybermanEntity;
 import net.awt.events.UseEvent;
 import net.awt.events.UseItemEvent;
+import net.awt.fluid.ModFluids;
 import net.awt.item.ModItemGroups;
 import net.awt.item.ModItems;
 import net.awt.networking.ModPackets;
 import net.awt.sound.AWTSound;
 import net.awt.world.ModEntitySpawns;
+import net.awt.world.feature.ModFeatures;
 import net.awt.world.gen.ModWorldGeneration;
 
 import net.fabricmc.api.ModInitializer;
@@ -68,6 +70,8 @@ public class AdventuresWithTARDISes implements ModInitializer {
     public void onInitialize() {
 
         AWTSound.init();
+        ModFluids.registerModFluids();
+        ModFeatures.registerModFeatures();
         ModItems.registerModItems();
         ModBlocks.registerModBlocks();
         ModItemGroups.registerItemGroups();
