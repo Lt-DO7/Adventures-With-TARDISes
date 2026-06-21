@@ -29,7 +29,7 @@ public class ModItemGroups {
 
 
                         //misc
-                        // entries.add(ModBlocks.THE_MOMENT);
+                       // entries.add(ModBlocks.THE_MOMENT);
 
                         //useable items
 
@@ -38,26 +38,7 @@ public class ModItemGroups {
 
                         entries.add(ModItems.VORTEX_MANIPULATOR);
                         entries.add(ModItems.VORTEX_MANIPULATOR2);
-                        entries.add(ModItems.VORTEX_MANIPULATOR3);
                         entries.add(ModItems.SPOON);
-
-                        //Dalekanium Shite
-
-                        entries.add(ModItems.DALEKANIUM_INGOT);
-                        entries.add(ModItems.LIQUID_DALEKANIUM);
-                        entries.add(ModItems.DALEKANIUM_SWORD);
-                        entries.add(ModItems.DALEKANIUM_PICKAXE);
-                        entries.add(ModItems.DALEKANIUM_AXE);
-                        entries.add(ModItems.DALEKANIUM_SHOVEL);
-                        entries.add(ModItems.DALEKANIUM_HOE);
-                        entries.add(ModItems.DALEKANIUM_HELMET);
-                        entries.add(ModItems.DALEKANIUM_CHESTPLATE);
-                        entries.add(ModItems.DALEKANIUM_LEGGINGS);
-                        entries.add(ModItems.DALEKANIUM_BOOTS);
-
-                        entries.add(ModBlocks.DALEKANIUM_BLOCK);
-                        entries.add(ModBlocks.DALEKANIUM_ORE);
-                        entries.add(ModBlocks.DEEPSLATE_DALEKANIUM_ORE);
 
                         //Steel
 
@@ -74,22 +55,6 @@ public class ModItemGroups {
                         entries.add(ModItems.STEEL_BOOTS);
 
                         entries.add(ModBlocks.STEEL_BLOCK);
-
-                        //Metalertanium
-
-                        entries.add(ModItems.METALERTANIUM_INGOT);
-                        entries.add(ModItems.LIQUID_METALERTANIUM);
-                        entries.add(ModItems.METALERTANIUM_SWORD);
-                        entries.add(ModItems.METALERTANIUM_PICKAXE);
-                        entries.add(ModItems.METALERTANIUM_AXE);
-                        entries.add(ModItems.METALERTANIUM_SHOVEL);
-                        entries.add(ModItems.METALERTANIUM_HOE);
-                        entries.add(ModItems.METALERTANIUM_HELMET);
-                        entries.add(ModItems.METALERTANIUM_CHESTPLATE);
-                        entries.add(ModItems.METALERTANIUM_LEGGINGS);
-                        entries.add(ModItems.METALERTANIUM_BOOTS);
-
-                        entries.add(ModBlocks.METALERTANIUM_BLOCK);
 
                         //music discs
                         entries.add(ModItems.DRWHOVALE_MUSIC_DISC);
@@ -197,7 +162,6 @@ public class ModItemGroups {
                         entries.add(ModItems.GREENBOWTIE);
 
                         //misc
-                        entries.add(ModItems.EYESTALK);
                         entries.add(ModItems.TRUSTABLE_HAT);
 
                     }).build());
@@ -257,6 +221,40 @@ public class ModItemGroups {
                         entries.add(ModBlocks.KALETITE);
                         entries.add(ModBlocks.COBBLED_KALETITE);
                         entries.add(ModBlocks.KALETITE_BRICKS);
+
+                        entries.add(ModItems.DALEKANIUM_INGOT);
+                        entries.add(ModItems.LIQUID_DALEKANIUM);
+                        entries.add(ModItems.DALEKANIUM_SWORD);
+                        entries.add(ModItems.DALEKANIUM_PICKAXE);
+                        entries.add(ModItems.DALEKANIUM_AXE);
+                        entries.add(ModItems.DALEKANIUM_SHOVEL);
+                        entries.add(ModItems.DALEKANIUM_HOE);
+                        entries.add(ModItems.DALEKANIUM_HELMET);
+                        entries.add(ModItems.DALEKANIUM_CHESTPLATE);
+                        entries.add(ModItems.DALEKANIUM_LEGGINGS);
+                        entries.add(ModItems.DALEKANIUM_BOOTS);
+
+                        entries.add(ModBlocks.DALEKANIUM_BLOCK);
+                        entries.add(ModBlocks.DALEKANIUM_ORE);
+                        entries.add(ModBlocks.DEEPSLATE_DALEKANIUM_ORE);
+
+                        entries.add(ModItems.METALERTANIUM_INGOT);
+                        entries.add(ModItems.LIQUID_METALERTANIUM);
+                        entries.add(ModItems.METALERTANIUM_SWORD);
+                        entries.add(ModItems.METALERTANIUM_PICKAXE);
+                        entries.add(ModItems.METALERTANIUM_AXE);
+                        entries.add(ModItems.METALERTANIUM_SHOVEL);
+                        entries.add(ModItems.METALERTANIUM_HOE);
+                        entries.add(ModItems.METALERTANIUM_HELMET);
+                        entries.add(ModItems.METALERTANIUM_CHESTPLATE);
+                        entries.add(ModItems.METALERTANIUM_LEGGINGS);
+                        entries.add(ModItems.METALERTANIUM_BOOTS);
+
+                        entries.add(ModBlocks.METALERTANIUM_BLOCK);
+
+                        entries.add(ModItems.VORTEX_MANIPULATOR3);
+
+                        entries.add(ModItems.EYESTALK);
 
                     }).build());
 
