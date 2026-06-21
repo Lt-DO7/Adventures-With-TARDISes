@@ -1,10 +1,11 @@
 {
   "replace": false,
   "values": [
-    "awt:drwhovale_music_disc",
-    "awt:doctorwhoxv_music_disc",
-    "awt:paralyzer_music_disc",
-    "awt:doctorwho1411_music_disc",
-    "awt:dugga_doo_music_disc"
+    "ait:drifting_music_disc",
+    "ait:wonderful_time_in_space_music_disc",
+    "ait:good_man_music_disc",
+    "ait:chronology_music_disc",
+    "ait:earth_music_disc",
+    "ait:venus_music_disc"
   ]
 }
