@@ -57,13 +57,17 @@ public class CybermatEntity extends SilverfishEntity {
         this.targetSelector.add(0, new RevengeGoal(this));
 
         // Active targeting: attack all living entities except itself and other Cybermats
-        this.targetSelector.add(1, new ActiveTargetGoal<LivingEntity>(
+        this.targetSelector.add(1, new ActiveTargetGoal<>(
                 this,
-                LivingEntity.class,  // Target all living entities
-                10,                  // Check every 10 ticks
-                true,                // Must see the target
-                true,                // Nearby only
-                target -> target != this && !(target instanceof CybermatEntity) // Filter out self and other Cybermats
+                LivingEntity.class,
+                10,
+                true,
+                true,
+                target ->
+                        target != this
+                                && !(target instanceof CybermatEntity)
+                                && !(target instanceof ProtoCybermanEntity)
+                                && !(target instanceof MondasianCybermanEntity)
         ));
     }
 

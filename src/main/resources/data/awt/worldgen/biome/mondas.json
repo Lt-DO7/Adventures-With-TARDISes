@@ -1,0 +1,52 @@
+{
+  "temperature": -1.8,
+  "precipitation": "snow",
+  "downfall": 2.0,
+
+  "has_precipitation": true,
+
+  "effects": {
+    "sky_color": 8364543,
+    "fog_color": 12638463,
+    "water_color": 4159204,
+    "water_fog_color": 329011
+  },
+
+  "spawners": {
+    "monster": [
+      {
+        "type": "awt:cybermat",
+        "weight": 200,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "awt:proto_cyberman",
+        "weight": 200,
+        "minCount": 2,
+        "maxCount": 5
+      },
+      {
+        "type": "awt:mondasian_cyberman",
+        "weight": 200,
+        "minCount": 2,
+        "maxCount": 5
+      }
+    ],
+    "creature": [],
+    "ambient": [],
+    "axolotls": [],
+    "underground_water_creature": [],
+    "water_creature": [],
+    "water_ambient": [],
+    "misc": []
+  },
+
+  "features": [],
+  "carvers": {
+    "air": [],
+    "liquid": []
+  },
+
+  "spawn_costs": {}
+}

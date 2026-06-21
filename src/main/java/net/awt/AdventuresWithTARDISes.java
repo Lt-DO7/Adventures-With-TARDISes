@@ -69,6 +69,8 @@ public class AdventuresWithTARDISes implements ModInitializer {
     @Override
     public void onInitialize() {
 
+        MondasWeatherController.init();
+
         AWTSound.init();
         ModFluids.registerModFluids();
         ModFeatures.registerModFeatures();
@@ -281,4 +283,5 @@ public class AdventuresWithTARDISes implements ModInitializer {
             player.dropItem(stack, false);
         }
     }
+
 }

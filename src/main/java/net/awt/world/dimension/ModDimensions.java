@@ -19,6 +19,15 @@ public class ModDimensions {
     public static final RegistryKey<DimensionType> SKARO_DIM_TYPE = RegistryKey.of(
             RegistryKeys.DIMENSION_TYPE, new Identifier(AdventuresWithTARDISes.MOD_ID, "skaro_type"));
 
+    public static final RegistryKey<World> MONDAS_LEVEL_KEY = RegistryKey.of(
+            RegistryKeys.WORLD,
+            new Identifier(AdventuresWithTARDISes.MOD_ID, "mondas")
+    );
+    public static final RegistryKey<DimensionType> MONDAS_DIM_TYPE = RegistryKey.of(
+            RegistryKeys.DIMENSION_TYPE,
+            new Identifier(AdventuresWithTARDISes.MOD_ID, "mondas_type")
+    );
+
     public static void bootstrapType(Registerable<DimensionType> context) {
         context.register(SKARO_DIM_TYPE, new DimensionType(
                 OptionalLong.of(18_000L),
@@ -37,5 +46,25 @@ public class ModDimensions {
                 0.0F,
                 new DimensionType.MonsterSettings(false, false, UniformIntProvider.create(0, 7), 0)
         ));
+
+        context.register(MONDAS_DIM_TYPE, new DimensionType(
+                OptionalLong.of(18000L),
+                true,
+                false,
+                false,
+                true,
+                1.0D,
+                true,
+                false,
+                -64,
+                384,
+                384,
+                BlockTags.INFINIBURN_OVERWORLD,
+                DimensionTypes.OVERWORLD_ID,
+                0.0F,
+                new DimensionType.MonsterSettings(false, false, UniformIntProvider.create(0, 7), 0)
+        ));
     }
+
+
 }

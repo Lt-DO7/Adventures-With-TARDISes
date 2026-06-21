@@ -6,6 +6,8 @@ import dev.emi.trinkets.api.client.TrinketRendererRegistry;
 import net.awt.TARDIS.console.client.AWTClientConsoleVariantRegistry;
 import net.awt.TARDIS.exterior.TardisExteriorRegistry;
 import net.awt.block.ModBlocks;
+import net.awt.client.MondasSoundController;
+import net.awt.client.MondasStormClient;
 import net.awt.client.models.armor.PrehistoricBootsArmorModel;
 import net.awt.client.models.armor.PrehistoricChestplateArmorModel;
 import net.awt.client.models.armor.PrehistoricHelmetArmorModel;
@@ -34,6 +36,7 @@ import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
+import net.minecraft.client.render.FogShape;
 import net.minecraft.command.CommandSource;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.option.KeyBinding;
@@ -42,6 +45,7 @@ import net.minecraft.client.util.InputUtil;
 import net.minecraft.client.util.ModelIdentifier;
 import net.minecraft.entity.Entity;
 import net.minecraft.network.PacketByteBuf;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.hit.BlockHitResult;
@@ -54,6 +58,37 @@ public class AdventureWithTARDISesClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
+
+        MondasStormClient.init();
+        MondasSoundController.init();
+
+        ClientTickEvents.END_CLIENT_TICK.register(client -> {
+            if (client.world == null || client.player == null) return;
+
+            boolean isMondas =
+                    client.world.getRegistryKey().getValue().getPath().equals("mondas");
+
+            if (!isMondas) return;
+
+            // Force weather visuals
+            client.world.setRainGradient(1.0f);
+            client.world.setThunderGradient(0.0f);
+
+            for (int i = 0; i < 6; i++) {
+                double x = client.player.getX() + (client.world.random.nextDouble() - 0.5) * 10;
+                double y = client.player.getY() + 2 + client.world.random.nextDouble() * 5;
+                double z = client.player.getZ() + (client.world.random.nextDouble() - 0.5) * 10;
+
+                client.world.addParticle(
+                        ParticleTypes.SNOWFLAKE,
+                        x, y, z,
+                        (client.world.random.nextDouble() - 0.5) * 0.2,
+                        -0.15,
+                        (client.world.random.nextDouble() - 0.5) * 0.2
+                );
+            }
+        });
+
         TardisExteriorRegistry.registerClientAddonExteriors();
         AWTClientConsoleVariantRegistry.init();
 
@@ -95,11 +130,13 @@ public class AdventureWithTARDISesClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PREHISTORIC_LEAVES,RenderLayer.getCutout());
       //  BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WASTED_BUSH_PLANT,RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WASTED_LEAVES,RenderLayer.getCutout());
+
         BlockRenderLayerMap.INSTANCE.putFluids(RenderLayer.getTranslucent(), ModFluids.STILL_RADIATION, ModFluids.FLOWING_RADIATION);
         FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.STILL_RADIATION, ModFluids.FLOWING_RADIATION,
                 new SimpleFluidRenderHandler(
-                        new Identifier(AdventuresWithTARDISes.MOD_ID, "fluid/radiation_still"),
-                        new Identifier(AdventuresWithTARDISes.MOD_ID, "fluid/radiation_flow")
+                        new Identifier("minecraft:block/water_still"),
+                        new Identifier("minecraft:block/water_flow"),
+                        0x2EFF2E
                 ));
 
         EntityRendererRegistry.register(ModEntities.K9, K9Renderer::new);

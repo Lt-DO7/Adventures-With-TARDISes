@@ -8,6 +8,7 @@
   "entity.awt.mondasian_cyberman": "Mondasian Cyberman",
 
   "dimension.awt.skaro": "Skaro",
+  "dimension.awt.mondas": "Mondas",
   "dimension.awt.thelostworld": "The Lost Reality",
 
   "item.awt.atrium":"Atrium",
@@ -351,7 +352,7 @@
 
   "block.awt.dalekanium_block": "Dalekanium Block",
   "block.awt.dalekanium_ore": "Dalekanium Ore",
-  "block.awt.deepslate_dalekanium_ore": "Deepslate Dalekanium Ore",
+  "block.awt.deepslate_dalekanium_ore": "Cracked Dalekanium Ore",
 
   "item.awt.steel_ingot":"Steel Ingot",
   "item.awt.steel_template":"Steel Template",
