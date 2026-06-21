@@ -2,6 +2,7 @@ package net.awt.amblekit.ait;
 
 import dev.amble.ait.api.AITModInitializer;
 import net.awt.AdventuresWithTARDISes;
+import net.awt.amblekit.ait.integration.AWTAITBootstrap;
 
 public class AITUtil implements AITModInitializer {
     private static AITUtil instance;
@@ -13,6 +14,7 @@ public class AITUtil implements AITModInitializer {
 
         AdventuresWithTARDISes.LOGGER.info("Initializing AITUtil");
         instance = this;
+        AWTAITBootstrap.initialize();
 
     }
 
