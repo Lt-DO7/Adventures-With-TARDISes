@@ -21,7 +21,8 @@
     "console.ClientConsoleVariantRegistryMixin",
     "ItemRendererAccessor",
     "ItemRendererMixin",
-    "ModelLoaderMixin"
+    "ModelLoaderMixin",
+    "client.MondasFogMixin"
   ],
 
   "injectors": {

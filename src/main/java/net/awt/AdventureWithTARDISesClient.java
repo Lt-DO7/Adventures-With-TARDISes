@@ -34,6 +34,7 @@ import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
+import net.minecraft.client.render.FogShape;
 import net.minecraft.command.CommandSource;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.option.KeyBinding;
@@ -54,6 +55,7 @@ public class AdventureWithTARDISesClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
+
         TardisExteriorRegistry.registerClientAddonExteriors();
         AWTClientConsoleVariantRegistry.init();
 

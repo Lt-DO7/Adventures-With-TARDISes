@@ -1,0 +1,45 @@
+{
+  "precipitation": "snow",
+  "temperature": 0.0,
+  "downfall": 0.5,
+
+  "has_precipitation": true,
+
+  "effects": {
+    "sky_color": 8364543,
+    "fog_color": 12638463,
+    "water_color": 4159204,
+    "water_fog_color": 329011
+  },
+
+  "spawners": {
+    "monster": [
+      {
+        "type": "awt:cybermat",
+        "weight": 100,
+        "minCount": 1,
+        "maxCount": 3
+      },
+      {
+        "type": "awt:proto_cyberman",
+        "weight": 100,
+        "minCount": 1,
+        "maxCount": 3
+      },
+      {
+        "type": "awt:mondasian_cyberman",
+        "weight": 100,
+        "minCount": 1,
+        "maxCount": 3
+      }
+    ]
+  },
+
+  "features": [],
+  "carvers": {
+    "air": [],
+    "liquid": []
+  },
+
+  "spawn_costs": {}
+}
