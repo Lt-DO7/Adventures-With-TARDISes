@@ -95,11 +95,13 @@ public class AdventureWithTARDISesClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PREHISTORIC_LEAVES,RenderLayer.getCutout());
       //  BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WASTED_BUSH_PLANT,RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WASTED_LEAVES,RenderLayer.getCutout());
+
         BlockRenderLayerMap.INSTANCE.putFluids(RenderLayer.getTranslucent(), ModFluids.STILL_RADIATION, ModFluids.FLOWING_RADIATION);
         FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.STILL_RADIATION, ModFluids.FLOWING_RADIATION,
                 new SimpleFluidRenderHandler(
-                        new Identifier(AdventuresWithTARDISes.MOD_ID, "fluid/radiation_still"),
-                        new Identifier(AdventuresWithTARDISes.MOD_ID, "fluid/radiation_flow")
+                        new Identifier("minecraft:block/water_still"),
+                        new Identifier("minecraft:block/water_flow"),
+                        0x2EFF2E
                 ));
 
         EntityRendererRegistry.register(ModEntities.K9, K9Renderer::new);
