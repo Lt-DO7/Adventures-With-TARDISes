@@ -2,6 +2,7 @@ package net.awt.world;
 
 import net.awt.AdventuresWithTARDISes;
 import net.awt.block.ModBlocks;
+import net.awt.world.feature.ModFeatures;
 import net.minecraft.block.Blocks;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKey;
@@ -23,6 +24,8 @@ public class ModConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?, ?>> ATRIUM_ORE_KEY = registerKey("atrium_ore");
     public static final RegistryKey<ConfiguredFeature<?, ?>> PREHISTORIC_ORE_KEY = registerKey("prehistoric_ore");
     public static final RegistryKey<ConfiguredFeature<?, ?>> DALEKANIUM_ORE_KEY = registerKey("dalekanium_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> SKARO_KALETITE_KEY = registerKey("skaro_kaletite");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> SKARO_TREE_KEY = registerKey("skaro_tree");
 
     public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context) {
         RuleTest stoneReplaceables = new TagMatchRuleTest(BlockTags.STONE_ORE_REPLACEABLES);
@@ -51,7 +54,15 @@ public class ModConfiguredFeatures {
                         OreFeatureConfig.createTarget(stoneReplaceables, ModBlocks.DALEKANIUM_ORE.getDefaultState()),
                         OreFeatureConfig.createTarget(deepslateReplaceables, ModBlocks.DEEPSLATE_DALEKANIUM_ORE.getDefaultState())
                 );
-        register(context, DALEKANIUM_ORE_KEY, Feature.ORE, new OreFeatureConfig(dalekaniumOres, 5));
+        register(context, DALEKANIUM_ORE_KEY, Feature.ORE, new OreFeatureConfig(dalekaniumOres, 8));
+
+        List<OreFeatureConfig.Target> skaroKaletiteOres =
+                List.of(
+                        OreFeatureConfig.createTarget(stoneReplaceables, ModBlocks.KALETITE.getDefaultState()),
+                        OreFeatureConfig.createTarget(deepslateReplaceables, ModBlocks.COBBLED_KALETITE.getDefaultState())
+                );
+        register(context, SKARO_KALETITE_KEY, Feature.ORE, new OreFeatureConfig(skaroKaletiteOres, 24));
+        register(context, SKARO_TREE_KEY, ModFeatures.SKARO_TREE, FeatureConfig.DEFAULT);
 
     }
 
