@@ -3,6 +3,9 @@
   "package": "net.awt.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "ait.GenericStructureSystemBlockEntityMixin",
+    "ait.RepairToolItemMixin",
+    "ait.SubSystemBlockEntityMixin",
     "category.CategoryRegistryMixin",
     "category.ExclusiveCategoryMixin",
     "client.LogoDrawerMixin",
