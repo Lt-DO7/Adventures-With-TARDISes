@@ -79,7 +79,7 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.ECAT);
         addDrop(ModBlocks.GOODHEAVENS);
         addDrop(ModBlocks.LOST_DIRT);
-
+        addDrop(ModBlocks.WASTED_GRASS);
 
     }
 }
