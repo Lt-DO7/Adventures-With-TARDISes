@@ -39,6 +39,9 @@ public class ModBlocks {
     public static final Block RUSTY_THICK_GRATE_BLOCK = registerBlock("rusty_thick_grate_block",
             new GlassBlock(FabricBlockSettings.copyOf(Blocks.IRON_BARS).sounds(BlockSoundGroup.CHAIN).requiresTool()));
 
+    public static final Block LOST_DIRT = registerBlock("lost_dirt",
+            new RoundelBlock(FabricBlockSettings.copyOf(Blocks.DIRT).sounds(BlockSoundGroup.GRASS)));
+
 
     //roundels
 

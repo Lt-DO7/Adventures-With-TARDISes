@@ -78,7 +78,7 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.COBBLED_KALETITE);
         addDrop(ModBlocks.ECAT);
         addDrop(ModBlocks.GOODHEAVENS);
-
+        addDrop(ModBlocks.LOST_DIRT);
 
 
     }

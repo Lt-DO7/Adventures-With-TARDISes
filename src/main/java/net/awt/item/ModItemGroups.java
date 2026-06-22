@@ -133,6 +133,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.RUSTY_THICK_GRATE_BLOCK);
                         entries.add(ModBlocks.ECAT);
                         entries.add(ModBlocks.GOODHEAVENS);
+                        entries.add(ModBlocks.LOST_DIRT);
 
                     }).build());
     public static final ItemGroup CLOTHING_GROUP = Registry.register(Registries.ITEM_GROUP,

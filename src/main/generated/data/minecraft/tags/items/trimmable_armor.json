@@ -1,10 +1,6 @@
 {
   "replace": false,
   "values": [
-    "awt:prehistoric_helmet",
-    "awt:prehistoric_chestplate",
-    "awt:prehistoric_leggings",
-    "awt:prehistoric_boots",
     "awt:dalekanium_helmet",
     "awt:dalekanium_chestplate",
     "awt:dalekanium_leggings",

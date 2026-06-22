@@ -196,6 +196,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.DIRT_ROUNDEL)
                 .add(ModBlocks.WASTED_DIRT)
               //  .add(ModBlocks.WASTED_GRASS)
+                .add(ModBlocks.LOST_DIRT)
         ;
 
     }
