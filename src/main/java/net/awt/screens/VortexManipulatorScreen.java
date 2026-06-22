@@ -38,9 +38,17 @@ public class VortexManipulatorScreen extends Screen {
         top = (height - GUI_HEIGHT) / 2;
 
         teleport = ButtonWidget.builder(Text.empty(), button -> {
+                    Identifier dimensionId = awt$parseDimensionInput(dimension.getText());
+                    if (dimensionId == null) {
+                        if (client.player != null) {
+                            client.player.sendMessage(Text.literal("Invalid dimension id: " + dimension.getText()), true);
+                        }
+                        return;
+                    }
+
                     PacketByteBuf payload = PacketByteBufs.create();
                     payload.writeBoolean(false);
-                    payload.writeString(dimension.getText());
+                    payload.writeIdentifier(dimensionId);
                     payload.writeDouble(getValue(x.getText(), client.player.getX()));
                     payload.writeDouble(getValue(y.getText(), client.player.getY()));
                     payload.writeDouble(getValue(z.getText(), client.player.getZ()));
@@ -99,6 +107,16 @@ public class VortexManipulatorScreen extends Screen {
         } catch (NumberFormatException e) {
             return defaultValue;
         }
+    }
+
+    private Identifier awt$parseDimensionInput(String input) {
+        String normalized = input == null ? "" : input.trim().toLowerCase();
+        return switch (normalized) {
+            case "overworld" -> new Identifier("minecraft", "overworld");
+            case "nether" -> new Identifier("minecraft", "the_nether");
+            case "end" -> new Identifier("minecraft", "the_end");
+            default -> Identifier.tryParse(normalized);
+        };
     }
 
     @Override

@@ -12,16 +12,9 @@ public class MondasWeatherController {
 
     private static void onTick(MinecraftServer server) {
         for (ServerWorld world : server.getWorlds()) {
-
             if (world.getRegistryKey().getValue().getPath().equals("mondas")) {
-
-                // Force constant rain (becomes snow in cold biomes)
+                // Force constant snow in Mondas without freezing weather in every dimension.
                 world.setWeather(0, 1000000, true, false);
-
-                // Optional: lock weather cycle
-                server.getGameRules()
-                        .get(net.minecraft.world.GameRules.DO_WEATHER_CYCLE)
-                        .set(false, server);
             }
         }
     }

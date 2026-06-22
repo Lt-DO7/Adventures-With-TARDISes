@@ -145,31 +145,15 @@ public class VMPacket {
             targetWorld = targetPlayer.getServerWorld();
             targetPos = targetPlayer.getPos();
         } else {
-            String dim = buf.readString().toLowerCase();
+            Identifier dimensionId = buf.readIdentifier();
             double x = buf.readDouble();
             double y = buf.readDouble();
             double z = buf.readDouble();
-
-            RegistryKey<World> overworldKey = RegistryKey.of(RegistryKeys.WORLD, new Identifier("minecraft:overworld"));
-            RegistryKey<World> netherKey = RegistryKey.of(RegistryKeys.WORLD, new Identifier("minecraft:the_nether"));
-            RegistryKey<World> endKey = RegistryKey.of(RegistryKeys.WORLD, new Identifier("minecraft:the_end"));
-            RegistryKey<World> key = RegistryKey.of(RegistryKeys.WORLD, new Identifier(dim));
-
-            ServerWorld overWorld = server.getWorld(overworldKey);
-            ServerWorld netherWorld = server.getWorld(netherKey);
-            ServerWorld endWorld = server.getWorld(endKey);
-
+            RegistryKey<World> key = RegistryKey.of(RegistryKeys.WORLD, dimensionId);
             ServerWorld serverWorld = server.getWorld(key);
             if (serverWorld == null) {
-                if (dim.equalsIgnoreCase("nether")) {
-                    serverWorld = netherWorld;
-                } else if (dim.equalsIgnoreCase("end")) {
-                    serverWorld = endWorld;
-                } else if (dim.equalsIgnoreCase("overworld")) {
-                    serverWorld = overWorld;
-                } else {
-                    serverWorld = player.getServerWorld();
-                }
+                player.sendMessage(Text.literal("Unknown dimension: " + dimensionId), true);
+                return;
             }
 
             targetWorld = serverWorld;

@@ -209,10 +209,15 @@ public class AdventureWithTARDISesClient implements ClientModInitializer {
                                                         double y = com.mojang.brigadier.arguments.DoubleArgumentType.getDouble(context, "y");
                                                         double z = com.mojang.brigadier.arguments.DoubleArgumentType.getDouble(context, "z");
                                                         String dimension = com.mojang.brigadier.arguments.StringArgumentType.getString(context, "dimension").trim();
+                                                        Identifier dimensionId = awt$parseDimensionInput(dimension);
+                                                        if (dimensionId == null) {
+                                                            context.getSource().sendError(Text.literal("Invalid dimension id: " + dimension));
+                                                            return 0;
+                                                        }
 
                                                         PacketByteBuf payload = PacketByteBufs.create();
                                                         payload.writeBoolean(false);
-                                                        payload.writeString(dimension);
+                                                        payload.writeIdentifier(dimensionId);
                                                         payload.writeDouble(x);
                                                         payload.writeDouble(y);
                                                         payload.writeDouble(z);
@@ -244,5 +249,15 @@ public class AdventureWithTARDISesClient implements ClientModInitializer {
 
     private static boolean awt$isVmDev(java.util.UUID uuid) {
         return AWTDevTeam.ENCDATA.equals(uuid) || AWTDevTeam.DEO.equals(uuid);
+    }
+
+    private static Identifier awt$parseDimensionInput(String input) {
+        String normalized = input == null ? "" : input.trim().toLowerCase();
+        return switch (normalized) {
+            case "overworld" -> new Identifier("minecraft", "overworld");
+            case "nether" -> new Identifier("minecraft", "the_nether");
+            case "end" -> new Identifier("minecraft", "the_end");
+            default -> Identifier.tryParse(normalized);
+        };
     }
 }
