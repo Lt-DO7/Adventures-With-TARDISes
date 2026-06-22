@@ -28,18 +28,6 @@ public class ModDimensions {
             new Identifier(AdventuresWithTARDISes.MOD_ID, "mondas_type")
     );
 
-    public static final RegistryKey<World> THELOSTWORLD_LEVEL_KEY =
-            RegistryKey.of(
-                    RegistryKeys.WORLD,
-                    Identifier.of(AdventuresWithTARDISes.MOD_ID, "thelostworld")
-            );
-
-    public static final RegistryKey<DimensionType> THELOSTWORLD_DIM_TYPE =
-            RegistryKey.of(
-                    RegistryKeys.DIMENSION_TYPE,
-                    Identifier.of(AdventuresWithTARDISes.MOD_ID, "thelostworld_type")
-            );
-
     public static void bootstrapType(Registerable<DimensionType> context) {
         context.register(SKARO_DIM_TYPE, new DimensionType(
                 OptionalLong.of(18_000L),
@@ -75,29 +63,6 @@ public class ModDimensions {
                 DimensionTypes.OVERWORLD_ID,
                 0.0F,
                 new DimensionType.MonsterSettings(false, false, UniformIntProvider.create(0, 7), 0)
-        ));
-
-        context.register(THELOSTWORLD_DIM_TYPE, new DimensionType(
-                OptionalLong.of(6000L), // noon, change if desired
-                true,
-                false,
-                false,
-                true,
-                1.0D,
-                true,
-                false,
-                -64,
-                384,
-                384,
-                BlockTags.INFINIBURN_OVERWORLD,
-                DimensionTypes.OVERWORLD_ID,
-                0.0F,
-                new DimensionType.MonsterSettings(
-                        false,
-                        false,
-                        UniformIntProvider.create(0, 7),
-                        0
-                )
         ));
     }
 

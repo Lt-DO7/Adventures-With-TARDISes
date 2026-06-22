@@ -69,8 +69,6 @@ public class AdventuresWithTARDISes implements ModInitializer {
     @Override
     public void onInitialize() {
 
-        ModWorldGeneration.generateModWorldGen();
-
         MondasWeatherController.init();
 
         AWTSound.init();
