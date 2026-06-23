@@ -175,6 +175,10 @@ java {
 	targetCompatibility = JavaVersion.VERSION_17
 }
 
+tasks.named('sourcesJar', Jar) {
+	duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
 jar {
 	inputs.property "archivesName", project.base.archivesName
 	duplicatesStrategy = DuplicatesStrategy.EXCLUDE
