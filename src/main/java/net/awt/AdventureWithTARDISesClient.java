@@ -6,6 +6,7 @@ import dev.emi.trinkets.api.client.TrinketRendererRegistry;
 import net.awt.TARDIS.console.client.AWTClientConsoleVariantRegistry;
 import net.awt.TARDIS.exterior.TardisExteriorRegistry;
 import net.awt.block.ModBlocks;
+import net.awt.client.MondasDimensionEffects;
 import net.awt.client.MondasSoundController;
 import net.awt.client.MondasStormClient;
 import net.awt.client.models.armor.PrehistoricBootsArmorModel;
@@ -34,6 +35,7 @@ import net.fabricmc.fabric.api.client.model.ModelLoadingRegistry;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.DimensionRenderingRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.minecraft.client.render.FogShape;
@@ -61,6 +63,8 @@ public class AdventureWithTARDISesClient implements ClientModInitializer {
 
         MondasStormClient.init();
         MondasSoundController.init();
+        DimensionRenderingRegistry.registerDimensionEffects(
+                new Identifier("awt", "mondas"), new MondasDimensionEffects());
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             if (client.world == null || client.player == null) return;

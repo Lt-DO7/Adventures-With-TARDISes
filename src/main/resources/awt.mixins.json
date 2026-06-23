@@ -22,7 +22,8 @@
     "ItemRendererAccessor",
     "ItemRendererMixin",
     "ModelLoaderMixin",
-    "client.MondasFogMixin"
+    "client.MondasFogMixin",
+    "client.SkaroSkyMixin"
   ],
 
   "injectors": {
