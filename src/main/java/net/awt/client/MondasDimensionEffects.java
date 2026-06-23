@@ -6,7 +6,7 @@ import net.minecraft.util.math.Vec3d;
 public class MondasDimensionEffects extends DimensionEffects {
 
     public MondasDimensionEffects() {
-        super(Float.NaN, false, SkyType.NORMAL, false, true);
+        super(Float.NaN, false, SkyType.NONE, false, true);
     }
 
     @Override
