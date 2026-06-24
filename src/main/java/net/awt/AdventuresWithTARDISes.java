@@ -147,6 +147,30 @@ public class AdventuresWithTARDISes implements ModInitializer {
             }
         });
 
+        HandlesResponseRegistry.register(new HandlesResponse() {
+            @Override
+            public boolean run(ServerPlayerEntity player, HandlesSound sound, ServerTardis tardis) {
+                if (tardis.travel().inFlight()) {
+                    this.sendChat(player, Text.literal("The TARDIS is already in flight."));
+                    return this.failure(sound);
+                }
+
+                tardis.travel().dematerialize();
+                this.sendChat(player, Text.literal("Allons-y!"));
+                return this.success(sound);
+            }
+
+            @Override
+            public List<String> getCommandWords() {
+                return List.of("allons-y", "allonsy", "geronimo");
+            }
+
+            @Override
+            public Identifier id() {
+                return new Identifier(MOD_ID, "allons_y");
+            }
+        });
+
         UseBlockCallback.EVENT.register(UseEvent.EVENT.invoker());
         UseItemCallback.EVENT.register(UseItemEvent.EVENT.invoker());
         ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> giveEncDataJoinGift(handler.player));
