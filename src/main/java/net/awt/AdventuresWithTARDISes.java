@@ -1,14 +1,10 @@
 package net.awt;
 
 import dev.amble.ait.core.AITItems;
-import dev.amble.ait.core.tardis.handler.SelfDestructHandler;
 import dev.amble.ait.core.handles.HandlesResponse;
 import dev.amble.ait.core.handles.HandlesSound;
 import dev.amble.ait.core.tardis.ServerTardis;
 import dev.amble.ait.registry.impl.HandlesResponseRegistry;
-import dev.drtheo.scheduler.api.TimeUnit;
-import dev.drtheo.scheduler.api.common.Scheduler;
-import dev.drtheo.scheduler.api.common.TaskStage;
 
 import net.awt.TARDIS.console.AWTConsoleRegistry;
 import net.awt.TARDIS.console.AWTConsoleVariantRegistry;
@@ -55,7 +51,10 @@ import net.minecraft.world.Heightmap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 public class AdventuresWithTARDISes implements ModInitializer {
     public static final String MOD_ID = "awt";
@@ -65,6 +64,7 @@ public class AdventuresWithTARDISes implements ModInitializer {
     private static final String SCARFO_JOIN_GIFT_TAG = MOD_ID + ".scarfo_join_gift";
     private static final String BLUEBERRY_JOIN_GIFT_TAG = MOD_ID + ".blueberry_join_gift";
     private static final String RHAMMII_JOIN_GIFT_TAG = MOD_ID + ".rhammii_join_gift";
+    private static final Map<UUID, Integer> KYS_WARNINGS = new HashMap<>();
 
     @Override
     public void onInitialize() {
@@ -119,20 +119,19 @@ public class AdventuresWithTARDISes implements ModInitializer {
         HandlesResponseRegistry.register(new HandlesResponse() {
             @Override
             public boolean run(ServerPlayerEntity player, HandlesSound sound, ServerTardis tardis) {
-                this.sendChat(player, Text.literal("Are you sure?"));
+                int strikes = KYS_WARNINGS.getOrDefault(tardis.getUuid(), 0);
 
-                Scheduler.get().runTaskLater(() -> {
+                if (strikes == 0) {
+                    KYS_WARNINGS.put(tardis.getUuid(), 1);
+                    this.sendChat(player, Text.literal("Are you sure?"));
+                } else if (strikes == 1) {
+                    KYS_WARNINGS.put(tardis.getUuid(), 2);
                     this.sendChat(player, Text.literal("Last chance!"));
-                }, TaskStage.END_SERVER_TICK, TimeUnit.SECONDS, 1);
-
-                Scheduler.get().runTaskLater(() -> {
-                    this.sendChat(player, Text.literal("Goodbye!"));
-                }, TaskStage.END_SERVER_TICK, TimeUnit.SECONDS, 2);
-
-                Scheduler.get().runTaskLater(() -> {
+                } else {
+                    KYS_WARNINGS.remove(tardis.getUuid());
                     tardis.selfDestruct().boom();
                     this.sendChat(player, Text.literal("Killing myself."));
-                }, TaskStage.END_SERVER_TICK, TimeUnit.SECONDS, 3);
+                }
 
                 return this.success(sound);
             }
