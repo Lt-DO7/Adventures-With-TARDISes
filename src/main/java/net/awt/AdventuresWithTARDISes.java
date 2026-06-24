@@ -54,6 +54,7 @@ import org.slf4j.LoggerFactory;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.UUID;
 
 public class AdventuresWithTARDISes implements ModInitializer {
@@ -168,6 +169,268 @@ public class AdventuresWithTARDISes implements ModInitializer {
             @Override
             public Identifier id() {
                 return new Identifier(MOD_ID, "allons_y");
+            }
+        });
+
+        Random random = new Random();
+
+        HandlesResponseRegistry.register(new HandlesResponse() {
+            private final List<String> compliments = List.of(
+                    "You have excellent taste in TARDIS interiors.",
+                    "Your piloting is almost as good as the Doctor's.",
+                    "You're looking particularly timey-wimey today.",
+                    "I've computed that you're 100% fantastic.",
+                    " bowties are cool. You'd look good in one."
+            );
+
+            @Override
+            public boolean run(ServerPlayerEntity player, HandlesSound sound, ServerTardis tardis) {
+                this.sendChat(player, Text.literal(compliments.get(random.nextInt(compliments.size()))));
+                return this.success(sound);
+            }
+
+            @Override
+            public List<String> getCommandWords() {
+                return List.of("compliment");
+            }
+
+            @Override
+            public Identifier id() {
+                return new Identifier(MOD_ID, "compliment");
+            }
+        });
+
+        HandlesResponseRegistry.register(new HandlesResponse() {
+            private final List<String> insults = List.of(
+                    "Your piloting is worse than a Slitheen's breath.",
+                    "I've seen Daleks with better social skills.",
+                    "You make a Cyberman look expressive.",
+                    "I'd say you have a way with TARDISes, but I'd be lying.",
+                    "Even a Weeping Angel wouldn't look at you."
+            );
+
+            @Override
+            public boolean run(ServerPlayerEntity player, HandlesSound sound, ServerTardis tardis) {
+                this.sendChat(player, Text.literal(insults.get(random.nextInt(insults.size()))));
+                return this.success(sound);
+            }
+
+            @Override
+            public List<String> getCommandWords() {
+                return List.of("insult", "roast");
+            }
+
+            @Override
+            public Identifier id() {
+                return new Identifier(MOD_ID, "insult");
+            }
+        });
+
+        HandlesResponseRegistry.register(new HandlesResponse() {
+            private final List<String> fortunes = List.of(
+                    "As I see it, yes.",
+                    "Ask again later.",
+                    "Better not tell you now.",
+                    "Cannot predict now.",
+                    "Don't count on it.",
+                    "It is certain.",
+                    "Most likely.",
+                    "My reply is no.",
+                    "My sources say no.",
+                    "Outlook not so good.",
+                    "Signs point to yes.",
+                    "Very doubtful.",
+                    "Without a doubt.",
+                    "Yes.",
+                    "Yes – definitely.",
+                    "You may rely on it."
+            );
+
+            @Override
+            public boolean run(ServerPlayerEntity player, HandlesSound sound, ServerTardis tardis) {
+                this.sendChat(player, Text.literal(fortunes.get(random.nextInt(fortunes.size()))));
+                return this.success(sound);
+            }
+
+            @Override
+            public List<String> getCommandWords() {
+                return List.of("magic 8 ball", "8ball", "flip a coin");
+            }
+
+            @Override
+            public Identifier id() {
+                return new Identifier(MOD_ID, "magic_8_ball");
+            }
+        });
+
+        HandlesResponseRegistry.register(new HandlesResponse() {
+            @Override
+            public boolean run(ServerPlayerEntity player, HandlesSound sound, ServerTardis tardis) {
+                this.sendChat(player, Text.literal("*Rolls eyes.* I'm a Cyberman head in a jar. That's all I can do."));
+                return this.success(sound);
+            }
+
+            @Override
+            public List<String> getCommandWords() {
+                return List.of("roll");
+            }
+
+            @Override
+            public Identifier id() {
+                return new Identifier(MOD_ID, "roll");
+            }
+        });
+
+        HandlesResponseRegistry.register(new HandlesResponse() {
+            @Override
+            public boolean run(ServerPlayerEntity player, HandlesSound sound, ServerTardis tardis) {
+                this.sendChat(player, Text.literal("I'm a Cyberman head in a jar. How do you think I am?"));
+                return this.success(sound);
+            }
+
+            @Override
+            public List<String> getCommandWords() {
+                return List.of("how are you", "how are you?");
+            }
+
+            @Override
+            public Identifier id() {
+                return new Identifier(MOD_ID, "how_are_you");
+            }
+        });
+
+        HandlesResponseRegistry.register(new HandlesResponse() {
+            private final List<String> quotes = List.of(
+                    "Wibbly-wobbly, timey-wimey... stuff.",
+                    "Run, you clever boy, and remember.",
+                    "I'm a madman with a box.",
+                    "Never ignore a coincidence.",
+                    "There's no point in being grown up if you can't be childish sometimes."
+            );
+
+            @Override
+            public boolean run(ServerPlayerEntity player, HandlesSound sound, ServerTardis tardis) {
+                this.sendChat(player, Text.literal(quotes.get(random.nextInt(quotes.size()))));
+                return this.success(sound);
+            }
+
+            @Override
+            public List<String> getCommandWords() {
+                return List.of("philosophy", "quote", "deep");
+            }
+
+            @Override
+            public Identifier id() {
+                return new Identifier(MOD_ID, "philosophy");
+            }
+        });
+
+        HandlesResponseRegistry.register(new HandlesResponse() {
+            @Override
+            public boolean run(ServerPlayerEntity player, HandlesSound sound, ServerTardis tardis) {
+                this.sendChat(player, Text.literal("Did you know? The TARDIS translation circuits are powered by... actually, I don't know. I made that up."));
+                return this.success(sound);
+            }
+
+            @Override
+            public List<String> getCommandWords() {
+                return List.of("facts", "fact");
+            }
+
+            @Override
+            public Identifier id() {
+                return new Identifier(MOD_ID, "facts");
+            }
+        });
+
+        HandlesResponseRegistry.register(new HandlesResponse() {
+            @Override
+            public boolean run(ServerPlayerEntity player, HandlesSound sound, ServerTardis tardis) {
+                this.sendChat(player, Text.literal("I made a shelf."));
+                return this.success(sound);
+            }
+
+            @Override
+            public List<String> getCommandWords() {
+                return List.of("made a shelf", "shelf");
+            }
+
+            @Override
+            public Identifier id() {
+                return new Identifier(MOD_ID, "made_a_shelf");
+            }
+        });
+
+        HandlesResponseRegistry.register(new HandlesResponse() {
+            @Override
+            public boolean run(ServerPlayerEntity player, HandlesSound sound, ServerTardis tardis) {
+                this.sendChat(player, Text.literal("I don't have a space grandma."));
+                return this.success(sound);
+            }
+
+            @Override
+            public List<String> getCommandWords() {
+                return List.of("space grandma", "grandma");
+            }
+
+            @Override
+            public Identifier id() {
+                return new Identifier(MOD_ID, "space_grandma");
+            }
+        });
+
+        HandlesResponseRegistry.register(new HandlesResponse() {
+            @Override
+            public boolean run(ServerPlayerEntity player, HandlesSound sound, ServerTardis tardis) {
+                this.sendChat(player, Text.literal("01101110 01101111"));
+                return this.success(sound);
+            }
+
+            @Override
+            public List<String> getCommandWords() {
+                return List.of("binary");
+            }
+
+            @Override
+            public Identifier id() {
+                return new Identifier(MOD_ID, "binary");
+            }
+        });
+
+        HandlesResponseRegistry.register(new HandlesResponse() {
+            @Override
+            public boolean run(ServerPlayerEntity player, HandlesSound sound, ServerTardis tardis) {
+                this.sendChat(player, Text.literal("..."));
+                this.sendChat(player, Text.literal("Sorry, I was muted. What did you say?"));
+                return this.success(sound);
+            }
+
+            @Override
+            public List<String> getCommandWords() {
+                return List.of("mute", "shut up");
+            }
+
+            @Override
+            public Identifier id() {
+                return new Identifier(MOD_ID, "mute");
+            }
+        });
+
+        HandlesResponseRegistry.register(new HandlesResponse() {
+            @Override
+            public boolean run(ServerPlayerEntity player, HandlesSound sound, ServerTardis tardis) {
+                this.sendChat(player, Text.literal("I'm not being dramatic. I'm a Cyberman head. Dramatic is all I have."));
+                return this.success(sound);
+            }
+
+            @Override
+            public List<String> getCommandWords() {
+                return List.of("drama", "dramatic");
+            }
+
+            @Override
+            public Identifier id() {
+                return new Identifier(MOD_ID, "drama");
             }
         });
 
