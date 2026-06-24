@@ -1,14 +1,13 @@
 package net.awt;
 
 import dev.amble.ait.core.AITItems;
-import dev.amble.ait.core.tardis.handler.SelfDestructHandler;
 import dev.amble.ait.core.handles.HandlesResponse;
 import dev.amble.ait.core.handles.HandlesSound;
 import dev.amble.ait.core.tardis.ServerTardis;
-import dev.amble.ait.core.tardis.handler.TardisCrashHandler;
 import dev.amble.ait.registry.impl.HandlesResponseRegistry;
-import dev.amble.ait.data.properties.bool.BoolProperty;
-import dev.amble.ait.data.properties.bool.BoolValue;
+import dev.drtheo.scheduler.api.TimeUnit;
+import dev.drtheo.scheduler.api.common.Scheduler;
+import dev.drtheo.scheduler.api.common.TaskStage;
 
 import net.awt.TARDIS.console.AWTConsoleRegistry;
 import net.awt.TARDIS.console.AWTConsoleVariantRegistry;
@@ -119,8 +118,12 @@ public class AdventuresWithTARDISes implements ModInitializer {
         HandlesResponseRegistry.register(new HandlesResponse() {
             @Override
             public boolean run(ServerPlayerEntity player, HandlesSound sound, ServerTardis tardis) {
-                tardis.selfDestruct().boom();
-                this.sendChat(player, Text.literal("Killing myself."));
+                this.sendChat(player, Text.literal("Killing myself..."));
+
+                Scheduler.get().runTaskLater(() -> {
+                    this.sendChat(player, Text.literal("just kidding"));
+                }, TaskStage.END_SERVER_TICK, TimeUnit.SECONDS, 3);
+
                 return this.success(sound);
             }
 
