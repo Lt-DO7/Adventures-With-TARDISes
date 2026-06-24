@@ -30,7 +30,7 @@ public class ModDimensions {
 
     public static void bootstrapType(Registerable<DimensionType> context) {
         context.register(SKARO_DIM_TYPE, new DimensionType(
-                OptionalLong.of(18_000L),
+                OptionalLong.empty(),
                 true,
                 false,
                 false,
