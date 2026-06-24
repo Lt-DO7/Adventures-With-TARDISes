@@ -1,6 +1,7 @@
 package net.awt;
 
 import dev.amble.ait.core.AITItems;
+import dev.amble.ait.core.tardis.handler.SelfDestructHandler;
 import dev.amble.ait.core.handles.HandlesResponse;
 import dev.amble.ait.core.handles.HandlesSound;
 import dev.amble.ait.core.tardis.ServerTardis;
@@ -118,10 +119,19 @@ public class AdventuresWithTARDISes implements ModInitializer {
         HandlesResponseRegistry.register(new HandlesResponse() {
             @Override
             public boolean run(ServerPlayerEntity player, HandlesSound sound, ServerTardis tardis) {
-                this.sendChat(player, Text.literal("Killing myself..."));
+                this.sendChat(player, Text.literal("Are you sure?"));
 
                 Scheduler.get().runTaskLater(() -> {
-                    this.sendChat(player, Text.literal("just kidding"));
+                    this.sendChat(player, Text.literal("Last chance!"));
+                }, TaskStage.END_SERVER_TICK, TimeUnit.SECONDS, 1);
+
+                Scheduler.get().runTaskLater(() -> {
+                    this.sendChat(player, Text.literal("Goodbye!"));
+                }, TaskStage.END_SERVER_TICK, TimeUnit.SECONDS, 2);
+
+                Scheduler.get().runTaskLater(() -> {
+                    tardis.selfDestruct().boom();
+                    this.sendChat(player, Text.literal("Killing myself."));
                 }, TaskStage.END_SERVER_TICK, TimeUnit.SECONDS, 3);
 
                 return this.success(sound);
